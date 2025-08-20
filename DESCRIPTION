@@ -1,0 +1,10 @@
+Package: SMARTindicatorsData
+Title: Retrieve and Organize Ecosystem Indicator Information
+Version: 0.0.0.9000
+Authors@R: 
+    person("Sarah", "Gaichas", , "sgaichas@hydrascientificllc.com", role = c("aut", "cre"))
+Description: Retrieve and organize information on ecosystem indicators, chararcterizing indicators according to SMART (Specific, Measurable, Achievable, Relevant, Time-bound) criteria
+License: Apache License (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
