@@ -315,10 +315,53 @@ fill_form_with_httr <- function(form_url, form_data, headers = NULL) {
 # example_scrape_and_fill()
 
 # Install packages if needed
-install.packages(c("rvest", "httr", "dplyr", "stringr"))
+#install.packages(c("rvest", "httr", "dplyr", "stringr"))
 
 # Use the functions directly
-headings <- scrape_headings("https://example.com", "h2")
-result <- fill_form("https://example.com/form", list(title = headings[1]))
+#headings <- scrape_headings("https://example.com", "h2")
+#result <- fill_form("https://example.com/form", list(title = headings[1]))
 
+# my tests
 
+scrape_headings_by_pattern("https://noaa-edab.github.io/catalog/trans_dates.html", "Key Results and Visualizations") # returns 45.2
+scrape_headings_by_pattern("https://noaa-edab.github.io/catalog/index.html", "Key Results and Visualizations") # empty
+
+scrape_headings_with_content("https://noaa-edab.github.io/catalog/trans_dates.html", "h2", "h2+p") # misaligns, first paragraph only
+scrape_headings_with_content("https://noaa-edab.github.io/catalog/trans_dates.html", "h2", "body") # everything in first heading
+
+url <- "https://noaa-edab.github.io/catalog/trans_dates.html"
+
+html <- rvest::read_html(url)
+
+html |> rvest::html_elements("h2") # want these but not first and last
+
+html |> rvest::html_elements("p")
+
+scrape_headings(url, "h2")
+
+# combine pattern heading with content
+
+scrape_headings_pattern_content <- function(url, pattern, elements) {
+
+  page <- rvest::read_html(url)
+
+  results <- list()
+
+    headings <- page |>
+      rvest::html_elements(elements) |>
+      rvest::html_text(trim = TRUE)
+
+    # Filter headings that match the pattern
+    matching_headings <- headings[stringr::str_detect(headings, pattern)]
+
+      # Create a data frame
+      result <- data.frame(
+        heading = matching_headings,
+        content = content[1:length(matching_headings)], # Match lengths
+        stringsAsFactors = FALSE
+      )
+
+    return(result)
+}
+
+scrape_headings_pattern_content(url, "Key", "h2, p")
