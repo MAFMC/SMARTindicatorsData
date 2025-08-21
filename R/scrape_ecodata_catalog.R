@@ -7,7 +7,13 @@
 #'@param url The url of the catalog page to be scraped
 #'@param FieldList A character vector of fields to be scraped; must match case and spelling
 #'
-#'@return a dataframe with variables from the FieldList and values from the catalog webpage
+#'@return a dataframe with variables from the FieldList and values from the catalog webpage. Columns:
+#'\itemize{
+#'  \item{\code{Indicator}, name of the indicator extracted from catalog page title}
+#'  \item{\code{Source}, URL of the catalog page}
+#'  \item{\code{Varname}, variable names corresponding to matches from the FieldList}
+#'  \item{\code{Value}, text for each variable name from the catalog page}
+#' }
 #'
 #'@examples
 #'  url <- "https://noaa-edab.github.io/catalog/trans_dates.html"
@@ -35,6 +41,9 @@ scrape_ecodata_catalog <- function(url, FieldList){
     rvest::html_elements("h2") |>
     rvest::html_text2()
 
+  # and I only want the numbered ones
+  myh2fields <- h2fields[stringr::str_detect(h2fields, "^[0-9]+")]
+
   # get level 2 headings and paragraphs, our data are in both
   fields <- page |>
     rvest::html_elements("h2, p") |>
@@ -45,9 +54,16 @@ scrape_ecodata_catalog <- function(url, FieldList){
 
   # capture text sections following an h2 field
   fieldind <- which(stringr::str_detect(fields, paste(FieldList, collapse = "|")))
-  headind <- which(stringr::str_detect(fields, paste(h2fields, collapse = "|")))
-  h2fieldind <- intersect(fieldind, headind)
-  h2fieldtext <- fields[h2fieldind+1]
+  headind <- which(stringr::str_detect(fields, paste(myh2fields, collapse = "|")))
+  nheadpar <-c(diff(headind)-1, 1)
+
+  headoffset <- data.frame(headind, nheadpar)
+
+  h2fieldind <- dplyr::filter(headoffset, headind %in% fieldind)
+
+  #not working yet
+  h2fieldtext <- paste(fields[(h2fieldind$headind+1):(h2fieldind$headind+h2fieldind$nheadpar)])
+
   h2fieldvec <- rep(NA, length(matching_fields))
 
   # indices to map h2 names to h2fieldtext
@@ -79,8 +95,6 @@ scrape_ecodata_catalog <- function(url, FieldList){
     dplyr::select(Indicator, Source, Varname, Value)
 
   return(result)
-
-
 
 }
 

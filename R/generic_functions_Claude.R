@@ -364,4 +364,4 @@ scrape_headings_pattern_content <- function(url, pattern, elements) {
     return(result)
 }
 
-scrape_headings_pattern_content(url, "Key", "h2, p")
+#scrape_headings_pattern_content(url, "Key", "h2, p")
