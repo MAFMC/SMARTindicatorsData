@@ -1,12 +1,13 @@
 #' Scrape ecodata catalog page
 #'
-#' Pulls selected fields, paragraphs, and images from the NOAA-EDAB Indicator Catalog website.
+#' Pulls selected fields, paragraphs, and images from the NOAA-EDAB Indicator Catalog website
+#' and returns a dataframe of the .
 #' Code had to be tailored to this website because not all fields come under standard headers.
 #'
-#'@param url The url of the catalpg page to be scraped
-#'@param FieldList
+#'@param url The url of the catalog page to be scraped
+#'@param FieldList A character vector of fields to be scraped; must match case and spelling
 #'
-#'@return a dataframe with columns from the FieldList
+#'@return a dataframe with variables from the FieldList and values from the catalog webpage
 #'
 #'@examples
 #'  url <- "https://noaa-edab.github.io/catalog/trans_dates.html"
@@ -21,6 +22,7 @@ scrape_ecodata_catalog <- function(url, FieldList){
   # page to xml
   page <- rvest::read_html(url)
 
+  # indicator chapter number and name is in second level 1 header
   titles <- page |>
     rvest::html_elements("h1") |>
     rvest::html_text2()
@@ -28,6 +30,7 @@ scrape_ecodata_catalog <- function(url, FieldList){
   chnum <- as.numeric(gsub(".*?([0-9]+).*", "\\1", titles[2]))
   name <- stringr::str_trim(gsub("[0-9]", "", titles[2]))
 
+  # need level 2 headers separately to sort them out
   h2fields <- page |>
     rvest::html_elements("h2") |>
     rvest::html_text2()
@@ -44,14 +47,33 @@ scrape_ecodata_catalog <- function(url, FieldList){
   fieldind <- which(stringr::str_detect(fields, paste(FieldList, collapse = "|")))
   headind <- which(stringr::str_detect(fields, paste(h2fields, collapse = "|")))
   h2fieldind <- intersect(fieldind, headind)
-  fieldtext <- fields[h2fieldind+1]
+  h2fieldtext <- fields[h2fieldind+1]
 
-  # split into column names and values
-  # two patterns: column name : value
-  # and section number column name with value from fieldtext
+  # split into variable names and values
+  # three patterns: variable name : value
+  # and section number variable name with value from fieldtext
+  # and variable name with value as https string
+  df <- as.data.frame(matching_fields) |>
+    dplyr::mutate(Varname = dplyr::case_when(stringr::str_detect(matching_fields, ":") ~ stringr::str_extract(matching_fields, "[^:]+"),
+                                             stringr::str_detect(matching_fields, "^[0-9]+") ~ stringr::str_extract(matching_fields,"[^0-9.0-9 ].*"),
+                                             stringr::str_detect(matching_fields, "https") ~ stringr::str_extract(matching_fields, "[^https]+")
+                                             )
+                  ) |>
+    dplyr::mutate(Varval = dplyr::case_when(stringr::str_detect(matching_fields, ":") ~ stringr::str_extract(matching_fields, "[: ].*"),
+                                            stringr::str_detect(matching_fields, "^[0-9]+") ~ stringr::str_extract(matching_fields,"[^0-9.0-9 ].*"),
+                                            stringr::str_detect(matching_fields, "https") ~ stringr::str_extract(matching_fields, "[https].*")
+    )
+    )
+
+
 
 
   # return result with named columns
+  result <- data.frame("Indicator" = name,
+                       "Source" = url,
+                       "Varname" = dfvarnames,
+                       "Varval" = dfvarvals
+  )
 
 
 }
