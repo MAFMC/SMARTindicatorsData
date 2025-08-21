@@ -48,32 +48,38 @@ scrape_ecodata_catalog <- function(url, FieldList){
   headind <- which(stringr::str_detect(fields, paste(h2fields, collapse = "|")))
   h2fieldind <- intersect(fieldind, headind)
   h2fieldtext <- fields[h2fieldind+1]
+  h2fieldvec <- rep(NA, length(matching_fields))
+
+  # indices to map h2 names to h2fieldtext
+  h2fieldvec[which(stringr::str_detect(matching_fields, "^[0-9]+"))] <- h2fieldtext
 
   # split into variable names and values
   # three patterns: variable name : value
   # and section number variable name with value from fieldtext
   # and variable name with value as https string
   df <- as.data.frame(matching_fields) |>
-    dplyr::mutate(Varname = dplyr::case_when(stringr::str_detect(matching_fields, ":") ~ stringr::str_extract(matching_fields, "[^:]+"),
+    dplyr::mutate(Varname = dplyr::case_when(stringr::str_detect(matching_fields, ": ") ~ stringr::str_extract(matching_fields, "[^:]+"),
                                              stringr::str_detect(matching_fields, "^[0-9]+") ~ stringr::str_extract(matching_fields,"[^0-9.0-9 ].*"),
-                                             stringr::str_detect(matching_fields, "https") ~ stringr::str_extract(matching_fields, "[^https]+")
+                                             stringr::str_detect(matching_fields, "tech-doc") ~ "tech-doc link"
                                              )
                   ) |>
-    dplyr::mutate(Varval = dplyr::case_when(stringr::str_detect(matching_fields, ":") ~ stringr::str_extract(matching_fields, "[: ].*"),
-                                            stringr::str_detect(matching_fields, "^[0-9]+") ~ stringr::str_extract(matching_fields,"[^0-9.0-9 ].*"),
-                                            stringr::str_detect(matching_fields, "https") ~ stringr::str_extract(matching_fields, "[https].*")
+    dplyr::mutate(Value = dplyr::case_when(stringr::str_detect(matching_fields, ": ") ~ stringr::str_trim(stringr::str_extract(matching_fields, "(?<=:)\ *(.*)*")),
+                                           stringr::str_detect(matching_fields, "^[0-9]+") ~ h2fieldvec,
+                                           stringr::str_detect(matching_fields, "tech-doc") ~ stringr::str_trim(stringr::str_extract(matching_fields, "(?<=link)\ *(.*)"))
+                                           )
     )
-    )
 
 
-
+  df <- df[-1]
 
   # return result with named columns
-  result <- data.frame("Indicator" = name,
-                       "Source" = url,
-                       "Varname" = dfvarnames,
-                       "Varval" = dfvarvals
-  )
+  result <- df |>
+    dplyr::mutate(Indicator = name,
+                  Source = url) |>
+    dplyr::select(Indicator, Source, Varname, Value)
+
+  return(result)
+
 
 
 }
