@@ -19,7 +19,7 @@
 #'  url <- "https://noaa-edab.github.io/catalog/trans_dates.html"
 #'  FieldList <- c("Description", "Introduction", "Key Results",
 #'                  "Spatial scale", "Temporal scale", "Implications",
-#'                  "ecodata name", "tech-doc link")
+#'                  "Point of contact", "ecodata name", "tech-doc link")
 #'  scrape_ecodata_catalog(url, FieldList)
 #'
 #'@export
