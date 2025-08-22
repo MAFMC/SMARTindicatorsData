@@ -365,3 +365,21 @@ scrape_headings_pattern_content <- function(url, pattern, elements) {
 }
 
 #scrape_headings_pattern_content(url, "Key", "h2, p")
+
+extract_links_rvest <- function(url) {
+  # Read the webpage
+  page <- rvest::read_html(url)
+
+  # Extract all href attributes from <a> tags
+  links <- page |>
+    rvest::html_nodes("a") |>
+    rvest::html_attr("href")
+
+  # Remove NA values and empty strings
+  links <- links[!is.na(links) & links != ""]
+
+  # Convert relative URLs to absolute URLs
+  absolute_links <- xml2::url_absolute(links, url)
+
+  return(absolute_links)
+}

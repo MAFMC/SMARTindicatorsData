@@ -5,7 +5,10 @@
 #' Code had to be tailored to this website because not all fields come under standard headers.
 #'
 #'@param url The url of the catalog page to be scraped
-#'@param FieldList A character vector of fields to be scraped; must match case and spelling
+#'@param FieldList Optional, A character vector of fields to be scraped; must match case and spelling.
+#'The default FieldList is c("Description", "Introduction", "Key Results",
+#'                  "Spatial scale", "Temporal scale", "Implications",
+#'                  "Point of contact", "ecodata name", "tech-doc link")
 #'
 #'@return a dataframe with variables from the FieldList and values from the catalog webpage. Columns:
 #'\itemize{
@@ -23,7 +26,14 @@
 #'  scrape_ecodata_catalog(url, FieldList)
 #'
 #'@export
-scrape_ecodata_catalog <- function(url, FieldList){
+scrape_ecodata_catalog <- function(url, FieldList=NULL){
+
+  # default FieldList for iterating with purrr:map
+  if(is.null(FieldList)){
+  FieldList <- c("Description", "Introduction", "Key Results",
+                  "Spatial scale", "Temporal scale", "Implications",
+                  "Point of contact", "ecodata name", "tech-doc link")
+  }
 
   # page to xml
   page <- rvest::read_html(url)

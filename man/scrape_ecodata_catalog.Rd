@@ -4,12 +4,15 @@
 \alias{scrape_ecodata_catalog}
 \title{Scrape ecodata catalog page}
 \usage{
-scrape_ecodata_catalog(url, FieldList)
+scrape_ecodata_catalog(url, FieldList = NULL)
 }
 \arguments{
 \item{url}{The url of the catalog page to be scraped}
 
-\item{FieldList}{A character vector of fields to be scraped; must match case and spelling}
+\item{FieldList}{Optional, A character vector of fields to be scraped; must match case and spelling.
+The default FieldList is c("Description", "Introduction", "Key Results",
+"Spatial scale", "Temporal scale", "Implications",
+"Point of contact", "ecodata name", "tech-doc link")}
 }
 \value{
 a dataframe with variables from the FieldList and values from the catalog webpage. Columns:
