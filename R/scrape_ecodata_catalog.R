@@ -59,15 +59,14 @@ scrape_ecodata_catalog <- function(url, FieldList){
 
   headoffset <- data.frame(headind, nheadpar)
 
-  h2fieldind <- dplyr::filter(headoffset, headind %in% fieldind)
-
-  #not working yet
-  h2fieldtext <- paste(fields[(h2fieldind$headind+1):(h2fieldind$headind+h2fieldind$nheadpar)])
+  h2fieldind <- dplyr::filter(headoffset, headind %in% fieldind) |>
+    dplyr::rowwise() |>
+    dplyr::mutate(h2fieldtext = paste(fields[(headind+1):(headind+nheadpar)], collapse = " "))
 
   h2fieldvec <- rep(NA, length(matching_fields))
 
   # indices to map h2 names to h2fieldtext
-  h2fieldvec[which(stringr::str_detect(matching_fields, "^[0-9]+"))] <- h2fieldtext
+  h2fieldvec[which(stringr::str_detect(matching_fields, "^[0-9]+"))] <- as.vector(h2fieldind$h2fieldtext)
 
   # split into variable names and values
   # three patterns: variable name : value
