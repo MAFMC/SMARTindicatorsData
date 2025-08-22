@@ -1,6 +1,6 @@
 #' Collect catalog data and create dataset
 #'
-#' Apply the scrape_ecodata_catalog function to all or a subset of catalog pages and create a dataset
+#' Apply the `scrape_ecodata_catalog` function to all or a subset of catalog pages and save the dataset
 #'
 #'@param urllist Optional; the urls of the catalog page to be scraped, defaults to all pages
 #'@param outfile Optional; name of output datafile without extension (.rds format), defaults to "catalogdat"
@@ -15,10 +15,10 @@
 #'
 #'@examples
 #'  urllist <- c("https://noaa-edab.github.io/catalog/trans_dates.html",
-#'  https://noaa-edab.github.io/catalog/SAV.html",
+#'  "https://noaa-edab.github.io/catalog/SAV.html",
 #'  "https://noaa-edab.github.io/catalog/zooplankton_index.html")
 #'  outfile <- "testdat"
-#'  create_ecodata_catalog_data(urllist, FieldList, outfile)
+#'  collect_ecodata_catalog_data(urllist, outfile)
 #'
 #'@export
 collect_ecodata_catalog_data <- function(urllist = NULL, outfile = NULL){

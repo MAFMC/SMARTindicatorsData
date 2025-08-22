@@ -21,5 +21,13 @@ a dataframe with variables from the FieldList and values from the catalog webpag
 }
 }
 \description{
-Apply the scrape_ecodata_catalog function to all or a subset of catalog pages and create a dataset
+Apply the \code{scrape_ecodata_catalog} function to all or a subset of catalog pages and save the dataset
+}
+\examples{
+ urllist <- c("https://noaa-edab.github.io/catalog/trans_dates.html",
+ "https://noaa-edab.github.io/catalog/SAV.html",
+ "https://noaa-edab.github.io/catalog/zooplankton_index.html")
+ outfile <- "testdat"
+ collect_ecodata_catalog_data(urllist, outfile)
+
 }
