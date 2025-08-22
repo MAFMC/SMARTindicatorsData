@@ -15,7 +15,7 @@
 #' }
 #'
 #'@examples
-#'  dataset <- "forage_index"
+#'  dataset <- ecodata::forage_index
 #'  StatList <- c("Units", "StartYear", "EndYear", "TSMean", "TS95CI")
 #'  ecodata_indicator_stats(dataset, StatList)
 #'
@@ -28,18 +28,36 @@ ecodata_indicator_stats <- function(dataset, StatList = NULL){
   }
 
   # load the dataset
+  dat <- dataset
 
   # for each variable get name and units
+  summ <- data.frame(Indicator = unique(dat$Var),
+                     Dataset = deparse(substitute(dataset)))
+
+  Units <- dat |>
+    dplyr::group_by(Var) |>
+    dplyr::select(Units) |>
+    dplyr::distinct()
 
   # for each variable get start and end year or time
-
-  # are all years in the time series?
+  StartEnd <- dat |>
+    dplyr::group_by(Var) |>
+    dplyr::select(Time) |>
+    dplyr::summarise(StartYear = min(Time),
+                     EndYear = max(Time),
+                     EstYrs = EndYear-StartYear+1,
+                     ActualYrs = dplyr::n_distinct(Time))
 
   # mean and 95% CI of time series
+  TSstats <- dat |>
+    dplyr::group_by(Var) |>
+
+
 
   # test for trends or time blocks?
 
   # collate all this and return a dataframe
 
-
+  return(summ)
 }
+
