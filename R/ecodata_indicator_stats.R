@@ -31,11 +31,11 @@ ecodata_indicator_stats <- function(dataset){
   # }
 
   # load the dataset
-  dat <- dataset
+  dat <- eval(parse(text = dataset))
 
   # for each variable get name and units
   summ <- data.frame(Indicator = unique(dat$Var),
-                     Dataset = deparse(substitute(dataset)))
+                     Dataset = dataset)
 
   if(!"Units" %in% names(dat)) dat$Units <- "no Units field"
 
