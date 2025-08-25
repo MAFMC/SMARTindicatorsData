@@ -9,7 +9,7 @@
 #'  \item{\code{Indicator}, name of the variable summarized from the ecodata indicator dataset}
 #'  \item{\code{Dataset}, the ecodata indicator dataset name = "ecodata name" collected from catalog}
 #'  \item{\code{Units}, the units of the indicator}
-#'  \item{\code{EPU}, the Ecosystem Production Unit where the indicator is measured; }
+#'  \item{\code{EPU}, the Ecosystem Production Unit where the indicator is measured}
 #'  \item{\code{Varname}, basic indicator statistics; StartYear is the first year of the time series,
 #'  EndYear is the last year of the time series, EstYrs is the total possible years between the start
 #'  and end years, ActualYrs is the count of years to determine if any are missing, TSMean is the time
@@ -32,6 +32,8 @@ ecodata_indicator_stats <- function(dataset){
 
   # load the dataset
   dat <- eval(parse(text = dataset))
+
+  if(!"Var" %in% names(dat)) dat$Var <- "no Var field"
 
   # for each variable get name and units
   summ <- data.frame(Indicator = unique(dat$Var),
@@ -66,7 +68,11 @@ ecodata_indicator_stats <- function(dataset){
 
     columns <- dplyr::left_join(summ, Units) |>
       dplyr::left_join(EPUs) |>
-      dplyr::left_join(notime)
+      dplyr::left_join(notime) |>
+      dplyr::mutate(Varname = "no Time Variables",
+                    Value = NA) |>
+      dplyr::select(Indicator, Dataset, Units, EPU, Varname, Value) |>
+      dplyr::mutate(Indicator = as.character(Indicator))
 
     return(columns)
   }
@@ -89,6 +95,7 @@ ecodata_indicator_stats <- function(dataset){
   TSstats <- dat |>
     dplyr::group_by(Var, EPU) |>
     dplyr::filter(!is.na(Value)) |>
+    dplyr::mutate(Value = as.numeric(Value)) |>
     dplyr::select(Indicator = Var, EPU, Time, Value) |>
     dplyr::summarise(TSMean = mean(Value, na.rm = T),
                      TSMin = min(Value, na.rm = T),
@@ -104,7 +111,8 @@ ecodata_indicator_stats <- function(dataset){
     tidyr::pivot_longer(-c(Indicator, EPU), names_to = "Varname", values_to = "Value")
 
   sumstats <- merge(columns, stats) |>
-    dplyr::select(Indicator, Dataset, Units, EPU, Varname, Value)
+    dplyr::select(Indicator, Dataset, Units, EPU, Varname, Value) |>
+    dplyr::mutate(Indicator = as.character(Indicator))
 
   return(sumstats)
 }
