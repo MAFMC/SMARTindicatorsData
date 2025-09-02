@@ -51,3 +51,6 @@ rsconnect/
 
 # Mac stuff
 .DS_Store
+
+# scratch code experiments
+scratch/
