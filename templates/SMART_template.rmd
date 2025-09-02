@@ -1,0 +1,159 @@
+---
+title:
+    | 
+    | SMART Indicator Report
+    | {{INDICATOR_NAME}}
+#date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: ""
+always_allow_html: yes
+bibliography: smartind.bib
+link-citations: true
+site: bookdown::bookdown_site
+biblio-style: apalike
+github-repo: MAFMC/SMARTindicatorsData
+header-includes:
+  \\usepackage{array}
+favicon: favicon.ico
+---
+
+```{r, include = FALSE}
+## Load packages
+# library(tidyverse)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(plotly)
+library(DT)
+library(jpeg)
+library(patchwork)
+library(ggthemes)
+library(here)
+library(zoo)
+library(gt)
+library(kableExtra)
+library(ggiraph)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', eval.after = 'fig.cap')
+
+## Read in needed data
+
+ecodatadat <- readRDS(here::here("data-raw/ecodatadat.rds"))
+
+catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
+
+lookup <- catalogdat |>
+  dplyr::filter(Varname == "ecodata name") |>
+  dplyr::select(Indicator, Source, Dataset = Value)
+
+## Put all mustaches here
+indicator_name <- "{{INDICATOR_NAME}}"
+variable_name <- "{{INDICATOR_VAR}}"
+# cc_name <- "{{CC_NAME}}"
+# common_name <- "{{COMMON_NAME}}"
+# interactive <-  ifelse(knitr::is_latex_output(), F,T)
+# 
+
+## Pull out text and stats for indicator_name
+
+
+
+```
+
+
+## Indicator category
+
+
+
+## Indicator name
+
+
+
+## Indicator brief description
+
+
+
+## Indicator visualization
+
+```{r}
+
+```
+
+
+## Indicator documentation
+
+
+
+### Are indicators available for others to use (data downloadable)?
+
+#### Where can indicators be found?
+
+#### How often are they updated? Are future updates likely?
+
+#### Who is the contact?
+
+
+### Gather indicator statistics
+
+#### Units
+
+#### Length of time series, start and end date, periodicity
+
+#### Spatial location, scale and extent
+
+#### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
+
+#### Uncertainty metrics
+
+
+### Are methods clearly documented to obtain source data and calculate indicators?
+
+#### Can the indicator be calculated from current documentation?
+
+#### Is code publicly available? up to date?
+
+#### Have methods changed over time?
+
+
+### Are indicator underlying source data linked or easy to find?
+
+#### Where are source data stored?
+
+#### How/by whom are source data updated? Are future updates likely?
+
+#### How often are they updated?
+
+
+## Indicator analysis/testing or history of use
+
+### What decision or advice processes are the indicators currently used in?
+
+### What implications of the indicators are currently listed?
+
+### Do target, limit,  or threshold values already exist for the indicator?
+
+### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
+
+### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
+
+### Is there a time lag between the process change and the indicator change? How long?
+
+
+## Comments
+
+### Additional potential links to management in addition to uses listed above
+
+
+### What additional work would be needed for the Council to use the indicator? 
+
+
+### What issues are caused if there is a gap or delay in data underlying the indicator
+
+
+
+
+Delete below when done, example from NOAA-EDAB/ESCA https://github.com/NOAA-EDAB/ECSA/blob/master/templates/generic_template1.rmd 
+
+This report provides contextual ecosystem information for {{STOCK_SUBAREA}}{{COMMON_NAME}} (*{{SCI_NAME}}*) on the Northeast U.S. Continental Shelf. Data extractions for spring and fall are confined to the {{COMMON_NAME}} stock area based on respective survey strata sets. The information is intended to span a range of potential factors affecting the productivity and distribution of {{COMMON_NAME}}, including: surface and bottom temperature and salinity, chlorophyll concentrations, indices of habitat, diet composition, and abundance of key zooplankton prey of larval {{COMMON_NAME}}. These factors can be used to qualitatively inform the interpretation of population status and/or quantitatively to improve model responsiveness to ecosystem factors. The range and complexity of ecosystem data makes it unlikely to find the most relevant and comprehensive factor variables with a first evaluation; this process will require an iterative approach of evaluation and feedback. Additional indices can be included to address the needs of the working group.
+
+Link to available [time series data](`r url`) used below.
+
