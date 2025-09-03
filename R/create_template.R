@@ -3,16 +3,14 @@
 #' Inspired by NOAA-EDAB Ecosystem Context for Stock Assessment workflow
 #' original code: https://github.com/NOAA-EDAB/ECSA/blob/master/R/create_template.R
 #'
-#' @param indicator_name An indicator name (e.g. "Phytoplankton")
-#' @param indicator_varname The variable name for indicators with multiple variables (e.g. "ANNUAL_PPD_MEDIAN"), defaults to all indicator variables
-#' @param output_dir The output directory for the compiled bookdown HTML document and supporting files. Default "docs" folder in current working directory
+#' @param indicator_name Character string. An indicator name (e.g. "Phytoplankton")
+#' @param indicator_varname Character string. The variable name for indicators with multiple variables (e.g. "ANNUAL_PPD_MEDIAN"), defaults to all indicator variables, which can be a lot
+#' @param output_dir Character string. The output directory for the compiled bookdown HTML document and supporting files. Default "docs" folder in current working directory
 #' @param send_to_google_doc Logical. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
 #' If FALSE, the template .Rmd file will be generated in the directory output_dir/stock-name folder
 #' @param overwrite Logical. If TRUE, output will overwrite any existing google document or template for chosen species.
 #'
 #' @return A .Rmd file and/or google document populated with figures
-#'
-#' @importFrom magrittr "%>%"
 #'
 #' @examples
 #'
@@ -38,7 +36,9 @@ create_template <- function(indicator_name,
     dplyr::select(Indicator, Source, Dataset = Value)
 
   clean_catdat <- catalogdat |>
-    dplyr::filter(stringr::str_detect(Indicator, indicator_name))
+    dplyr::filter(stringr::str_detect(Indicator, indicator_name))|>
+    dplyr::select(Indicator) |>
+    dplyr::distinct()
 
   clean_ecodat <- ecodatadat |>
     dplyr::filter(Dataset == lookup$Dataset[lookup$Indicator == indicator_name]) |>
@@ -50,9 +50,7 @@ create_template <- function(indicator_name,
       dplyr::filter(Indicator == indicator_varname)
   }
 
-  if (nrow(clean_catdat) > 1){
-    # warn about duplicate entries?
-  } else if (nrow(clean_catdat) < 1){
+  if (nrow(clean_catdat) < 1){
     stop(sprintf("'%s' is not found. Check spelling or add '%s' as a new indicator to '%s'", indicator_name, indicator_name, path.expand("data/indicatorlist.csv")))
   }
 
@@ -64,9 +62,13 @@ create_template <- function(indicator_name,
 
 
   #Create .Rmd file to be written to book
-  dat <- readLines(here::here("templates","generic_template1.rmd"))
+  dat <- readLines(here::here("templates","SMART_template.rmd"))
   dat <- gsub("\\{\\{INDICATOR_NAME\\}\\}", clean_catdat$Indicator, dat)
-  dat <- gsub("\\{\\{INDICATOR_VAR\\}\\}", clean_ecodat$Indicator, dat)
+  if(!is.null(indicator_varname)){
+    dat <- gsub("\\{\\{INDICATOR_VAR\\}\\}", clean_ecodat$Indicator, dat)
+  }else{
+    dat <- gsub("\\{\\{INDICATOR_VAR\\}\\}", "ALL", dat)
+  }
 
   # cat(dat,sep = "\n" )
   file_name <- sprintf("%s.rmd", clean_catdat$Indicator)
@@ -94,20 +96,22 @@ create_template <- function(indicator_name,
   }
 
   if(send_to_google_doc) {
-    gdoc_exist <- googledrive::drive_get(sprintf("sgaichas/Projects/MAFMCindicators/IndicatorReport/%s", file_name))
+
+    gdoc_name  <- gsub(".rmd$", "", file_name)
+    gdoc_exist <- googledrive::drive_get(sprintf("Projects/MAFMC Indicators/IndicatorReport/%s", gdoc_name))
 
     #Check to make sure existing file is not over-written
     if(nrow(gdoc_exist) > 0 &
        !overwrite) {
-      stop(sprintf("\nEasy, Cowboy!\n%s already exists. If you want to do this, change 'overwrite = TRUE'", file_name))
+      stop(sprintf("\nEasy, Cowboy!\n%s already exists. If you want to do this, change 'overwrite = TRUE'", gdoc_name))
     } else {
       message("Now to render to Google Drive...\n")
 
       markdrive::gdoc_render(filename = sprintf("%s/%s", folder_name, file_name),
                              gdoc_name = gsub(".rmd$", "", file_name),
-                             gdoc_path = "sgaichas/Projects/MAFMCindicators/IndicatorReport/")
+                             gdoc_path = "Projects/MAFMC Indicators/IndicatorReport/")
 
-      gdoc_link <- googledrive::drive_link(sprintf("sgaichas/Projects/MAFMCindicators/IndicatorReport/%s", file_name))
+      gdoc_link <- googledrive::drive_link(sprintf("Projects/MAFMC Indicators/IndicatorReport/%s", file_name))
 
       message(sprintf("SMART indicator template written as a google doc:%s\n",
                       gdoc_link))

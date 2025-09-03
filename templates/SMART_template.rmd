@@ -1,8 +1,8 @@
 ---
 title:
     | 
-    | SMART Indicator Report
-    | {{INDICATOR_NAME}}
+    | SMART Indicator Report: {{INDICATOR_NAME}}
+    | 
 #date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: ""
 always_allow_html: yes
@@ -50,6 +50,7 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', 
 ## Put all mustaches here
 indicator_name <- "{{INDICATOR_NAME}}"
 indicator_varname <- "{{INDICATOR_VAR}}"
+
 # cc_name <- "{{CC_NAME}}"
 # common_name <- "{{COMMON_NAME}}"
 # interactive <-  ifelse(knitr::is_latex_output(), F,T)
@@ -63,7 +64,7 @@ indicator_varname <- "{{INDICATOR_VAR}}"
   clean_ecodat <- ecodatadat |>
     dplyr::filter(Dataset == lookup$Dataset[lookup$Indicator == indicator_name]) 
 
-  if(!is.null(indicator_varname)){ #no matching needed if doing them all
+  if(!indicator_varname %in% c("ALL")){ #matching needed if not doing them all
     clean_ecodat <- clean_ecodat |>
       dplyr::filter(Indicator == indicator_varname)
   }
@@ -78,17 +79,294 @@ indicator_varname <- "{{INDICATOR_VAR}}"
 
 ## Indicator name
 
-`r clean_catdat$Value[clean_catdat$Varname==Indicator]`
+`r unique(clean_catdat$Indicator)`
+
+Includes variable(s): `r unique(clean_ecodat$Indicator)`
 
 ## Indicator brief description
 
-`r clean_catdat$Value[clean_catdat$Varname==Description]`
+`r clean_catdat$Value[clean_catdat$Varname=="Description"]`
 
 ## Indicator visualization
 
-```{r}
+`r clean_catdat$Value[clean_catdat$Varname=="Key Results and Visualizations"]`
 
-plotname <- unique(clean_ecodat$Dataset)
+```{r viz}
+
+dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
+
+# code by Andy Beet from ecodata catalog https://github.com/NOAA-EDAB/catalog/blob/master/R/make_rmd.R
+
+#if (exists(paste0("plot_",dataset))) {
+  
+    at <- attributes(eval(parse(text=paste0("ecodata::plot_",dataset))))
+    
+    allFunctionArgs <- names(formals(eval(parse(text=paste0("ecodata::plot_",dataset)))))
+    
+        
+    # detect if n is an argument
+    isn <- any(allFunctionArgs %in% "n")
+    
+    n <- 10
+    
+    # remove n from list
+    functionArgs <- allFunctionArgs[!(allFunctionArgs %in% "n")]
+    
+    if (length(functionArgs) == 2 | ((length(functionArgs) == 3) & (any(c("year","scale") %in% functionArgs)))) {
+      # this is standard shadedRegion and report
+      # check to see how many EPUs are listed in data object and/or they are "All" (shelfwide)
+      indicatorData <- eval(parse(text=paste0("ecodata::",dataset)))  
+      epus <- unique(indicatorData$EPU)
+      if (any(c("all","na") %in% tolower(epus)) | is.null(epus)) {
+        # plot just one map
+        #cat(paste0("```{r plot_",dataset,"MAB}"),append=T,fill=T,file=con)
+        #cat("# Plot indicator",append=T,fill=T,file=con)
+        if(isn) {
+          #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"),append=T,fill=T,file=con)
+          eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")")))
+        } else {
+          #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic')"),append=T,fill=T,file=con)
+          eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic')")))
+        }
+        #cat("ggplotObject",append=T,fill=T,file=con)
+        #ggplotObject
+        #cat("```",append=T,fill=T,file=con)
+        #cat("",append=T,fill=T,file=con) # add space
+      } else {
+        # stock_status has no EPU. non conforming data set
+        if ("mab" %in% tolower(epus)) {
+          # plot MidAtlantic Report 
+          # cat("### MAB",append=T,fill=T,file=con)
+          # cat("",append=T,fill=T,file=con) # add space
+          # cat(paste0("```{r plot_",dataset,"MAB}"),append=T,fill=T,file=con)
+          # cat("# Plot indicator",append=T,fill=T,file=con)
+          if(isn) {
+            #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"),append=T,fill=T,file=con)
+            eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")")))
+          } else {
+            #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic')"),append=T,fill=T,file=con)
+            eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic')")))
+          }
+          #cat("ggplotObject",append=T,fill=T,file=con)
+          #cat("```",append=T,fill=T,file=con)
+          #cat("",append=T,fill=T,file=con) # add space
+        } 
+        if (any(c("gb","gom","ne") %in% tolower(epus))) {
+        # plot NewEngland Report
+          cat("### NE",append=T,fill=T,file=con)
+          cat("",append=T,fill=T,file=con) # add space
+          cat(paste0("```{r plot_",dataset,"NE}"),append=T,fill=T,file=con)
+          cat("# Plot indicator",append=T,fill=T,file=con)
+          if(isn) {
+            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',n=",n,")"),append=T,fill=T,file=con)
+          } else {
+            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland')"),append=T,fill=T,file=con)
+          }       
+          
+          cat("ggplotObject",append=T,fill=T,file=con)
+          cat("```",append=T,fill=T,file=con)
+          cat("",append=T,fill=T,file=con) # add space
+        }
+      }
+  
+    } else if (length(functionArgs) == 3 & ("EPU" %in% functionArgs )) {
+      # additional EPU argument. Create 3 plots, one for each EPU
+      cat("### MAB",append=T,fill=T,file=con)
+      cat("",append=T,fill=T,file=con) # add space
+      cat(paste0("```{r plot_",dataset,"MAB}"),append=T,fill=T,file=con)
+      cat("# Plot indicator",append=T,fill=T,file=con)
+      if(isn) {
+        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"),append=T,fill=T,file=con)
+      } else {
+        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic')"),append=T,fill=T,file=con)
+      } 
+      cat("ggplotObject",append=T,fill=T,file=con)
+      cat("```",append=T,fill=T,file=con)
+      cat("",append=T,fill=T,file=con) # add space
+      
+      ## GB
+      cat("### GB",append=T,fill=T,file=con)
+      cat("",append=T,fill=T,file=con) # add space
+      cat(paste0("```{r plot_",dataset,"NEGB}"),append=T,fill=T,file=con)
+      cat("# Plot indicator",append=T,fill=T,file=con)
+      
+      if(isn) {
+        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GB',n=",n,")"),append=T,fill=T,file=con)
+      } else {
+        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GB')"),append=T,fill=T,file=con)
+      } 
+      
+      cat("ggplotObject",append=T,fill=T,file=con)
+      cat("```",append=T,fill=T,file=con)
+      cat("",append=T,fill=T,file=con) # add space
+      
+      ## GOM
+      cat("### GOM",append=T,fill=T,file=con)
+      cat("",append=T,fill=T,file=con) # add space
+      cat(paste0("```{r plot_",dataset,"NEGOM}"),append=T,fill=T,file=con)
+      cat("# Plot indicator",append=T,fill=T,file=con)
+      
+      if(isn) {
+        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GOM',n=",n,")"),append=T,fill=T,file=con)
+      } else {
+        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GOM')"),append=T,fill=T,file=con)
+      } 
+      
+      
+      cat("ggplotObject",append=T,fill=T,file=con)
+      cat("```",append=T,fill=T,file=con)
+      cat("",append=T,fill=T,file=con) # add space
+      
+          
+    } 
+    
+    if (length(at) == 3 & ("varName" %in% names(at)) ){
+      # make all plots of varName and report
+      for (arep in at$report) {
+        cat(paste0("### ",arep),append=T,fill=T,file=con)
+        cat("",append=T,fill=T,file=con) # add space
+        for (avar in at$varName) {
+          avarws <- gsub("\\s", "", avar)  
+          # create varName plots
+          cat(paste0("```{r plot_",dataset,arep,avarws,"}"),append=T,fill=T,file=con)
+          cat("# Plot indicator",append=T,fill=T,file=con)
+          
+          if(isn) {
+            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"',n=",n,")"),append=T,fill=T,file=con)
+          } else {
+            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"')"),append=T,fill=T,file=con)
+          }   
+          
+          cat("ggplotObject",append=T,fill=T,file=con)
+          cat("```",append=T,fill=T,file=con)
+          cat("",append=T,fill=T,file=con) # add space
+        }
+      }
+      
+    }
+    
+    if (length(at) == 3 & ("plottype" %in% names(at)) ){
+      # make all plots of plottype and report
+      for (arep in at$report) {
+        cat(paste0("### ",arep),append=T,fill=T,file=con)
+        cat("",append=T,fill=T,file=con) # add space
+        for (avar in at$plottype) {
+          avarws <- gsub("\\s", "", avar)  # remov whitespace from name
+          # create varName plots
+          cat(paste0("```{r plot_",dataset,arep,avarws,"}"),append=T,fill=T,file=con)
+          cat("# Plot indicator",append=T,fill=T,file=con)
+          if(isn) {
+            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"',n=",n,")"),append=T,fill=T,file=con)
+          } else {
+            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"')"),append=T,fill=T,file=con)
+          }   
+          
+          cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"')"),append=T,fill=T,file=con)
+          cat("ggplotObject",append=T,fill=T,file=con)
+          cat("```",append=T,fill=T,file=con)
+          cat("",append=T,fill=T,file=con) # add space
+     
+        }
+      }
+      
+    }
+  
+    if (length(at) == 4 & ("varName" %in% names(at)) ){
+      newV <- names(at)[which(!(names(at) %in% c("varName","srcref","report")))]
+      newVals <- at[[newV]]
+      # make all plots of plottype and report
+      for (arep in at$report) {
+        cat(paste0("### ",arep),append=T,fill=T,file=con)
+        cat("",append=T,fill=T,file=con) # add space
+        
+        for (avar in at$varName) {
+        
+          if (tolower(newV) == "epu") {
+            if (arep == "MidAtlantic") {
+              newVals <- "MAB"
+            } else {
+              newVals <- c("GB","GOM")
+            }
+          }
+          
+          for (aval in newVals) {
+            avarws <- gsub("\\s", "", avar)  # remov whitespace from name
+            # create varName plots
+            cat(paste0("```{r plot_",dataset,arep,avarws,aval,"}"),append=T,fill=T,file=con)
+            cat("# Plot indicator",append=T,fill=T,file=con)
+            
+            if(isn) {
+              cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"' ,",newV,"= '",aval,"',n=",n,")"),append=T,fill=T,file=con)
+            } else {
+              cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"' ,",newV,"= '",aval,"')"),append=T,fill=T,file=con)
+            }   
+            
+            
+            cat("ggplotObject",append=T,fill=T,file=con)
+            cat("```",append=T,fill=T,file=con)
+            cat("",append=T,fill=T,file=con) # add space
+            
+          }
+        }
+      }
+    }
+    
+    if (length(at) > 4 & (all(c("varName","plottype") %in% names(at))) ) {
+        # make all plots of plottype and report
+        for (arep in at$report) {
+          cat(paste0("### ",arep),append=T,fill=T,file=con)
+          cat("",append=T,fill=T,file=con) # add space
+          for (avar in at$varName) {
+            for (atype in at$plottype) {
+              avarws <- gsub("\\s", "", avar)  # remove whitespace from name
+              # create varName plots
+              
+              if (any(tolower(functionArgs) == "epu")) {
+                if (tolower(arep) == "newengland") {
+                  EPUs = c("GB","GOM")
+                } else {
+                  EPUs <- "MAB"
+                }
+                
+                for (aepu in EPUs) {
+                  cat("",append=T,fill=T,file=con) # add space
+                  cat(paste0("```{r plot_",dataset,arep,avarws,atype,aepu,"}"),append=T,fill=T,file=con)
+                  cat("# Plot indicator",append=T,fill=T,file=con)
+                  
+                  if(isn) {
+                    cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', EPU = '",aepu,"', varName= '",avar,"', plottype = '",atype,"',n=",n,")"),append=T,fill=T,file=con)
+                  } else {
+                    cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', EPU = '",aepu,"', varName= '",avar,"', plottype = '",atype,"')"),append=T,fill=T,file=con)
+                  }  
+                  cat("ggplotObject",append=T,fill=T,file=con)
+                  cat("```",append=T,fill=T,file=con)
+                }
+
+                
+              } else {
+                cat("",append=T,fill=T,file=con) # add space
+                cat(paste0("```{r plot_",dataset,arep,avarws,atype,"}"),append=T,fill=T,file=con)
+                cat("# Plot indicator",append=T,fill=T,file=con)
+                
+                
+                if(isn) {
+                  cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"', plottype = '",atype,"',n=",n,")"),append=T,fill=T,file=con)
+                } else {
+                  cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"', plottype = '",atype,"')"),append=T,fill=T,file=con)
+                }  
+                cat("ggplotObject",append=T,fill=T,file=con)
+                cat("```",append=T,fill=T,file=con)
+              }
+          
+              
+
+              cat("",append=T,fill=T,file=con) # add space
+              
+            }
+          }
+        }
+      }
+  #}
 
 
 
@@ -99,13 +377,36 @@ plotname <- unique(clean_ecodat$Dataset)
 
 ### Are indicators available for others to use (data downloadable)?
 
-Yes
+```{r download}
+
+if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
+  cat("Yes", "\n")
+}else{
+  cat("Not in ecodata, need to enter info", "\n")
+}
+  
+
+```
 
 #### Where can indicators be found?
 
+```{r where}
+
+if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
+  cat("Data: https://noaa-edab.github.io/ecodata/index.html", "\n")
+  cat("Description: ", unique(clean_catdat$Source), "\n")
+  cat("Technical documentation: ", unique(clean_catdat$Value[clean_catdat$Varname=="tech-doc link"]), "\n")
+}else{
+  cat("Not in ecodata, need to enter info", "\n")
+}
+  
+
+```
 
 
 #### How often are they updated? Are future updates likely?
+
+[need sequential look at datasets for update frequency. Future requires judgement]
 
 #### Who is the contact?
 
@@ -115,49 +416,139 @@ Yes
 
 #### Units
 
+```{r units}
+
+if(length(unique(clean_ecodat$Units)) == 1){
+  cat(unique(clean_ecodat$Units), "\n")
+}else{
+  clean_ecodat |>
+    dplyr::select(Indicator, Units) |>
+    dplyr::distinct() |>
+    flextable::flextable()
+}
+
+```
+
 #### Length of time series, start and end date, periodicity
+
+General overview: `r clean_catdat$Value[clean_catdat$Varname=="Temporal scale"]`
+
+Indicator specifics:
+
+
+```{r}
+
+clean_ecodat |>
+  dplyr::select(Indicator, EPU, Varname, Value) |>
+  dplyr::filter(Varname %in% c("StartYear", "EndYear", "EstYrs", "ActualYrs")) |>
+  tidyr::pivot_wider(names_from = Varname, values_from = Value) |>
+  dplyr::mutate(MissingYears = EstYrs - ActualYrs) |>
+  dplyr::select(Indicator, EPU, StartYear, EndYear, NumYears = ActualYrs, MissingYears) |>
+  dplyr::distinct() |>
+  flextable::flextable() |>
+  flextable::colformat_num(big.mark = "")
+
+```
+
 
 #### Spatial location, scale and extent
 
+General overview: `r clean_catdat$Value[clean_catdat$Varname=="Spatial scale"]`
+
+Indicator specifics:
+
+```{r}
+
+  clean_ecodat |>
+    dplyr::select(Indicator, EPU) |>
+    dplyr::distinct() |>
+    flextable::flextable()
+
+```
+
+
 #### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
 
+[Classify by hand, note gridded data if available could be applied to different species ranges]
+
 #### Uncertainty metrics
+
+```{r}
+
+```
 
 
 ### Are methods clearly documented to obtain source data and calculate indicators?
 
+```{r documented}
+
+if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
+  cat("Yes", "\n")
+}else{
+  cat("Not in ecodata, need to enter info", "\n")
+}
+
+```
+
 #### Can the indicator be calculated from current documentation?
+
+[Build link to Tech-doc, look for current and previous methods]
 
 #### Is code publicly available? up to date?
 
+[Build link to Tech-doc, look for current and previous methods]
+
 #### Have methods changed over time?
 
+[Build link to Tech-doc, look for current and previous methods]
 
 ### Are indicator underlying source data linked or easy to find?
 
+[Build link to Tech-doc, look for source, may require judgements]
+
 #### Where are source data stored?
+
+[Build link to Tech-doc, look for source, may require judgement]
 
 #### How/by whom are source data updated? Are future updates likely?
 
+[Build link to Tech-doc, look for source, may require judgement]
+
 #### How often are they updated?
+
+[Build link to Tech-doc, look for source, may require judgement]
 
 
 ## Indicator analysis/testing or history of use
 
 ### What decision or advice processes are the indicators currently used in?
 
+`r clean_catdat$Value[clean_catdat$Varname=="Introduction to Indicator"]`
+
 ### What implications of the indicators are currently listed?
+
+`r clean_catdat$Value[clean_catdat$Varname=="Implications"]`
 
 ### Do target, limit,  or threshold values already exist for the indicator?
 
+[Fill by hand; if not in key results or implications, likely does not exist]
+
 ### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
+
+[Fill by hand; if not in introduction, key results, or implications, likely not tested]
 
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
+[Fill by hand; if not in introduction, key results, or implications, likely not tested]
+
 ### Is there a time lag between the process change and the indicator change? How long?
+
+[Fill by hand; if not in introduction, key results, or implications, likely not tested]
 
 
 ## Comments
+
+[Fill below by hand once above data complete]
 
 ### Additional potential links to management in addition to uses listed above
 
@@ -168,11 +559,4 @@ Yes
 ### What issues are caused if there is a gap or delay in data underlying the indicator
 
 
-
-
-Delete below when done, example from NOAA-EDAB/ESCA https://github.com/NOAA-EDAB/ECSA/blob/master/templates/generic_template1.rmd 
-
-This report provides contextual ecosystem information for {{STOCK_SUBAREA}}{{COMMON_NAME}} (*{{SCI_NAME}}*) on the Northeast U.S. Continental Shelf. Data extractions for spring and fall are confined to the {{COMMON_NAME}} stock area based on respective survey strata sets. The information is intended to span a range of potential factors affecting the productivity and distribution of {{COMMON_NAME}}, including: surface and bottom temperature and salinity, chlorophyll concentrations, indices of habitat, diet composition, and abundance of key zooplankton prey of larval {{COMMON_NAME}}. These factors can be used to qualitatively inform the interpretation of population status and/or quantitatively to improve model responsiveness to ecosystem factors. The range and complexity of ecosystem data makes it unlikely to find the most relevant and comprehensive factor variables with a first evaluation; this process will require an iterative approach of evaluation and feedback. Additional indices can be included to address the needs of the working group.
-
-Link to available [time series data](`r url`) used below.
 
