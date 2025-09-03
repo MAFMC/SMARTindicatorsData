@@ -37,17 +37,19 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', 
 
 ## Read in needed data
 
-ecodatadat <- readRDS(here::here("data-raw/ecodatadat.rds"))
+  ## Select the indicator and check it exists in the list
+  ecodatadat <- readRDS(here::here("data-raw/ecodatadat.rds"))
 
-catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
+  catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
 
-lookup <- catalogdat |>
-  dplyr::filter(Varname == "ecodata name") |>
-  dplyr::select(Indicator, Source, Dataset = Value)
+  lookup <- catalogdat |>
+    dplyr::filter(Varname == "ecodata name") |>
+    dplyr::select(Indicator, Source, Dataset = Value)
+
 
 ## Put all mustaches here
 indicator_name <- "{{INDICATOR_NAME}}"
-variable_name <- "{{INDICATOR_VAR}}"
+indicator_varname <- "{{INDICATOR_VAR}}"
 # cc_name <- "{{CC_NAME}}"
 # common_name <- "{{COMMON_NAME}}"
 # interactive <-  ifelse(knitr::is_latex_output(), F,T)
@@ -55,6 +57,16 @@ variable_name <- "{{INDICATOR_VAR}}"
 
 ## Pull out text and stats for indicator_name
 
+  clean_catdat <- catalogdat |>
+    dplyr::filter(stringr::str_detect(Indicator, indicator_name))
+
+  clean_ecodat <- ecodatadat |>
+    dplyr::filter(Dataset == lookup$Dataset[lookup$Indicator == indicator_name]) 
+
+  if(!is.null(indicator_varname)){ #no matching needed if doing them all
+    clean_ecodat <- clean_ecodat |>
+      dplyr::filter(Indicator == indicator_varname)
+  }
 
 
 ```
@@ -62,35 +74,42 @@ variable_name <- "{{INDICATOR_VAR}}"
 
 ## Indicator category
 
-
+[Fill by hand, needs decision by Council]
 
 ## Indicator name
 
-
+`r clean_catdat$Value[clean_catdat$Varname==Indicator]`
 
 ## Indicator brief description
 
-
+`r clean_catdat$Value[clean_catdat$Varname==Description]`
 
 ## Indicator visualization
 
 ```{r}
+
+plotname <- unique(clean_ecodat$Dataset)
+
+
 
 ```
 
 
 ## Indicator documentation
 
-
-
 ### Are indicators available for others to use (data downloadable)?
 
+Yes
+
 #### Where can indicators be found?
+
+
 
 #### How often are they updated? Are future updates likely?
 
 #### Who is the contact?
 
+`r clean_catdat$Value[clean_catdat$Varname=="Point of contact"]`
 
 ### Gather indicator statistics
 
