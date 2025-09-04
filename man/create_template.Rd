@@ -7,6 +7,7 @@
 create_template(
   indicator_name,
   indicator_varname = NULL,
+  template = here::here("templates/SMART_template.rmd"),
   output_dir = here::here("docs"),
   send_to_google_doc = FALSE,
   overwrite = FALSE
@@ -17,12 +18,14 @@ create_template(
 
 \item{indicator_varname}{Character string. The variable name for indicators with multiple variables (e.g. "ANNUAL_PPD_MEDIAN"), defaults to all indicator variables, which can be a lot}
 
+\item{template}{Character string. The path to the desired template, defaults to "templates/SMART_template.rmd"}
+
 \item{output_dir}{Character string. The output directory for the compiled bookdown HTML document and supporting files. Default "docs" folder in current working directory}
 
-\item{send_to_google_doc}{Logical. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
+\item{send_to_google_doc}{Logical. Defaults to FALSE. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
 If FALSE, the template .Rmd file will be generated in the directory output_dir/stock-name folder}
 
-\item{overwrite}{Logical. If TRUE, output will overwrite any existing google document or template for chosen species.}
+\item{overwrite}{Logical. Defaults to FALSE. If TRUE, output will overwrite any existing template or google doc for chosen species.}
 }
 \value{
 A .Rmd file and/or google document populated with figures

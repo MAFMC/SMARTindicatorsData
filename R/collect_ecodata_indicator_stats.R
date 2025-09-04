@@ -42,6 +42,7 @@ collect_ecodata_indicator_stats <- function(datalist = NULL, outfile = NULL){
 
     ecolist <- gsub(" .*$", "", ecolist)#remove anything after a space in the dataset name
 
+    #temporarily remove nonconforming datasets, need to address later
     ecolist <- (ecolist[!stringr::str_detect(ecolist, "ESP_|abc.acl|habitat_vulnerability|cetacean|ch_bay|bay_s|coast|_sf|stock_status")])
 
   }

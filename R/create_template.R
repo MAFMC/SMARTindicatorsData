@@ -5,10 +5,11 @@
 #'
 #' @param indicator_name Character string. An indicator name (e.g. "Phytoplankton")
 #' @param indicator_varname Character string. The variable name for indicators with multiple variables (e.g. "ANNUAL_PPD_MEDIAN"), defaults to all indicator variables, which can be a lot
+#' @param template Character string. The path to the desired template, defaults to "templates/SMART_template.rmd"
 #' @param output_dir Character string. The output directory for the compiled bookdown HTML document and supporting files. Default "docs" folder in current working directory
-#' @param send_to_google_doc Logical. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
+#' @param send_to_google_doc Logical. Defaults to FALSE. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
 #' If FALSE, the template .Rmd file will be generated in the directory output_dir/stock-name folder
-#' @param overwrite Logical. If TRUE, output will overwrite any existing google document or template for chosen species.
+#' @param overwrite Logical. Defaults to FALSE. If TRUE, output will overwrite any existing template or google doc for chosen species.
 #'
 #' @return A .Rmd file and/or google document populated with figures
 #'
@@ -22,6 +23,7 @@
 
 create_template <- function(indicator_name,
                             indicator_varname = NULL,
+                            template = here::here("templates/SMART_template.rmd"),
                             output_dir = here::here("docs"),
                             send_to_google_doc = FALSE,
                             overwrite = FALSE) {
@@ -33,10 +35,14 @@ create_template <- function(indicator_name,
 
   lookup <- catalogdat |>
     dplyr::filter(Varname == "ecodata name") |>
-    dplyr::select(Indicator, Source, Dataset = Value)
+    dplyr::select(Indicator, Source, Dataset = Value) |>
+    dplyr::distinct()
+
+  # check for stuff that needs escaping in indicator_name and escape it so detection works
+  esc_indicator_name <- stringr::str_escape(indicator_name)
 
   clean_catdat <- catalogdat |>
-    dplyr::filter(stringr::str_detect(Indicator, indicator_name))|>
+    dplyr::filter(stringr::str_detect(Indicator, esc_indicator_name))|>
     dplyr::select(Indicator) |>
     dplyr::distinct()
 
@@ -62,7 +68,8 @@ create_template <- function(indicator_name,
 
 
   #Create .Rmd file to be written to book
-  dat <- readLines(here::here("templates","SMART_template.rmd"))
+  #dat <- readLines(here::here("templates","SMART_template.rmd"))
+  dat <- readLines(template)
   dat <- gsub("\\{\\{INDICATOR_NAME\\}\\}", clean_catdat$Indicator, dat)
   if(!is.null(indicator_varname)){
     dat <- gsub("\\{\\{INDICATOR_VAR\\}\\}", clean_ecodat$Indicator, dat)

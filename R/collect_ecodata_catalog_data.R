@@ -46,7 +46,7 @@ collect_ecodata_catalog_data <- function(urllist = NULL, outfile = NULL){
     catlist <- absolute_links[stringr::str_detect(absolute_links, caturl)]
 
     # Remove heading, glossary, references, and index pages
-    catlist <- catlist[!stringr::str_detect(catlist, "#|glossary.html|references.html|index.html")]
+    catlist <- catlist[!stringr::str_detect(catlist, "#|glossary.html|references.html|/index.html")]
 
   }
 
