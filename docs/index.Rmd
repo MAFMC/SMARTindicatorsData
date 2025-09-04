@@ -23,7 +23,7 @@ within a SMART framework: are the indicators Specific, Measurable, Achievable, R
 
 
 
-```{r, echo = FALSE, warning = FALSE, message = FALSE, results=TRUE, eval=FALSE}
+```{r, echo = FALSE, warning = FALSE, message = FALSE, results=TRUE}
 library(dplyr)
 ## Select the stock and format stock area and common name
 all_pages <- list.files(here::here("docs/"), pattern = ".html")
@@ -54,7 +54,8 @@ good_pages <- data.frame(URL = all_pages[!all_pages %in% c(draft_pages, bad_page
       dplyr::distinct() |>
       dplyr::filter(!Dataset %in% c("No dataset"),
                     Dataset %in% ecodatasets) |>
-      dplyr::select(Indicator)
+      dplyr::select(Indicator) |>
+      dplyr::mutate(indicator_name = gsub(" ", "-", Indicator))
 
 clean_names <- templist |>
   dplyr::mutate(`Available reports` = sprintf('<a href="https://mafmc.github.io/SMARTindicatorsData/%s.html" target="_blank">%s</a>', indicator_name, Indicator)) |>
