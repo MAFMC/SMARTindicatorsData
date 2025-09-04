@@ -118,128 +118,70 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
       indicatorData <- eval(parse(text=paste0("ecodata::",dataset)))  
       epus <- unique(indicatorData$EPU)
       if (any(c("all","na") %in% tolower(epus)) | is.null(epus)) {
-        # plot just one map
-        #cat(paste0("```{r plot_",dataset,"MAB}"),append=T,fill=T,file=con)
-        #cat("# Plot indicator",append=T,fill=T,file=con)
         if(isn) {
-          #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"),append=T,fill=T,file=con)
-          eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")")))
+          print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"))))
         } else {
-          #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic')"),append=T,fill=T,file=con)
-          eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic')")))
+          print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic')"))))
         }
-        #cat("ggplotObject",append=T,fill=T,file=con)
-        #ggplotObject
-        #cat("```",append=T,fill=T,file=con)
-        #cat("",append=T,fill=T,file=con) # add space
       } else {
         # stock_status has no EPU. non conforming data set
         if ("mab" %in% tolower(epus)) {
-          # plot MidAtlantic Report 
-          # cat("### MAB",append=T,fill=T,file=con)
-          # cat("",append=T,fill=T,file=con) # add space
-          # cat(paste0("```{r plot_",dataset,"MAB}"),append=T,fill=T,file=con)
-          # cat("# Plot indicator",append=T,fill=T,file=con)
           if(isn) {
-            #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"),append=T,fill=T,file=con)
-            eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")")))
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"))))
           } else {
-            #cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic')"),append=T,fill=T,file=con)
-            eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic')")))
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic')"))))
           }
-          #cat("ggplotObject",append=T,fill=T,file=con)
-          #cat("```",append=T,fill=T,file=con)
-          #cat("",append=T,fill=T,file=con) # add space
         } 
         if (any(c("gb","gom","ne") %in% tolower(epus))) {
-        # plot NewEngland Report
-          cat("### NE",append=T,fill=T,file=con)
-          cat("",append=T,fill=T,file=con) # add space
-          cat(paste0("```{r plot_",dataset,"NE}"),append=T,fill=T,file=con)
-          cat("# Plot indicator",append=T,fill=T,file=con)
+          # plot NewEngland Report
           if(isn) {
-            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',n=",n,")"),append=T,fill=T,file=con)
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='NewEngland',n=",n,")"))))
           } else {
-            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland')"),append=T,fill=T,file=con)
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='NewEngland')"))))
           }       
           
-          cat("ggplotObject",append=T,fill=T,file=con)
-          cat("```",append=T,fill=T,file=con)
-          cat("",append=T,fill=T,file=con) # add space
         }
       }
-  
+      
     } else if (length(functionArgs) == 3 & ("EPU" %in% functionArgs )) {
       # additional EPU argument. Create 3 plots, one for each EPU
-      cat("### MAB",append=T,fill=T,file=con)
-      cat("",append=T,fill=T,file=con) # add space
-      cat(paste0("```{r plot_",dataset,"MAB}"),append=T,fill=T,file=con)
-      cat("# Plot indicator",append=T,fill=T,file=con)
       if(isn) {
-        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"),append=T,fill=T,file=con)
+        print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic',n=",n,")"))))
       } else {
-        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='MidAtlantic')"),append=T,fill=T,file=con)
+        print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='MidAtlantic')"))))
       } 
-      cat("ggplotObject",append=T,fill=T,file=con)
-      cat("```",append=T,fill=T,file=con)
-      cat("",append=T,fill=T,file=con) # add space
-      
+
       ## GB
-      cat("### GB",append=T,fill=T,file=con)
-      cat("",append=T,fill=T,file=con) # add space
-      cat(paste0("```{r plot_",dataset,"NEGB}"),append=T,fill=T,file=con)
-      cat("# Plot indicator",append=T,fill=T,file=con)
-      
+
       if(isn) {
-        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GB',n=",n,")"),append=T,fill=T,file=con)
+        print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='NewEngland',EPU='GB',n=",n,")"))))
       } else {
-        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GB')"),append=T,fill=T,file=con)
+        print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='NewEngland',EPU='GB')"))))
       } 
       
-      cat("ggplotObject",append=T,fill=T,file=con)
-      cat("```",append=T,fill=T,file=con)
-      cat("",append=T,fill=T,file=con) # add space
-      
+
       ## GOM
-      cat("### GOM",append=T,fill=T,file=con)
-      cat("",append=T,fill=T,file=con) # add space
-      cat(paste0("```{r plot_",dataset,"NEGOM}"),append=T,fill=T,file=con)
-      cat("# Plot indicator",append=T,fill=T,file=con)
-      
+
       if(isn) {
-        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GOM',n=",n,")"),append=T,fill=T,file=con)
+        print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='NewEngland',EPU='GOM',n=",n,")"))))
       } else {
-        cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report='NewEngland',EPU='GOM')"),append=T,fill=T,file=con)
+        print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report='NewEngland',EPU='GOM')"))))
       } 
-      
-      
-      cat("ggplotObject",append=T,fill=T,file=con)
-      cat("```",append=T,fill=T,file=con)
-      cat("",append=T,fill=T,file=con) # add space
-      
           
     } 
     
     if (length(at) == 3 & ("varName" %in% names(at)) ){
       # make all plots of varName and report
       for (arep in at$report) {
-        cat(paste0("### ",arep),append=T,fill=T,file=con)
-        cat("",append=T,fill=T,file=con) # add space
         for (avar in at$varName) {
           avarws <- gsub("\\s", "", avar)  
           # create varName plots
-          cat(paste0("```{r plot_",dataset,arep,avarws,"}"),append=T,fill=T,file=con)
-          cat("# Plot indicator",append=T,fill=T,file=con)
-          
           if(isn) {
-            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"',n=",n,")"),append=T,fill=T,file=con)
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"',n=",n,")"))))
           } else {
-            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"')"),append=T,fill=T,file=con)
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"')"))))
           }   
           
-          cat("ggplotObject",append=T,fill=T,file=con)
-          cat("```",append=T,fill=T,file=con)
-          cat("",append=T,fill=T,file=con) # add space
         }
       }
       
@@ -248,24 +190,15 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
     if (length(at) == 3 & ("plottype" %in% names(at)) ){
       # make all plots of plottype and report
       for (arep in at$report) {
-        cat(paste0("### ",arep),append=T,fill=T,file=con)
-        cat("",append=T,fill=T,file=con) # add space
         for (avar in at$plottype) {
           avarws <- gsub("\\s", "", avar)  # remov whitespace from name
           # create varName plots
-          cat(paste0("```{r plot_",dataset,arep,avarws,"}"),append=T,fill=T,file=con)
-          cat("# Plot indicator",append=T,fill=T,file=con)
           if(isn) {
-            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"',n=",n,")"),append=T,fill=T,file=con)
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"',n=",n,")"))))
           } else {
-            cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"')"),append=T,fill=T,file=con)
+            print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"')"))))
           }   
-          
-          cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"')"),append=T,fill=T,file=con)
-          cat("ggplotObject",append=T,fill=T,file=con)
-          cat("```",append=T,fill=T,file=con)
-          cat("",append=T,fill=T,file=con) # add space
-     
+          print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', plottype= '",avar,"')"))))
         }
       }
       
@@ -276,9 +209,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
       newVals <- at[[newV]]
       # make all plots of plottype and report
       for (arep in at$report) {
-        cat(paste0("### ",arep),append=T,fill=T,file=con)
-        cat("",append=T,fill=T,file=con) # add space
-        
+
         for (avar in at$varName) {
         
           if (tolower(newV) == "epu") {
@@ -290,21 +221,14 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
           }
           
           for (aval in newVals) {
-            avarws <- gsub("\\s", "", avar)  # remov whitespace from name
+            avarws <- gsub("\\s", "", avar)  # remove whitespace from name
             # create varName plots
-            cat(paste0("```{r plot_",dataset,arep,avarws,aval,"}"),append=T,fill=T,file=con)
-            cat("# Plot indicator",append=T,fill=T,file=con)
-            
+
             if(isn) {
-              cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"' ,",newV,"= '",aval,"',n=",n,")"),append=T,fill=T,file=con)
+              print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"' ,",newV,"= '",aval,"',n=",n,")"))))
             } else {
-              cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"' ,",newV,"= '",aval,"')"),append=T,fill=T,file=con)
+              print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"' ,",newV,"= '",aval,"')"))))
             }   
-            
-            
-            cat("ggplotObject",append=T,fill=T,file=con)
-            cat("```",append=T,fill=T,file=con)
-            cat("",append=T,fill=T,file=con) # add space
             
           }
         }
@@ -314,8 +238,6 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
     if (length(at) > 4 & (all(c("varName","plottype") %in% names(at))) ) {
         # make all plots of plottype and report
         for (arep in at$report) {
-          cat(paste0("### ",arep),append=T,fill=T,file=con)
-          cat("",append=T,fill=T,file=con) # add space
           for (avar in at$varName) {
             for (atype in at$plottype) {
               avarws <- gsub("\\s", "", avar)  # remove whitespace from name
@@ -329,39 +251,22 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
                 }
                 
                 for (aepu in EPUs) {
-                  cat("",append=T,fill=T,file=con) # add space
-                  cat(paste0("```{r plot_",dataset,arep,avarws,atype,aepu,"}"),append=T,fill=T,file=con)
-                  cat("# Plot indicator",append=T,fill=T,file=con)
                   
                   if(isn) {
-                    cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', EPU = '",aepu,"', varName= '",avar,"', plottype = '",atype,"',n=",n,")"),append=T,fill=T,file=con)
+                    print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', EPU = '",aepu,"', varName= '",avar,"', plottype = '",atype,"',n=",n,")"))))
                   } else {
-                    cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', EPU = '",aepu,"', varName= '",avar,"', plottype = '",atype,"')"),append=T,fill=T,file=con)
+                    print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', EPU = '",aepu,"', varName= '",avar,"', plottype = '",atype,"')"))))
                   }  
-                  cat("ggplotObject",append=T,fill=T,file=con)
-                  cat("```",append=T,fill=T,file=con)
                 }
-
                 
               } else {
-                cat("",append=T,fill=T,file=con) # add space
-                cat(paste0("```{r plot_",dataset,arep,avarws,atype,"}"),append=T,fill=T,file=con)
-                cat("# Plot indicator",append=T,fill=T,file=con)
-                
                 
                 if(isn) {
-                  cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"', plottype = '",atype,"',n=",n,")"),append=T,fill=T,file=con)
+                  print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"', plottype = '",atype,"',n=",n,")"))))
                 } else {
-                  cat(paste0("ggplotObject <- ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"', plottype = '",atype,"')"),append=T,fill=T,file=con)
+                  print(eval(parse(text=paste0("ecodata::plot_",dataset,"(report= '",arep,"', varName= '",avar,"', plottype = '",atype,"')"))))
                 }  
-                cat("ggplotObject",append=T,fill=T,file=con)
-                cat("```",append=T,fill=T,file=con)
               }
-          
-              
-
-              cat("",append=T,fill=T,file=con) # add space
-              
             }
           }
         }
