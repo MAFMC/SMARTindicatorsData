@@ -1,0 +1,66 @@
+---
+title: "SMART Indicator Reports"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction {-#introduction}
+Ecosystem and habitat indicators are regularly presented to the Mid-Atlantic Fishery Management Council (Council), and are already used in the Council’s Ecosystem Approach to Fisheries Management (EAFM) process as well as within several research track stock assessments. Additional indicators exist in the region that are potentially useful for Council management processes. Given this wealth of indicator resources, the Council has many options for enhancing management decisions by including ecosystem and habitat indicators. This project will develop and test indicators for operational use in Council management processes.
+
+These reports are part of a review and assessment of existing ecosystem and habitat indicators in the Northeast to evaluate their utility to support management objectives. Indicators are presented in a format to facilitate evaluation for operational use within a SMART framework: are the indicators Specific, Measurable, Achievable, Relevant, and Timely for the priority Council decisions? (See e.g., Belcher, B. M., Claus, R., Davel, R., and Place, F. 2024. Indicators for monitoring and evaluating research-for-development: A critical review of a system in use. Environmental and Sustainability Indicators, 24: 100526. https://www.sciencedirect.com/science/article/pii/S2665972724001946 )
+
+We start with general definitions for these attributes, but ultimately they will be linked to particular management processes and objectives. A SMART indicator for one process won't necessarily be SMART for another.
+
+* **Specific**: clearly defined, describing exactly what is measured at what scale and how the indicator is calculated so that methods can be repeated. In the next phase, the indicator can be directly linked to a management process objective. 
+* **Measurable**: appropriate quantitative or qualitative data are available to evaluate change over time. Tied to measurable management process objective. 
+* **Achievable**: responses to changes in management are detectable within the management time frame--objectives tied to the indicator must be achievable. 
+* **Relevant**: accurately reflects changes in the underlying process of concern. In the next phase, the indicator can be directly linked to a management process objective. 
+* **Time-bound**: how often is indicator measured and does this align with the process of concern, and later, the management process
+within a SMART framework: are the indicators Specific, Measurable, Achievable, Relevant, and Timely for the priority Council decisions?  
+
+
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE, results=TRUE, eval=FALSE}
+library(dplyr)
+## Select the stock and format stock area and common name
+all_pages <- list.files(here::here("docs/"), pattern = ".html")
+
+
+draft_pages <- grep(pattern = ".*_draft.html", all_pages, value = TRUE)
+bad_pages <- c("index.html")
+
+good_pages <- data.frame(URL = all_pages[!all_pages %in% c(draft_pages, bad_pages)],
+                         stringsAsFactors = FALSE) |>
+  dplyr::mutate(indicator_name = gsub("\\.html$", "\\1", URL))
+
+
+## Select the stock and format stock area and common name
+#create a list of all indicators from the stored catalog dataset
+    catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
+
+    ecodatadat <- readRDS(here::here("data-raw/ecodatadat.rds"))
+
+    ecodatasets <- unique(ecodatadat$Dataset)
+
+    # check if indicators have ecodata datasets, only use those that do for now
+    # also some ecodata sets were filtered out for nonconforming, so remove these too
+    # otherwise template will fail
+    templist <- catalogdat |>
+      dplyr::filter(Varname == "ecodata name") |>
+      dplyr::select(Indicator, Dataset = Value) |>
+      dplyr::distinct() |>
+      dplyr::filter(!Dataset %in% c("No dataset"),
+                    Dataset %in% ecodatasets) |>
+      dplyr::select(Indicator)
+
+clean_names <- templist |>
+  dplyr::mutate(`Available reports` = sprintf('<a href="https://mafmc.github.io/SMARTindicatorsData/%s.html" target="_blank">%s</a>', indicator_name, Indicator)) |>
+  dplyr::filter(indicator_name %in% good_pages$indicator_name) |> 
+  dplyr::arrange(Indicator) |>
+  dplyr::select(`Available reports`)
+
+knitr::kable(clean_names)
+```

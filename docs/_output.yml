@@ -1,0 +1,14 @@
+bookdown::gitbook:
+  split_by: none
+  config:
+    toolbar:
+      position: static
+    toc:
+      collapse: section
+      before: |
+        <li><a href="./">SMART Indicator Reports</a></li>
+    edit: https://mafmc.github.io/SMARTindicatorsData/%s
+    download: ["pdf"]
+bookdown::pdf_book:
+  keep_tex: yes
+  dev: "cairo_pdf"
