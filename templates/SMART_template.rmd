@@ -95,7 +95,7 @@ Includes variable(s): `r unique(clean_ecodat$Indicator)`
 
 dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
 
-# code by Andy Beet from ecodata catalog https://github.com/NOAA-EDAB/catalog/blob/master/R/make_rmd.R
+# modified from code by Andy Beet from ecodata catalog https://github.com/NOAA-EDAB/catalog/blob/master/R/make_rmd.R
 
 #if (exists(paste0("plot_",dataset))) {
   
@@ -170,7 +170,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
           
     } 
     
-    if (length(at) == 3 & ("varName" %in% names(at)) ){
+    if (length(functionArgs) == 3 & ("varName" %in% names(at)) ){
       # make all plots of varName and report
       for (arep in at$report) {
         for (avar in at$varName) {
@@ -187,7 +187,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
       
     }
     
-    if (length(at) == 3 & ("plottype" %in% names(at)) ){
+    if (length(functionArgs) == 3 & ("plottype" %in% names(at)) ){
       # make all plots of plottype and report
       for (arep in at$report) {
         for (avar in at$plottype) {
@@ -204,7 +204,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
       
     }
   
-    if (length(at) == 4 & ("varName" %in% names(at)) ){
+    if (length(functionArgs) == 4 & ("varName" %in% names(at)) ){
       newV <- names(at)[which(!(names(at) %in% c("varName","srcref","report")))]
       newVals <- at[[newV]]
       # make all plots of plottype and report
@@ -212,7 +212,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
 
         for (avar in at$varName) {
         
-          if (tolower(newV) == "epu") {
+          if (any(tolower(newV) == "epu")) {
             if (arep == "MidAtlantic") {
               newVals <- "MAB"
             } else {
@@ -235,7 +235,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
       }
     }
     
-    if (length(at) > 4 & (all(c("varName","plottype") %in% names(at))) ) {
+    if (length(functionArgs) > 4 & (all(c("varName","plottype") %in% names(at))) ) {
         # make all plots of plottype and report
         for (arep in at$report) {
           for (avar in at$varName) {
