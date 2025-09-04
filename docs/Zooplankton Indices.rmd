@@ -22,6 +22,7 @@ favicon: favicon.ico
 library(ggplot2)
 library(tidyr)
 library(dplyr)
+library(ecodata)
 library(plotly)
 library(DT)
 library(jpeg)
@@ -60,7 +61,8 @@ indicator_varname <- "ALL"
 ## Pull out text and stats for indicator_name
 
   clean_catdat <- catalogdat |>
-    dplyr::filter(stringr::str_detect(Indicator, indicator_name))
+    dplyr::filter(stringr::str_detect(Indicator, indicator_name),
+                  !is.na(Varname))
 
   clean_ecodat <- ecodatadat |>
     dplyr::filter(Dataset == lookup$Dataset[lookup$Indicator == indicator_name]) 
@@ -98,7 +100,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
 
 # modified from code by Andy Beet from ecodata catalog https://github.com/NOAA-EDAB/catalog/blob/master/R/make_rmd.R
 
-#if (exists(paste0("plot_",dataset))) {
+if (exists(paste0("plot_",dataset), where="package:ecodata", mode="function")) {
   
     at <- attributes(eval(parse(text=paste0("ecodata::plot_",dataset))))
     
@@ -272,7 +274,7 @@ dataset <- stringr::str_extract(unique(clean_ecodat$Dataset), "(?<=::)\ *(.*)*")
           }
         }
       }
-  #}
+  }
 
 
 
