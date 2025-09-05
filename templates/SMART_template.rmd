@@ -60,8 +60,12 @@ indicator_varname <- "{{INDICATOR_VAR}}"
 
 ## Pull out text and stats for indicator_name
 
+  # check for stuff that needs escaping in indicator_name and escape it so detection works
+  esc_indicator_name <- stringr::str_escape(indicator_name)
+
+
   clean_catdat <- catalogdat |>
-    dplyr::filter(stringr::str_detect(Indicator, indicator_name),
+    dplyr::filter(stringr::str_detect(Indicator, esc_indicator_name),
                   !is.na(Varname))
 
   clean_ecodat <- ecodatadat |>
@@ -346,16 +350,22 @@ Indicator specifics:
 
 ```{r}
 
-clean_ecodat |>
-  dplyr::select(Indicator, EPU, Varname, Value) |>
-  dplyr::filter(Varname %in% c("StartYear", "EndYear", "EstYrs", "ActualYrs")) |>
-  tidyr::pivot_wider(names_from = Varname, values_from = Value) |>
-  dplyr::mutate(MissingYears = EstYrs - ActualYrs) |>
-  dplyr::select(Indicator, EPU, StartYear, EndYear, NumYears = ActualYrs, MissingYears) |>
-  dplyr::distinct() |>
-  flextable::flextable() |>
-  flextable::colformat_num(big.mark = "")
-
+if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
+  clean_ecodat |>
+    dplyr::select(Indicator, Varname) |>
+    dplyr::distinct() |>
+    flextable::flextable()
+}else{
+  clean_ecodat |>
+    dplyr::select(Indicator, EPU, Varname, Value) |>
+    dplyr::filter(Varname %in% c("StartYear", "EndYear", "EstYrs", "ActualYrs")) |>
+    tidyr::pivot_wider(names_from = Varname, values_from = Value) |>
+    dplyr::mutate(MissingYears = EstYrs - ActualYrs) |>
+    dplyr::select(Indicator, EPU, StartYear, EndYear, NumYears = ActualYrs, MissingYears) |>
+    dplyr::distinct() |>
+    flextable::flextable() |>
+    flextable::colformat_num(big.mark = "")
+}
 ```
 
 
