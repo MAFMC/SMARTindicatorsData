@@ -35,9 +35,15 @@ ecodata_indicator_stats <- function(dataset){
 
   if(!"Var" %in% names(dat)) dat$Var <- "no Var field"
 
+  # for datasets with a Source field, combine this with Var
+  if("Source" %in% names(dat)) {
+    dat <- tidyr::unite(data = dat, "Var", c(Var, Source), sep=" ", remove = TRUE)
+  }
+
   # for each variable get name and units
   summ <- data.frame(Indicator = unique(dat$Var),
                      Dataset = dataset)
+
 
   if(!"Units" %in% names(dat)) dat$Units <- "no Units field"
 

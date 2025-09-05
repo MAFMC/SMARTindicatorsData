@@ -48,6 +48,9 @@ collect_ecodata_catalog_data <- function(urllist = NULL, outfile = NULL){
     # Remove heading, glossary, references, and index pages
     catlist <- catlist[!stringr::str_detect(catlist, "#|glossary.html|references.html|/index.html")]
 
+    # Ensure unique pages
+    catlist <- unique(catlist)
+
   }
 
   # scrape all pages in the list
