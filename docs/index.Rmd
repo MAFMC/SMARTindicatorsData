@@ -37,7 +37,7 @@ good_pages <- data.frame(URL = all_pages[!all_pages %in% c(draft_pages, bad_page
   dplyr::mutate(indicator_name = gsub("\\.html$", "\\1", URL))
 
 
-## Select the stock and format stock area and common name
+## Select the indicator
 #create a list of all indicators from the stored catalog dataset
     catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
 

@@ -2,7 +2,7 @@
 #'
 #'
 #'@param moddir Optional; the path to the dirctory containing .Rmd files to be rendered, defaults to `here::here("docs")`
-#'@param output Optional; Defaults to "html". Other options are "pdf" and "word" but your mileage will vary.
+#'@param output Optional; Defaults to "html". Other options are "all", "pdf" and "word" but your mileage will vary.
 #'@param overwrite Logical. Defaults to FALSE. If TRUE, output will overwrite any existing html.
 #'
 #'@return .Rmd templates for each indicator in the indlist with the naming convention `indicator_name.Rmd`.
@@ -34,6 +34,9 @@ renderall <- function(rmddir=NULL, output="html", overwrite = FALSE){
   }
 
   # Apply rmarkdown::render
-  if(output=="html") purrr::map(rmd_files, ~rmarkdown::render(., output_format = "html_document"))
+  if(output=="html") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory)) #bookdown specified in _output.yml
+  if(output=="pdf") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory, output_format = "pdf_document"))
+  if(output=="word") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory, output_format = "word_document"))
+  if(output=="all") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory, output_format = "all"))
 
 }
