@@ -78,7 +78,8 @@ create_template <- function(indicator_name,
   }
 
   # cat(dat,sep = "\n" )
-  file_name <- sprintf("%s.rmd", clean_catdat$Indicator)
+  safename <- gsub("[() ]","-", clean_catdat$Indicator)
+  file_name <- sprintf("%s.rmd", safename)
   folder_name <- sprintf("%s",output_dir)
   #output_dir <- sprintf("%s_book", clean_names$stock_name)
 

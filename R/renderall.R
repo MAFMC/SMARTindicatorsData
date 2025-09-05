@@ -1,11 +1,11 @@
-#' Render all .Rmd templates in a given directory
+#' Render all .Rmd templates in a given directory using bookdown
 #'
 #'
 #'@param moddir Optional; the path to the dirctory containing .Rmd files to be rendered, defaults to `here::here("docs")`
-#'@param output Optional; Defaults to "html". Other options are "all", "pdf" and "word" but your mileage will vary.
+#'@param output Optional; Defaults to "html". Other options are "all", "pdf" and "word" but pdfs may break, you have been warned
 #'@param overwrite Logical. Defaults to FALSE. If TRUE, output will overwrite any existing html.
 #'
-#'@return .Rmd templates for each indicator in the indlist with the naming convention `indicator_name.Rmd`.
+#'@return .html for each indicator in the indlist with the naming convention `indicator_name.html`.
 #'
 #'
 #'@examples
@@ -23,18 +23,19 @@ renderall <- function(rmddir=NULL, output="html", overwrite = FALSE){
   }
 
   # List all Rmd files in the directory
-  rmd_files <- list.files(path = rmd_directory, pattern = "\\.rmd$", full.names = TRUE)
+  rmd_files <- list.files(path = rmd_directory, pattern = "\\.rmd$", full.names = FALSE)
 
   if(!overwrite){
-    html_files <- list.files(path = rmd_directory, pattern = "\\.html$")
+    html_files <- list.files(path = rmd_directory, pattern = "\\.html$", full.names = FALSE)
     html_names <- gsub(".html", "", html_files)
-    html_match <- gsub("-", " ", html_names)
+    #html_match <- gsub("[() ]", " ", html_names)
 
-    rmd_files <- rmd_files[!stringr::str_detect(rmd_files, paste(html_match, collapse = "|"))]
+    rmd_files <- rmd_files[!stringr::str_detect(rmd_files, paste(html_names, collapse = "|"))]
   }
 
   # Apply rmarkdown::render
-  if(output=="html") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory)) #bookdown specified in _output.yml
+  if(output=="html") purrr::map(rmd_files, render_smartind)
+  #if(output=="html") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory)) #bookdown specified in _output.yml
   if(output=="pdf") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory, output_format = "pdf_document"))
   if(output=="word") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory, output_format = "word_document"))
   if(output=="all") purrr::map(rmd_files, ~rmarkdown::render(., output_dir = rmd_directory, output_format = "all"))

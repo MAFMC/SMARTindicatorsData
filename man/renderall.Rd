@@ -2,22 +2,22 @@
 % Please edit documentation in R/renderall.R
 \name{renderall}
 \alias{renderall}
-\title{Render all .Rmd templates in a given directory}
+\title{Render all .Rmd templates in a given directory using bookdown}
 \usage{
 renderall(rmddir = NULL, output = "html", overwrite = FALSE)
 }
 \arguments{
-\item{output}{Optional; Defaults to "html". Other options are "all", "pdf" and "word" but your mileage will vary.}
+\item{output}{Optional; Defaults to "html". Other options are "all", "pdf" and "word" but pdfs may break, you have been warned}
 
 \item{overwrite}{Logical. Defaults to FALSE. If TRUE, output will overwrite any existing html.}
 
 \item{moddir}{Optional; the path to the dirctory containing .Rmd files to be rendered, defaults to \code{here::here("docs")}}
 }
 \value{
-.Rmd templates for each indicator in the indlist with the naming convention \code{indicator_name.Rmd}.
+.html for each indicator in the indlist with the naming convention \code{indicator_name.html}.
 }
 \description{
-Render all .Rmd templates in a given directory
+Render all .Rmd templates in a given directory using bookdown
 }
 \examples{
  rmddir <- here::here("test")
