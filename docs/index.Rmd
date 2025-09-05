@@ -55,7 +55,7 @@ good_pages <- data.frame(URL = all_pages[!all_pages %in% c(draft_pages, bad_page
       dplyr::filter(!Dataset %in% c("No dataset"),
                     Dataset %in% ecodatasets) |>
       dplyr::select(Indicator) |>
-      dplyr::mutate(indicator_name = gsub(" ", "-", Indicator))
+      dplyr::mutate(indicator_name = gsub("[() ]", "-", Indicator))
 
 clean_names <- templist |>
   dplyr::mutate(`Available reports` = sprintf('<a href="https://mafmc.github.io/SMARTindicatorsData/%s.html" target="_blank">%s</a>', indicator_name, Indicator)) |>
