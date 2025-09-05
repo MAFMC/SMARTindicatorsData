@@ -7,7 +7,7 @@
 renderall(rmddir = NULL, output = "html", overwrite = FALSE)
 }
 \arguments{
-\item{output}{Optional; Defaults to "html". Other options are "pdf" and "word" but your mileage will vary.}
+\item{output}{Optional; Defaults to "html". Other options are "all", "pdf" and "word" but your mileage will vary.}
 
 \item{overwrite}{Logical. Defaults to FALSE. If TRUE, output will overwrite any existing html.}
 
