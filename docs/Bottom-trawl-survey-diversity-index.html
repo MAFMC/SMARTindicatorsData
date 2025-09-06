@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bottom-trawl-survey-diversity-index_.knit</title>
+  <meta name="description" content="SMART Indicator Report: Bottom trawl survey diversity index<br />
+</div>" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bottom-trawl-survey-diversity-index_.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="MAFMC/SMARTindicatorsData" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bottom-trawl-survey-diversity-index_.knit" />
+  
+  
+  
+
+<meta name="author" content="" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/tabwid-1.1.3/tabwid.css" rel="stylesheet" />
+<script src="libs/tabwid-1.1.3/tabwid.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SMART Indicator Reports</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#indicator-category"><i class="fa fa-check"></i><b>1</b> Indicator category</a></li>
+<li class="chapter" data-level="2" data-path=""><a href="#indicator-name"><i class="fa fa-check"></i><b>2</b> Indicator name</a></li>
+<li class="chapter" data-level="3" data-path=""><a href="#indicator-brief-description"><i class="fa fa-check"></i><b>3</b> Indicator brief description</a></li>
+<li class="chapter" data-level="4" data-path=""><a href="#indicator-visualization"><i class="fa fa-check"></i><b>4</b> Indicator visualization</a></li>
+<li class="chapter" data-level="5" data-path=""><a href="#indicator-documentation"><i class="fa fa-check"></i><b>5</b> Indicator documentation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path=""><a href="#are-indicators-available-for-others-to-use-data-downloadable"><i class="fa fa-check"></i><b>5.1</b> Are indicators available for others to use (data downloadable)?</a></li>
+<li class="chapter" data-level="5.2" data-path=""><a href="#gather-indicator-statistics"><i class="fa fa-check"></i><b>5.2</b> Gather indicator statistics</a></li>
+<li class="chapter" data-level="5.3" data-path=""><a href="#are-methods-clearly-documented-to-obtain-source-data-and-calculate-indicators"><i class="fa fa-check"></i><b>5.3</b> Are methods clearly documented to obtain source data and calculate indicators?</a></li>
+<li class="chapter" data-level="5.4" data-path=""><a href="#are-indicator-underlying-source-data-linked-or-easy-to-find"><i class="fa fa-check"></i><b>5.4</b> Are indicator underlying source data linked or easy to find?</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path=""><a href="#indicator-analysistesting-or-history-of-use"><i class="fa fa-check"></i><b>6</b> Indicator analysis/testing or history of use</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path=""><a href="#what-decision-or-advice-processes-are-the-indicators-currently-used-in"><i class="fa fa-check"></i><b>6.1</b> What decision or advice processes are the indicators currently used in?</a></li>
+<li class="chapter" data-level="6.2" data-path=""><a href="#what-implications-of-the-indicators-are-currently-listed"><i class="fa fa-check"></i><b>6.2</b> What implications of the indicators are currently listed?</a></li>
+<li class="chapter" data-level="6.3" data-path=""><a href="#do-target-limit-or-threshold-values-already-exist-for-the-indicator"><i class="fa fa-check"></i><b>6.3</b> Do target, limit, or threshold values already exist for the indicator?</a></li>
+<li class="chapter" data-level="6.4" data-path=""><a href="#have-the-indicators-been-tested-to-ensure-they-respond-proportionally-to-a-change-in-the-underlying-process"><i class="fa fa-check"></i><b>6.4</b> Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?</a></li>
+<li class="chapter" data-level="6.5" data-path=""><a href="#are-the-indicators-sensitive-to-a-small-change-in-the-process-or-what-is-the-threshold-of-change-that-is-detectable"><i class="fa fa-check"></i><b>6.5</b> Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?</a></li>
+<li class="chapter" data-level="6.6" data-path=""><a href="#is-there-a-time-lag-between-the-process-change-and-the-indicator-change-how-long"><i class="fa fa-check"></i><b>6.6</b> Is there a time lag between the process change and the indicator change? How long?</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path=""><a href="#comments"><i class="fa fa-check"></i><b>7</b> Comments</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path=""><a href="#additional-potential-links-to-management-in-addition-to-uses-listed-above"><i class="fa fa-check"></i><b>7.1</b> Additional potential links to management in addition to uses listed above</a></li>
+<li class="chapter" data-level="7.2" data-path=""><a href="#what-additional-work-would-be-needed-for-the-council-to-use-the-indicator"><i class="fa fa-check"></i><b>7.2</b> What additional work would be needed for the Council to use the indicator?</a></li>
+<li class="chapter" data-level="7.3" data-path=""><a href="#what-issues-are-caused-if-there-is-a-gap-or-delay-in-data-underlying-the-indicator"><i class="fa fa-check"></i><b>7.3</b> What issues are caused if there is a gap or delay in data underlying the indicator</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">SMART Indicator Report: Bottom trawl survey diversity index<br />
+</div></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title"><div class="line-block">SMART Indicator Report: Bottom trawl survey diversity index<br />
+</div></h1>
+<p class="author"><em></em></p>
+</div>
+<div id="indicator-category" class="section level2 hasAnchor" number="1">
+<h2><span class="header-section-number">1</span> Indicator category<a href="#indicator-category" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>[Fill by hand, needs decision by Council]</p>
+</div>
+<div id="indicator-name" class="section level2 hasAnchor" number="2">
+<h2><span class="header-section-number">2</span> Indicator name<a href="#indicator-name" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Bottom trawl survey diversity index</p>
+<p>Includes variable(s): NEFSC survey species diversity - FALL, NEFSC survey species diversity - SPRING</p>
+</div>
+<div id="indicator-brief-description" class="section level2 hasAnchor" number="3">
+<h2><span class="header-section-number">3</span> Indicator brief description<a href="#indicator-brief-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Diversity metric for the bottom trawl survey data</p>
+</div>
+<div id="indicator-visualization" class="section level2 hasAnchor" number="4">
+<h2><span class="header-section-number">4</span> Indicator visualization<a href="#indicator-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A significant long term decline in the diversity metric is apparent in Georges Bank in both the Spring and the Fall. This is not seen in Gulf of Maine or the Mid Atlantic</p>
+<p><img src="Bottom-trawl-survey-diversity-index__files/figure-html/viz-1.png" width="672" style="display: block; margin: auto;" /><img src="Bottom-trawl-survey-diversity-index__files/figure-html/viz-2.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="indicator-documentation" class="section level2 hasAnchor" number="5">
+<h2><span class="header-section-number">5</span> Indicator documentation<a href="#indicator-documentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="are-indicators-available-for-others-to-use-data-downloadable" class="section level3 hasAnchor" number="5.1">
+<h3><span class="header-section-number">5.1</span> Are indicators available for others to use (data downloadable)?<a href="#are-indicators-available-for-others-to-use-data-downloadable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>## Yes</code></pre>
+<div id="where-can-indicators-be-found" class="section level4 hasAnchor" number="5.1.1">
+<h4><span class="header-section-number">5.1.1</span> Where can indicators be found?<a href="#where-can-indicators-be-found" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>## Data: https://noaa-edab.github.io/ecodata/index.html 
+## Description:  https://noaa-edab.github.io/catalog/survey_shannon.html 
+## Technical documentation:  https://noaa-edab.github.io/tech-doc/survey_shannon.html</code></pre>
+</div>
+<div id="how-often-are-they-updated-are-future-updates-likely" class="section level4 hasAnchor" number="5.1.2">
+<h4><span class="header-section-number">5.1.2</span> How often are they updated? Are future updates likely?<a href="#how-often-are-they-updated-are-future-updates-likely" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[need sequential look at datasets for update frequency. Future requires judgement]</p>
+</div>
+<div id="who-is-the-contact" class="section level4 hasAnchor" number="5.1.3">
+<h4><span class="header-section-number">5.1.3</span> Who is the contact?<a href="#who-is-the-contact" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><a href="mailto:andrew.beet@noaa.gov" class="email">andrew.beet@noaa.gov</a></p>
+</div>
+</div>
+<div id="gather-indicator-statistics" class="section level3 hasAnchor" number="5.2">
+<h3><span class="header-section-number">5.2</span> Gather indicator statistics<a href="#gather-indicator-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="units" class="section level4 hasAnchor" number="5.2.1">
+<h4><span class="header-section-number">5.2.1</span> Units<a href="#units" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<pre><code>## effective Shannon</code></pre>
+</div>
+<div id="length-of-time-series-start-and-end-date-periodicity" class="section level4 hasAnchor" number="5.2.2">
+<h4><span class="header-section-number">5.2.2</span> Length of time series, start and end date, periodicity<a href="#length-of-time-series-start-and-end-date-periodicity" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>General overview: SPRING, FALL</p>
+<p>Indicator specifics:</p>
+<div class="tabwid"><style>.cl-cef90daa{}.cl-cef64020{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cef7666c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cef76676{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cef772c4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cef772c5{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cef772f6{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cef772f7{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cef7730a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cef7730b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-cef90daa'><thead><tr style="overflow-wrap:break-word;"><th class="cl-cef772c4"><p class="cl-cef7666c"><span class="cl-cef64020">Indicator</span></p></th><th class="cl-cef772c4"><p class="cl-cef7666c"><span class="cl-cef64020">EPU</span></p></th><th class="cl-cef772c5"><p class="cl-cef76676"><span class="cl-cef64020">StartYear</span></p></th><th class="cl-cef772c5"><p class="cl-cef76676"><span class="cl-cef64020">EndYear</span></p></th><th class="cl-cef772c5"><p class="cl-cef76676"><span class="cl-cef64020">NumYears</span></p></th><th class="cl-cef772c5"><p class="cl-cef76676"><span class="cl-cef64020">MissingYears</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">GB</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1963</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">61</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">GOM</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1963</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">61</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">MAB</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1963</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">60</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">SS</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1963</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">61</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">GB</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1968</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">56</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">GOM</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1968</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">56</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cef772f6"><p class="cl-cef7666c"><span class="cl-cef64020">MAB</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1968</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">56</span></p></td><td class="cl-cef772f7"><p class="cl-cef76676"><span class="cl-cef64020">1</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cef7730a"><p class="cl-cef7666c"><span class="cl-cef64020">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cef7730a"><p class="cl-cef7666c"><span class="cl-cef64020">SS</span></p></td><td class="cl-cef7730b"><p class="cl-cef76676"><span class="cl-cef64020">1968</span></p></td><td class="cl-cef7730b"><p class="cl-cef76676"><span class="cl-cef64020">2024</span></p></td><td class="cl-cef7730b"><p class="cl-cef76676"><span class="cl-cef64020">56</span></p></td><td class="cl-cef7730b"><p class="cl-cef76676"><span class="cl-cef64020">1</span></p></td></tr></tbody></table></div>
+</div>
+<div id="spatial-location-scale-and-extent" class="section level4 hasAnchor" number="5.2.3">
+<h4><span class="header-section-number">5.2.3</span> Spatial location, scale and extent<a href="#spatial-location-scale-and-extent" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>General overview: EPU</p>
+<p>Indicator specifics:</p>
+<div class="tabwid"><style>.cl-cf002a7c{}.cl-cefd9636{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-cefeaee0{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-cefebafc{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cefebafd{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-cefebb10{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing='true' class='cl-cf002a7c'><thead><tr style="overflow-wrap:break-word;"><th class="cl-cefebafc"><p class="cl-cefeaee0"><span class="cl-cefd9636">Indicator</span></p></th><th class="cl-cefebafc"><p class="cl-cefeaee0"><span class="cl-cefd9636">EPU</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">GB</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">GOM</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">MAB</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  FALL</span></p></td><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">SS</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">GB</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">GOM</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cefebafd"><p class="cl-cefeaee0"><span class="cl-cefd9636">MAB</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-cefebb10"><p class="cl-cefeaee0"><span class="cl-cefd9636">NEFSC survey species diversity -  SPRING</span></p></td><td class="cl-cefebb10"><p class="cl-cefeaee0"><span class="cl-cefd9636">SS</span></p></td></tr></tbody></table></div>
+</div>
+<div id="management-scale-all-species-fmp-level-species-level-can-it-be-aggregated-or-separated-to-different-scales" class="section level4 hasAnchor" number="5.2.4">
+<h4><span class="header-section-number">5.2.4</span> Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?<a href="#management-scale-all-species-fmp-level-species-level-can-it-be-aggregated-or-separated-to-different-scales" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[Classify by hand, note gridded data if available could be applied to different species ranges]</p>
+</div>
+<div id="uncertainty-metrics" class="section level4 hasAnchor" number="5.2.5">
+<h4><span class="header-section-number">5.2.5</span> Uncertainty metrics<a href="#uncertainty-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+</div>
+</div>
+<div id="are-methods-clearly-documented-to-obtain-source-data-and-calculate-indicators" class="section level3 hasAnchor" number="5.3">
+<h3><span class="header-section-number">5.3</span> Are methods clearly documented to obtain source data and calculate indicators?<a href="#are-methods-clearly-documented-to-obtain-source-data-and-calculate-indicators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<pre><code>## Yes</code></pre>
+<div id="can-the-indicator-be-calculated-from-current-documentation" class="section level4 hasAnchor" number="5.3.1">
+<h4><span class="header-section-number">5.3.1</span> Can the indicator be calculated from current documentation?<a href="#can-the-indicator-be-calculated-from-current-documentation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[Build link to Tech-doc, look for current and previous methods]</p>
+</div>
+<div id="is-code-publicly-available-up-to-date" class="section level4 hasAnchor" number="5.3.2">
+<h4><span class="header-section-number">5.3.2</span> Is code publicly available? up to date?<a href="#is-code-publicly-available-up-to-date" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[Build link to Tech-doc, look for current and previous methods]</p>
+</div>
+<div id="have-methods-changed-over-time" class="section level4 hasAnchor" number="5.3.3">
+<h4><span class="header-section-number">5.3.3</span> Have methods changed over time?<a href="#have-methods-changed-over-time" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[Build link to Tech-doc, look for current and previous methods]</p>
+</div>
+</div>
+<div id="are-indicator-underlying-source-data-linked-or-easy-to-find" class="section level3 hasAnchor" number="5.4">
+<h3><span class="header-section-number">5.4</span> Are indicator underlying source data linked or easy to find?<a href="#are-indicator-underlying-source-data-linked-or-easy-to-find" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[Build link to Tech-doc, look for source, may require judgements]</p>
+<div id="where-are-source-data-stored" class="section level4 hasAnchor" number="5.4.1">
+<h4><span class="header-section-number">5.4.1</span> Where are source data stored?<a href="#where-are-source-data-stored" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[Build link to Tech-doc, look for source, may require judgement]</p>
+</div>
+<div id="howby-whom-are-source-data-updated-are-future-updates-likely" class="section level4 hasAnchor" number="5.4.2">
+<h4><span class="header-section-number">5.4.2</span> How/by whom are source data updated? Are future updates likely?<a href="#howby-whom-are-source-data-updated-are-future-updates-likely" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[Build link to Tech-doc, look for source, may require judgement]</p>
+</div>
+<div id="how-often-are-they-updated" class="section level4 hasAnchor" number="5.4.3">
+<h4><span class="header-section-number">5.4.3</span> How often are they updated?<a href="#how-often-are-they-updated" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>[Build link to Tech-doc, look for source, may require judgement]</p>
+</div>
+</div>
+</div>
+<div id="indicator-analysistesting-or-history-of-use" class="section level2 hasAnchor" number="6">
+<h2><span class="header-section-number">6</span> Indicator analysis/testing or history of use<a href="#indicator-analysistesting-or-history-of-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-decision-or-advice-processes-are-the-indicators-currently-used-in" class="section level3 hasAnchor" number="6.1">
+<h3><span class="header-section-number">6.1</span> What decision or advice processes are the indicators currently used in?<a href="#what-decision-or-advice-processes-are-the-indicators-currently-used-in" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Diversity metrics may be useful in determining shifts in species composition through time. The shannon-diversity index, a way to measure diversity using species richness and evenness is implemented in the attempt to determine changes over time. The index has a maximum value when all species are equally abundant.</p>
+</div>
+<div id="what-implications-of-the-indicators-are-currently-listed" class="section level3 hasAnchor" number="6.2">
+<h3><span class="header-section-number">6.2</span> What implications of the indicators are currently listed?<a href="#what-implications-of-the-indicators-are-currently-listed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A decline in the shannon diversity index over time could be a result of several factors; a decline in the number of species being found in the system over time or a select few becoming more abundant (relative to the rest) over time. If the number of species remain contant through time, then the decline represents a shift to a more unbalanced, uneven system where some species are more abundannt that others. An increase would represent the opposite, a shift, in direction, to a more balanced, even system. If the number of species is changing through time, the inference is more complicated since the maximum value of the shannon-index is a function of the number of species.</p>
+</div>
+<div id="do-target-limit-or-threshold-values-already-exist-for-the-indicator" class="section level3 hasAnchor" number="6.3">
+<h3><span class="header-section-number">6.3</span> Do target, limit, or threshold values already exist for the indicator?<a href="#do-target-limit-or-threshold-values-already-exist-for-the-indicator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[Fill by hand; if not in key results or implications, likely does not exist]</p>
+</div>
+<div id="have-the-indicators-been-tested-to-ensure-they-respond-proportionally-to-a-change-in-the-underlying-process" class="section level3 hasAnchor" number="6.4">
+<h3><span class="header-section-number">6.4</span> Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?<a href="#have-the-indicators-been-tested-to-ensure-they-respond-proportionally-to-a-change-in-the-underlying-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[Fill by hand; if not in introduction, key results, or implications, likely not tested]</p>
+</div>
+<div id="are-the-indicators-sensitive-to-a-small-change-in-the-process-or-what-is-the-threshold-of-change-that-is-detectable" class="section level3 hasAnchor" number="6.5">
+<h3><span class="header-section-number">6.5</span> Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?<a href="#are-the-indicators-sensitive-to-a-small-change-in-the-process-or-what-is-the-threshold-of-change-that-is-detectable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[Fill by hand; if not in introduction, key results, or implications, likely not tested]</p>
+</div>
+<div id="is-there-a-time-lag-between-the-process-change-and-the-indicator-change-how-long" class="section level3 hasAnchor" number="6.6">
+<h3><span class="header-section-number">6.6</span> Is there a time lag between the process change and the indicator change? How long?<a href="#is-there-a-time-lag-between-the-process-change-and-the-indicator-change-how-long" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>[Fill by hand; if not in introduction, key results, or implications, likely not tested]</p>
+</div>
+</div>
+<div id="comments" class="section level2 hasAnchor" number="7">
+<h2><span class="header-section-number">7</span> Comments<a href="#comments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>[Fill below by hand once above data complete]</p>
+<div id="additional-potential-links-to-management-in-addition-to-uses-listed-above" class="section level3 hasAnchor" number="7.1">
+<h3><span class="header-section-number">7.1</span> Additional potential links to management in addition to uses listed above<a href="#additional-potential-links-to-management-in-addition-to-uses-listed-above" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="what-additional-work-would-be-needed-for-the-council-to-use-the-indicator" class="section level3 hasAnchor" number="7.2">
+<h3><span class="header-section-number">7.2</span> What additional work would be needed for the Council to use the indicator?<a href="#what-additional-work-would-be-needed-for-the-council-to-use-the-indicator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="what-issues-are-caused-if-there-is-a-gap-or-delay-in-data-underlying-the-indicator" class="section level3 hasAnchor" number="7.3">
+<h3><span class="header-section-number">7.3</span> What issues are caused if there is a gap or delay in data underlying the indicator<a href="#what-issues-are-caused-if-there-is-a-gap-or-delay-in-data-underlying-the-indicator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://mafmc.github.io/SMARTindicatorsData/%s",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["Bottom-trawl-survey-diversity-index_.pdf"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  },
+  "toolbar": {
+    "position": "static"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>
