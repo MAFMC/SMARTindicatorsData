@@ -10,7 +10,7 @@ render_smartind(input_file)
 \item{input_file}{file name to be rendered,  in \code{here::here("docs")}}
 }
 \value{
-.html rendered using bookdown
+.html rendered using bookdown, or whatever format is first in _output.yml
 }
 \description{
 Render single .Rmd template using bookdown format

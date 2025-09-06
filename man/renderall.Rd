@@ -4,11 +4,9 @@
 \alias{renderall}
 \title{Render all .Rmd templates in a given directory using bookdown}
 \usage{
-renderall(rmddir = NULL, output = "html", overwrite = FALSE)
+renderall(rmddir = NULL, overwrite = FALSE)
 }
 \arguments{
-\item{output}{Optional; Defaults to "html". Other options are "all", "pdf" and "word" but pdfs may break, you have been warned}
-
 \item{overwrite}{Logical. Defaults to FALSE. If TRUE, output will overwrite any existing html.}
 
 \item{moddir}{Optional; the path to the dirctory containing .Rmd files to be rendered, defaults to \code{here::here("docs")}}

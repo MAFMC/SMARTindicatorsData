@@ -3,7 +3,7 @@
 #'
 #'@param input_file file name to be rendered,  in `here::here("docs")`
 #'
-#'@return .html rendered using bookdown
+#'@return .html rendered using bookdown, or whatever format is first in _output.yml
 #'
 #'
 #'@examples
@@ -69,17 +69,17 @@ render_smartind <- function(input_file){
   # write(rmd, file.path(wd, input_file))
   # write(output, file.path(wd,"_output.yml"))
   bookdown::render_book(input = input_file,
-                        output_format = "html_document",
-                        encoding = "UTF-8")#,
+                        #output_format = "all", #only want html gitbook, first in _output.yml
+                        encoding = "UTF-8",
                         # preview = TRUE,
-                        #output_dir = file.path(prev_wd,"docs")) #not sending to this directory
+                        output_dir = file.path(prev_wd,"docs"))
 
   #Simplifies filenames by removing extra underscores. These underscores are necessary to build
   #the pdf
   # file.rename(from = file.path(prev_wd,"docs",paste0(indicator_name,"_.pdf")),
   #             to = file.path(prev_wd,"docs",paste0(indicator_name,".pdf")))
 
-  file.rename(from = file.path(wd,paste0(indicator_filename,"_.html")),
+  file.rename(from = file.path(prev_wd,"docs",paste0(indicator_filename,"_.html")),
               to = file.path(prev_wd,"docs",paste0(indicator_filename,".html")))
 
   #Read in html and alter pdf filename for downloading
