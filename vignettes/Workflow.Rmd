@@ -1,0 +1,36 @@
+---
+title: "Workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(SMARTindicatorsData)
+```
+
+# Overview
+
+This package has functions to create and fill templates of ecosystem indicator attributes that will help us determine if they are SMART indicators for a particular purpose. SMART indicators are Specific, Measurable, Achievable, Relevant, and Timely for the priority Council decisions. 
+
+There are two primary workflows to gather indicator SMART attributes. The first automates template filling from the [NEFSC State of the Ecosystem report](https://www.fisheries.noaa.gov/new-england-mid-atlantic/ecosystems/state-ecosystem-reports-northeast-us-shelf) indicators by pulling data from the online SOE dataset [ecodata](https://noaa-edab.github.io/ecodata/index.html), the online Ecosystem Indicator [Catalog](https://noaa-edab.github.io/catalog/), and the online [Technical Documentation](https://noaa-edab.github.io/tech-doc/index.html). The second writes a generic template for a named indicator to a google doc, where a user can fill in the information. Each workflow is explained below. 
+
+Ultimately, indicators from both workflows are combined into a large online book. These workflows and this product were inspired by the [NOAA-EDAB Ecosystem Context for Stock Assessments project](https://github.com/NOAA-EDAB/ECSA). 
+
+This SMART Indicator Reports online book is available as a resource, but each section is summarized into a dataset which can then be searched interactively using the SMART Indicators Dashboard shiny app (currently in development).
+
+# SOE workflow
+
+# Other indicators workflow
+
+
+
