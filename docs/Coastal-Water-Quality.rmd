@@ -1,0 +1,222 @@
+---
+title:
+    | 
+    | SMART Indicator Report: Coastal Water Quality
+    | 
+#date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: ""
+always_allow_html: yes
+bibliography: smartind.bib
+link-citations: true
+site: bookdown::bookdown_site
+biblio-style: apalike
+github-repo: MAFMC/SMARTindicatorsData
+header-includes:
+  \\usepackage{array}
+favicon: favicon.ico
+---
+
+```{r, include = FALSE}
+## Load packages
+# library(tidyverse)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(ecodata)
+library(plotly)
+library(DT)
+library(jpeg)
+library(patchwork)
+library(ggthemes)
+library(here)
+library(zoo)
+library(gt)
+library(kableExtra)
+library(ggiraph)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', eval.after = 'fig.cap')
+
+## Read in needed data
+
+
+## Put all mustaches here
+indicator_name <- "Coastal Water Quality"
+indicator_varname <- "ALL"
+
+# cc_name <- "{{CC_NAME}}"
+# common_name <- "{{COMMON_NAME}}"
+# interactive <-  ifelse(knitr::is_latex_output(), F,T)
+# 
+
+## Pull out text and stats for indicator_name
+
+  # check for stuff that needs escaping in indicator_name and escape it so detection works
+  esc_indicator_name <- stringr::str_escape(indicator_name)
+
+
+
+```
+
+
+## Indicator category
+
+
+Habitat, nearshore water quality
+
+
+## Indicator name
+
+`r paste(indicator_name)`
+
+Includes variable(s): `r paste(indicator_varname)`
+
+## Indicator brief description
+
+
+Snapshot of coastal water bodies condition relative to water quality standards from EPA ATTAINS (Assessment, Total maximum daily load, Tracking And ImplementatioN System) as reported in the Mid Atlantic Ocean Data Portal (MARCO)
+
+
+## Indicator visualization
+
+
+More Mid-Atlantic waterways are unassessed or polluted than good in the current snapshot.
+
+
+![EPA Waterway Assessments as of August 2025](https://github.com/MAFMC/SMARTindicatorsData/raw/main/images/MARCO_ATTAINS.png)
+
+
+## Indicator documentation
+
+### Are indicators available for others to use (data downloadable)?
+
+
+Yes
+
+
+#### Where can indicators be found?
+
+
+MARCO data portal with links back to EPA, will take some work, may be worth asking MARCO: https://mywaterway.epa.gov/ and https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer 
+
+
+#### How often are they updated? Are future updates likely?
+
+
+Every 2 years? And future updates depend on EPA reporting requirements continuing
+
+
+#### Who is the contact?
+
+
+MARCO https://portal.midatlanticocean.org/about-us/ 
+
+
+### Gather indicator statistics
+
+#### Units
+
+
+Qualitative “Waterbody condition” levels “Impaired” or not. e.g., NJ Atlantic Coast Barnegat to Surf City: https://mywaterway.epa.gov/waterbody-report/21NJDEP1/NJ02040301920010-01/2022 
+
+
+
+
+#### Length of time series, start and end date, periodicity
+
+
+A 2022 snapshot is reported, with previous year snapshots available: 2016, 2018, 2020
+
+
+#### Spatial location, scale and extent
+
+
+Location and scale varies by waterway, nearly all waterways along the Mid Atlantic coast are included
+
+
+#### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
+
+
+All species affected by nearshore coastal habitat, not FMP or species specific  
+
+
+#### Uncertainty metrics
+
+
+No.
+
+
+### Are methods clearly documented to obtain source data and calculate indicators?
+
+
+No, data are submitted by state/local agencies, downloaded data not fully documented. However, a synthesis of this information across each unit could possibly be done and documented
+
+
+#### Can the indicator be calculated from current documentation?
+
+
+No.
+
+
+#### Is code publicly available? up to date?
+
+
+No.
+
+
+#### Have methods changed over time?
+
+
+Unknown.
+
+
+### Are indicator underlying source data linked or easy to find?
+
+
+No.
+
+
+#### Where are source data stored?
+
+
+Individual state and local agencies presumably
+
+
+#### How/by whom are source data updated? Are future updates likely?
+
+### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
+
+
+Unknown.
+
+
+### Is there a time lag between the process change and the indicator change? How long?
+
+
+Unknown.
+
+
+
+## Comments
+
+### Additional potential links to management in addition to uses listed above
+
+
+This information could be used to inform the Council about estuarine and nearshore habitat status more dynamically and at a more refined spatial scale than the indicator in the current EAFM risk assessment. Source data appear to lag by several years but this is still more up to date than the 2009 coastal condition report.
+
+
+
+### What additional work would be needed for the Council to use the indicator? 
+
+
+Work would be required to aggregate the waterway specific information to an indicator at larger spatial scales relevant to Council management. Some waterways may be more important to some species than others. Work would also be required to evaluate whether habitat status has changed over time, by comparing reports from different years.
+
+
+
+### What issues are caused if there is a gap or delay in data underlying the indicator
+
+
+If used in the EAFM risk assessment, risk rankings could be out of date. However, the currently used indicator is from a 2009 coastal condition report. 
+
+
+
+

@@ -28,6 +28,8 @@ gdoc_to_filledrmd <- function(indicator_name,
   # library(readr)
   # library(googledrive)
 
+  indicator_name <- gsub("[() ]", "-", indicator_name)
+
   ### Helper functions
 
   ## Function to mustache the section names
