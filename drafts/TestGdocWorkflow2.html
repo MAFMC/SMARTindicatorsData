@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>TestGdocWorkflow2.knit</title>
+  <meta name="description" content="SMART Indicator Report: TestGdocWorkflow2<br />
+</div>" />
+  <meta name="generator" content="bookdown 0.43 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="TestGdocWorkflow2.knit" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="MAFMC/SMARTindicatorsData" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="TestGdocWorkflow2.knit" />
+  
+  
+  
+
+<meta name="author" content="" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SMART Indicator Reports</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path=""><a href="#indicator-category"><i class="fa fa-check"></i><b>1</b> Indicator category</a></li>
+<li class="chapter" data-level="2" data-path=""><a href="#indicator-name"><i class="fa fa-check"></i><b>2</b> Indicator name</a></li>
+<li class="chapter" data-level="3" data-path=""><a href="#indicator-brief-description"><i class="fa fa-check"></i><b>3</b> Indicator brief description</a></li>
+<li class="chapter" data-level="4" data-path=""><a href="#indicator-visualization"><i class="fa fa-check"></i><b>4</b> Indicator visualization</a></li>
+<li class="chapter" data-level="5" data-path=""><a href="#indicator-documentation"><i class="fa fa-check"></i><b>5</b> Indicator documentation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path=""><a href="#are-indicators-available-for-others-to-use-data-downloadable"><i class="fa fa-check"></i><b>5.1</b> Are indicators available for others to use (data downloadable)?</a></li>
+<li class="chapter" data-level="5.2" data-path=""><a href="#gather-indicator-statistics"><i class="fa fa-check"></i><b>5.2</b> Gather indicator statistics</a></li>
+<li class="chapter" data-level="5.3" data-path=""><a href="#are-methods-clearly-documented-to-obtain-source-data-and-calculate-indicators"><i class="fa fa-check"></i><b>5.3</b> Are methods clearly documented to obtain source data and calculate indicators?</a></li>
+<li class="chapter" data-level="5.4" data-path=""><a href="#are-indicator-underlying-source-data-linked-or-easy-to-find"><i class="fa fa-check"></i><b>5.4</b> Are indicator underlying source data linked or easy to find?</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path=""><a href="#indicator-analysistesting-or-history-of-use"><i class="fa fa-check"></i><b>6</b> Indicator analysis/testing or history of use</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path=""><a href="#what-decision-or-advice-processes-are-the-indicators-currently-used-in"><i class="fa fa-check"></i><b>6.1</b> What decision or advice processes are the indicators currently used in?</a></li>
+<li class="chapter" data-level="6.2" data-path=""><a href="#what-implications-of-the-indicators-are-currently-listed"><i class="fa fa-check"></i><b>6.2</b> What implications of the indicators are currently listed?</a></li>
+<li class="chapter" data-level="6.3" data-path=""><a href="#do-target-limit-or-threshold-values-already-exist-for-the-indicator"><i class="fa fa-check"></i><b>6.3</b> Do target, limit, or threshold values already exist for the indicator?</a></li>
+<li class="chapter" data-level="6.4" data-path=""><a href="#have-the-indicators-been-tested-to-ensure-they-respond-proportionally-to-a-change-in-the-underlying-process"><i class="fa fa-check"></i><b>6.4</b> Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?</a></li>
+<li class="chapter" data-level="6.5" data-path=""><a href="#are-the-indicators-sensitive-to-a-small-change-in-the-process-or-what-is-the-threshold-of-change-that-is-detectable"><i class="fa fa-check"></i><b>6.5</b> Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?</a></li>
+<li class="chapter" data-level="6.6" data-path=""><a href="#is-there-a-time-lag-between-the-process-change-and-the-indicator-change-how-long"><i class="fa fa-check"></i><b>6.6</b> Is there a time lag between the process change and the indicator change? How long?</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path=""><a href="#comments"><i class="fa fa-check"></i><b>7</b> Comments</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path=""><a href="#additional-potential-links-to-management-in-addition-to-uses-listed-above"><i class="fa fa-check"></i><b>7.1</b> Additional potential links to management in addition to uses listed above</a></li>
+<li class="chapter" data-level="7.2" data-path=""><a href="#what-additional-work-would-be-needed-for-the-council-to-use-the-indicator"><i class="fa fa-check"></i><b>7.2</b> What additional work would be needed for the Council to use the indicator?</a></li>
+<li class="chapter" data-level="7.3" data-path=""><a href="#what-issues-are-caused-if-there-is-a-gap-or-delay-in-data-underlying-the-indicator"><i class="fa fa-check"></i><b>7.3</b> What issues are caused if there is a gap or delay in data underlying the indicator</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"><div class="line-block">SMART Indicator Report: TestGdocWorkflow2<br />
+</div></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title"><div class="line-block">SMART Indicator Report: TestGdocWorkflow2<br />
+</div></h1>
+<p class="author"><em></em></p>
+</div>
+<p>{{READMEStart}}</p>
+<p>Welcome to this google doc draft SMART indicator report for TestGdocWorkflow2. This document requires hand editing to fill some or all sections. This workflow is inspired by the <a href="https://github.com/NOAA-EDAB/ECSA/tree/master?tab=readme-ov-file#developing-an-ecsa-project">Ecosystem Context for Stock Advice</a> product workflow. You are looking at an intermediate draft that still needs some work. Check out github.com/noaa-edab/ecsa for more information on the build process that moves raw data -&gt; stock-name_draft.rmd/Google Doc template -&gt; stock-name.rmd/.html/.pdf final series of documents.</p>
+<p>Do:</p>
+<ul>
+<li>Change editing mode to “Suggesting” (upper right corner of the Google Docs window, below the “share” button)</li>
+<li>Replace the text in [brackets] describing content for the section with the indicator specific content.</li>
+<li>Look at the figures and develop text on how the patterns in the data might be informative to both the assessment and future advice for this stock.</li>
+<li>Modify the text within sections beginning and ending with text inside double curly-bracket “mustaches”. Anything in these sections will be harvested for the final report.</li>
+<li>Add citations! If you have a citation to add, put it at the end of the section in BibTeX format (.bib; e.g., <a href="https://www2.cs.arizona.edu/~collberg/Teaching/07.231/BibTeX/bibtex.html">here</a>).</li>
+<li>Add scientific names, but instead of italicizing, use asterisks before and after, e.g., (<em>Stenotomus chrysops</em>).</li>
+</ul>
+<p>Don’t:</p>
+<ul>
+<li>Alter the text within the mustaches! These are highly technical bookmarks that allow us to scrape the text from this google doc into a Rmarkdown (.rmd) file that will be rendered into both .pdf and .html reports.</li>
+<li>Add new sections. If you want to add a new section, let <a href="mailto:sgaichas@hydrascientificllc.com" class="email">sgaichas@hydrascientificllc.com</a> know and we can modify the template.rmd at a later date.</li>
+</ul>
+<p>{{READMEEnd}}</p>
+<div id="indicator-category" class="section level2 hasAnchor" number="1">
+<h2><span class="header-section-number">1</span> Indicator category<a href="#indicator-category" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>{{CategoryStart}}</p>
+<p>[Fill by hand using list of choices, needs decision by Council]</p>
+<p>{{CategoryEnd}}</p>
+</div>
+<div id="indicator-name" class="section level2 hasAnchor" number="2">
+<h2><span class="header-section-number">2</span> Indicator name<a href="#indicator-name" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Includes variable(s):</p>
+</div>
+<div id="indicator-brief-description" class="section level2 hasAnchor" number="3">
+<h2><span class="header-section-number">3</span> Indicator brief description<a href="#indicator-brief-description" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>{{DescriptionStart}}</p>
+<p>[2-3 sentences max plain language overview]</p>
+<p>{{DescriptionEnd}}</p>
+</div>
+<div id="indicator-visualization" class="section level2 hasAnchor" number="4">
+<h2><span class="header-section-number">4</span> Indicator visualization<a href="#indicator-visualization" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>{{VizDescriptionStart}}</p>
+<p>[What are key trends or patterns we see in the indicator visualization?]</p>
+<p>[Add a visualization using a link in markdown format !(caption text)[urllinktofig]]</p>
+<p>{{VizDescriptionEnd}}</p>
+</div>
+<div id="indicator-documentation" class="section level2 hasAnchor" number="5">
+<h2><span class="header-section-number">5</span> Indicator documentation<a href="#indicator-documentation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="are-indicators-available-for-others-to-use-data-downloadable" class="section level3 hasAnchor" number="5.1">
+<h3><span class="header-section-number">5.1</span> Are indicators available for others to use (data downloadable)?<a href="#are-indicators-available-for-others-to-use-data-downloadable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{DownloadableStart}}</p>
+<p>[Yes or No]</p>
+<p>{{DownloadableEnd}}</p>
+<div id="where-can-indicators-be-found" class="section level4 hasAnchor" number="5.1.1">
+<h4><span class="header-section-number">5.1.1</span> Where can indicators be found?<a href="#where-can-indicators-be-found" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{DataLinkStart}}</p>
+<p>[add link to indicator dataset, or state Unknown.]</p>
+<p>{{DataLinkEnd}}</p>
+</div>
+<div id="how-often-are-they-updated-are-future-updates-likely" class="section level4 hasAnchor" number="5.1.2">
+<h4><span class="header-section-number">5.1.2</span> How often are they updated? Are future updates likely?<a href="#how-often-are-they-updated-are-future-updates-likely" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{UpdateFreqStart}}</p>
+<p>[Add frequency of updates to date and speculate on continuation of the indicator, or state Unknown.]</p>
+<p>{{UpdateFreqEnd}}</p>
+</div>
+<div id="who-is-the-contact" class="section level4 hasAnchor" number="5.1.3">
+<h4><span class="header-section-number">5.1.3</span> Who is the contact?<a href="#who-is-the-contact" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{POCStart}}</p>
+<p>[add contact info for indicator data, or state Unknown.]</p>
+<p>{{POCEnd}}</p>
+</div>
+</div>
+<div id="gather-indicator-statistics" class="section level3 hasAnchor" number="5.2">
+<h3><span class="header-section-number">5.2</span> Gather indicator statistics<a href="#gather-indicator-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="units" class="section level4 hasAnchor" number="5.2.1">
+<h4><span class="header-section-number">5.2.1</span> Units<a href="#units" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{UnitsStart}}</p>
+<p>[what are the specific units of each indicator in the dataset, or state Unknown.]</p>
+<p>{{UnitsEnd}}</p>
+</div>
+<div id="length-of-time-series-start-and-end-date-periodicity" class="section level4 hasAnchor" number="5.2.2">
+<h4><span class="header-section-number">5.2.2</span> Length of time series, start and end date, periodicity<a href="#length-of-time-series-start-and-end-date-periodicity" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{TSlengthStart}}</p>
+<p>[What is the temporal scale of the indicator? Add specific begin and end years, count total years and count missing years, or state Unknown.]</p>
+<p>{{TSlengthEnd}}</p>
+</div>
+<div id="spatial-location-scale-and-extent" class="section level4 hasAnchor" number="5.2.3">
+<h4><span class="header-section-number">5.2.3</span> Spatial location, scale and extent<a href="#spatial-location-scale-and-extent" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{SpatialStart}}</p>
+<p>[What is the spatial scale of the indicator? Add specifics if available (lat/long or state boundaries, etc.), or state Unknown.]</p>
+<p>{{SpatialEnd}}</p>
+</div>
+<div id="management-scale-all-species-fmp-level-species-level-can-it-be-aggregated-or-separated-to-different-scales" class="section level4 hasAnchor" number="5.2.4">
+<h4><span class="header-section-number">5.2.4</span> Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?<a href="#management-scale-all-species-fmp-level-species-level-can-it-be-aggregated-or-separated-to-different-scales" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{MgtScaleStart}}</p>
+<p>[Classify by hand, note gridded data if available could be applied to different species ranges, or state Unknown.]</p>
+<p>{{MgtScaleEnd}}</p>
+</div>
+<div id="uncertainty-metrics" class="section level4 hasAnchor" number="5.2.5">
+<h4><span class="header-section-number">5.2.5</span> Uncertainty metrics<a href="#uncertainty-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{UncertaintyStart}}</p>
+<p>[Yes or no. Are uncertainty metrics included for the indicator (e.g. SD, SE, CI?), if so which ones?]</p>
+<p>{{UncertaintyEnd}}</p>
+</div>
+</div>
+<div id="are-methods-clearly-documented-to-obtain-source-data-and-calculate-indicators" class="section level3 hasAnchor" number="5.3">
+<h3><span class="header-section-number">5.3</span> Are methods clearly documented to obtain source data and calculate indicators?<a href="#are-methods-clearly-documented-to-obtain-source-data-and-calculate-indicators" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{MethodsStart}}</p>
+<p>[Yes or no. Are instructions or documentation for calculating the indicator included? Add citation or links]</p>
+<p>{{MethodsEnd}}</p>
+<div id="can-the-indicator-be-calculated-from-current-documentation" class="section level4 hasAnchor" number="5.3.1">
+<h4><span class="header-section-number">5.3.1</span> Can the indicator be calculated from current documentation?<a href="#can-the-indicator-be-calculated-from-current-documentation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{CanCalcStart}}</p>
+<p>[Yes or no. Briefly state what is missing if no.]</p>
+<p>{{CanCalcEnd}}</p>
+</div>
+<div id="is-code-publicly-available-up-to-date" class="section level4 hasAnchor" number="5.3.2">
+<h4><span class="header-section-number">5.3.2</span> Is code publicly available? up to date?<a href="#is-code-publicly-available-up-to-date" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{CodeAvailStart}}</p>
+<p>[Yes or no. Link to indicator calculation code, note most recent update]</p>
+<p>{{CodeAvailEnd}}</p>
+</div>
+<div id="have-methods-changed-over-time" class="section level4 hasAnchor" number="5.3.3">
+<h4><span class="header-section-number">5.3.3</span> Have methods changed over time?<a href="#have-methods-changed-over-time" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{MethodChangeStart}}</p>
+<p>[Record any changes in indicator methodology, or state Unknown.]</p>
+<p>{{MethodChangeEnd}}</p>
+</div>
+</div>
+<div id="are-indicator-underlying-source-data-linked-or-easy-to-find" class="section level3 hasAnchor" number="5.4">
+<h3><span class="header-section-number">5.4</span> Are indicator underlying source data linked or easy to find?<a href="#are-indicator-underlying-source-data-linked-or-easy-to-find" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{SourceDataAvailStart}}</p>
+<p>[Yes or no. Include link to source data (may be separate from indicator data)]</p>
+<p>{{SourceDataAvailEnd}}</p>
+<div id="where-are-source-data-stored" class="section level4 hasAnchor" number="5.4.1">
+<h4><span class="header-section-number">5.4.1</span> Where are source data stored?<a href="#where-are-source-data-stored" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{SourceDataStoreStart}}</p>
+<p>[Location of indicator source data (may be separate from indicator data), or state Unknown.]</p>
+<p>{{SourceDataStoreEnd}}</p>
+</div>
+<div id="howby-whom-are-source-data-updated-are-future-updates-likely" class="section level4 hasAnchor" number="5.4.2">
+<h4><span class="header-section-number">5.4.2</span> How/by whom are source data updated? Are future updates likely?<a href="#howby-whom-are-source-data-updated-are-future-updates-likely" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{SourceDataWhoUpdatesStart}}</p>
+<p>[Agency and individuals responsible for source data (may be separate from indicator data), or state Unknown.]</p>
+<p>{{SourceDataWhoUpdatseEnd}}</p>
+</div>
+<div id="how-often-are-they-updated" class="section level4 hasAnchor" number="5.4.3">
+<h4><span class="header-section-number">5.4.3</span> How often are they updated?<a href="#how-often-are-they-updated" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>{{SourceDataUpdateFreqStart}}</p>
+<p>[Record frequency of updates, or state Unknown.]</p>
+<p>{{SourceDataUpdateFreqEnd}}</p>
+</div>
+</div>
+</div>
+<div id="indicator-analysistesting-or-history-of-use" class="section level2 hasAnchor" number="6">
+<h2><span class="header-section-number">6</span> Indicator analysis/testing or history of use<a href="#indicator-analysistesting-or-history-of-use" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-decision-or-advice-processes-are-the-indicators-currently-used-in" class="section level3 hasAnchor" number="6.1">
+<h3><span class="header-section-number">6.1</span> What decision or advice processes are the indicators currently used in?<a href="#what-decision-or-advice-processes-are-the-indicators-currently-used-in" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{DecisionStart}}</p>
+<p>[List details of each process and how the indicator is used. If a current Council process, select the list of management actions/processes using exact keywords]</p>
+<p>{{DecisionEnd}}</p>
+</div>
+<div id="what-implications-of-the-indicators-are-currently-listed" class="section level3 hasAnchor" number="6.2">
+<h3><span class="header-section-number">6.2</span> What implications of the indicators are currently listed?<a href="#what-implications-of-the-indicators-are-currently-listed" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{ImplicationsStart}}</p>
+<p>[List the implications of the indicator trends/status/pattern in its current use context]</p>
+<p>{{ImplicationsEnd}}</p>
+</div>
+<div id="do-target-limit-or-threshold-values-already-exist-for-the-indicator" class="section level3 hasAnchor" number="6.3">
+<h3><span class="header-section-number">6.3</span> Do target, limit, or threshold values already exist for the indicator?<a href="#do-target-limit-or-threshold-values-already-exist-for-the-indicator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{RefptsStart}}</p>
+<p>[Yes or no. If yes, specifcally what are they?]</p>
+<p>{{RefptsEnd}}</p>
+</div>
+<div id="have-the-indicators-been-tested-to-ensure-they-respond-proportionally-to-a-change-in-the-underlying-process" class="section level3 hasAnchor" number="6.4">
+<h3><span class="header-section-number">6.4</span> Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?<a href="#have-the-indicators-been-tested-to-ensure-they-respond-proportionally-to-a-change-in-the-underlying-process" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{TestedStart}}</p>
+<p>[Yes or no. If yes, briefly describe and add citations or links to analyses or previous experience using the indicator]</p>
+<p>{{TetstedEnd}}</p>
+</div>
+<div id="are-the-indicators-sensitive-to-a-small-change-in-the-process-or-what-is-the-threshold-of-change-that-is-detectable" class="section level3 hasAnchor" number="6.5">
+<h3><span class="header-section-number">6.5</span> Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?<a href="#are-the-indicators-sensitive-to-a-small-change-in-the-process-or-what-is-the-threshold-of-change-that-is-detectable" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{SensitiveStart}}</p>
+<p>[Yes or no if the answer was yes to testing above. Otherwise, state Unknown.]</p>
+<p>{{SensitiveEnd}}</p>
+</div>
+<div id="is-there-a-time-lag-between-the-process-change-and-the-indicator-change-how-long" class="section level3 hasAnchor" number="6.6">
+<h3><span class="header-section-number">6.6</span> Is there a time lag between the process change and the indicator change? How long?<a href="#is-there-a-time-lag-between-the-process-change-and-the-indicator-change-how-long" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{TimeLagStart}}</p>
+<p>[Yes or no if the answer was yes to testing above. Otherwise, state Unknown.]</p>
+<p>{{TimeLagEnd}}</p>
+</div>
+</div>
+<div id="comments" class="section level2 hasAnchor" number="7">
+<h2><span class="header-section-number">7</span> Comments<a href="#comments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="additional-potential-links-to-management-in-addition-to-uses-listed-above" class="section level3 hasAnchor" number="7.1">
+<h3><span class="header-section-number">7.1</span> Additional potential links to management in addition to uses listed above<a href="#additional-potential-links-to-management-in-addition-to-uses-listed-above" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{MgtPotentialStart}}</p>
+<p>[Select from list of management processes/actions using exact keywords]</p>
+<p>{{MgtPotentialEnd}}</p>
+</div>
+<div id="what-additional-work-would-be-needed-for-the-council-to-use-the-indicator" class="section level3 hasAnchor" number="7.2">
+<h3><span class="header-section-number">7.2</span> What additional work would be needed for the Council to use the indicator?<a href="#what-additional-work-would-be-needed-for-the-council-to-use-the-indicator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{AdditionalWorkStart}}</p>
+<p>[List current gaps in the indicator given the current or potentail uses listed above, what resources are needed?]</p>
+<p>{{AdditionalWorkEnd}}</p>
+</div>
+<div id="what-issues-are-caused-if-there-is-a-gap-or-delay-in-data-underlying-the-indicator" class="section level3 hasAnchor" number="7.3">
+<h3><span class="header-section-number">7.3</span> What issues are caused if there is a gap or delay in data underlying the indicator<a href="#what-issues-are-caused-if-there-is-a-gap-or-delay-in-data-underlying-the-indicator" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>{{DataDelayStart}}</p>
+<p>[Link to management process/actions and their requirements]</p>
+<p>{{DataDelayEnd}}</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": "https://mafmc.github.io/SMARTindicatorsData/%s",
+    "text": "Edit"
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": null,
+  "search": false,
+  "toc": {
+    "collapse": "section"
+  },
+  "toolbar": {
+    "position": "static"
+  }
+});
+});
+</script>
+
+</body>
+
+</html>

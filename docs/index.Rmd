@@ -56,8 +56,23 @@ good_pages <- data.frame(URL = all_pages[!all_pages %in% c(draft_pages, bad_page
                     Dataset %in% ecodatasets) |>
       dplyr::select(Indicator) |>
       dplyr::mutate(indicator_name = gsub("[() ]", "-", Indicator))
+    
+    #unfiltered soe/ecodata indicators
+    soelist <- catalogdat |>
+      dplyr::filter(Varname == "ecodata name") |>
+      dplyr::select(Indicator, Dataset = Value) |>
+      dplyr::distinct() |>
+      dplyr::select(Indicator) |>
+      dplyr::mutate(indicator_name = gsub("[() ]", "-", Indicator))
+    
+## Allow indicators not from ecodata
+moreinds <- good_pages |>
+  dplyr::filter(!indicator_name %in% soelist$indicator_name) |>
+  dplyr::mutate(Indicator = gsub("-", " ", indicator_name)) |>
+  dplyr::select(Indicator, indicator_name)
 
 clean_names <- templist |>
+  dplyr::bind_rows(moreinds) |>
   dplyr::mutate(`Available reports` = sprintf('<a href="https://mafmc.github.io/SMARTindicatorsData/%s.html" target="_blank">%s</a>', indicator_name, Indicator)) |>
   dplyr::filter(indicator_name %in% good_pages$indicator_name) |> 
   dplyr::arrange(Indicator) |>

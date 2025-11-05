@@ -5,8 +5,8 @@
 #'
 #' @param indicator_name Character string. An indicator name (e.g. "Phytoplankton")
 #' @param indicator_varname Character string. The variable name for indicators with multiple variables (e.g. "ANNUAL_PPD_MEDIAN"), defaults to all indicator variables, which can be a lot
-#' @param template Character string. The path to the desired template, defaults to "templates/SMART_template.rmd"
-#' @param output_dir Character string. The output directory for the compiled bookdown HTML document and supporting files. Default "docs" folder in current working directory
+#' @param template Character string. The path to the desired template, defaults to "templates/SMART_template_generic.rmd"
+#' @param output_dir Character string. The output directory for the compiled bookdown HTML document and supporting files. Default "drafts" folder in current working directory
 #' @param send_to_google_doc Logical. Defaults to TRUE. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
 #' If FALSE, the template .Rmd file will be generated in the directory output_dir/ folder
 #' @param overwrite Logical. Defaults to FALSE. If TRUE, output will overwrite any existing template or google doc for chosen species.
@@ -24,7 +24,7 @@
 create_template_generic <- function(indicator_name,
                             indicator_varname = NULL,
                             template = here::here("templates/SMART_template_generic.rmd"),
-                            output_dir = here::here("docs"),
+                            output_dir = here::here("drafts"),
                             send_to_google_doc = TRUE,
                             overwrite = FALSE) {
 

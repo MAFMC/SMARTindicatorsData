@@ -1,0 +1,220 @@
+---
+title:
+    | 
+    | SMART Indicator Report: TestGdocWorkflow2
+    | 
+#date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: ""
+always_allow_html: yes
+bibliography: smartind.bib
+link-citations: true
+site: bookdown::bookdown_site
+biblio-style: apalike
+github-repo: MAFMC/SMARTindicatorsData
+header-includes:
+  \\usepackage{array}
+favicon: favicon.ico
+---
+
+```{r, include = FALSE}
+## Load packages
+# library(tidyverse)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(ecodata)
+library(plotly)
+library(DT)
+library(jpeg)
+library(patchwork)
+library(ggthemes)
+library(here)
+library(zoo)
+library(gt)
+library(kableExtra)
+library(ggiraph)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', eval.after = 'fig.cap')
+
+## Read in needed data
+
+
+## Put all mustaches here
+indicator_name <- "TestGdocWorkflow2"
+indicator_varname <- "ALL"
+
+# cc_name <- "{{CC_NAME}}"
+# common_name <- "{{COMMON_NAME}}"
+# interactive <-  ifelse(knitr::is_latex_output(), F,T)
+# 
+
+## Pull out text and stats for indicator_name
+
+  # check for stuff that needs escaping in indicator_name and escape it so detection works
+  esc_indicator_name <- stringr::str_escape(indicator_name)
+
+
+
+```
+
+
+## Indicator category
+
+
+TESTING!!! This is a workflow test
+
+
+## Indicator name
+
+`r cat(indicator_name)`
+
+Includes variable(s): `r cat(indicator_varname)`
+
+## Indicator brief description
+
+
+This indicator will tell me whether my code works if I can get it to make an Rmd from here.
+
+
+## Indicator visualization
+
+
+Testing always reveals useful patterns like major mistakes.
+![Will this cool hydra scientific logo get picked up and carried through?](https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_hori_c.png)
+
+
+
+
+## Indicator documentation
+
+### Are indicators available for others to use (data downloadable)?
+
+
+Yes
+
+
+#### Where can indicators be found?
+
+
+Test data are everywhere, here is a link: https://testlink.org/ 
+
+
+#### How often are they updated? Are future updates likely?
+
+
+I plan to continue testing until stuff works! I break things often so workflow test updates are highly likely.  
+
+
+#### Who is the contact?
+
+
+Me! sgaichas@hydrascientificllc.com 
+
+
+### Gather indicator statistics
+
+#### Units
+
+
+Unknwon
+
+
+#### Length of time series, start and end date, periodicity
+
+
+Testing is on the scale of hours and is done whenever there is a change.
+
+
+#### Spatial location, scale and extent
+
+
+Unknown.
+
+
+#### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
+
+
+Project Scale!
+
+
+#### Uncertainty metrics
+
+
+No.
+
+
+### Are methods clearly documented to obtain source data and calculate indicators?
+
+
+Yes. See https://github.com/MAFMC/SMARTindicatorsData 
+
+
+#### Can the indicator be calculated from current documentation?
+
+
+Yes.
+
+
+#### Is code publicly available? up to date?
+
+
+Yes. see github repo above. Just updated here: https://github.com/MAFMC/SMARTindicatorsData/blob/main/R/create_template_generic.R and here: https://github.com/MAFMC/SMARTindicatorsData/blob/main/templates/SMART_template_generic.rmd .
+
+
+#### Have methods changed over time?
+
+
+I modified methods in ECSA and will keep modifying them till this works.
+
+
+### Are indicator underlying source data linked or easy to find?
+
+
+No, I’m making this up.
+
+
+#### Where are source data stored?
+
+
+Unknown.
+
+
+#### How/by whom are source data updated? Are future updates likely?
+
+### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
+
+
+Yes, this workflow is likely sensitive to small changes in the code. Will find out.
+
+
+### Is there a time lag between the process change and the indicator change? How long?
+
+
+Unknown.
+
+
+
+## Comments
+
+### Additional potential links to management in addition to uses listed above
+
+
+Exact keyword
+
+
+
+### What additional work would be needed for the Council to use the indicator? 
+
+
+Way more documentation of how to use this, assuming I get it to work in the first place
+
+
+
+### What issues are caused if there is a gap or delay in data underlying the indicator
+
+
+The SMART catalog won’t be updated.
+
+
+
+
