@@ -1,0 +1,334 @@
+---
+title:
+    | 
+    | SMART Indicator Report: {{INDICATOR_NAME}}
+    | 
+#date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: ""
+always_allow_html: yes
+bibliography: smartind.bib
+link-citations: true
+site: bookdown::bookdown_site
+biblio-style: apalike
+github-repo: MAFMC/SMARTindicatorsData
+header-includes:
+  \\usepackage{array}
+favicon: favicon.ico
+---
+
+```{r, include = FALSE}
+## Load packages
+# library(tidyverse)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(ecodata)
+library(plotly)
+library(DT)
+library(jpeg)
+library(patchwork)
+library(ggthemes)
+library(here)
+library(zoo)
+library(gt)
+library(kableExtra)
+library(ggiraph)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', eval.after = 'fig.cap')
+
+## Read in needed data
+
+
+## Put all mustaches here
+indicator_name <- "{{INDICATOR_NAME}}"
+indicator_varname <- "{{INDICATOR_VAR}}"
+
+# cc_name <- "{{CC_NAME}}"
+# common_name <- "{{COMMON_NAME}}"
+# interactive <-  ifelse(knitr::is_latex_output(), F,T)
+# 
+
+## Pull out text and stats for indicator_name
+
+  # check for stuff that needs escaping in indicator_name and escape it so detection works
+  esc_indicator_name <- stringr::str_escape(indicator_name)
+
+
+
+```
+
+{{READMEStart}}
+
+Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. This document requires hand editing to fill some or all sections. This workflow is inspired by the [Ecosystem Context for Stock Advice](https://github.com/NOAA-EDAB/ECSA/tree/master?tab=readme-ov-file#developing-an-ecsa-project) product workflow. You are looking at an intermediate draft that still needs some work. Check out github.com/noaa-edab/ecsa for more information on the build process that moves raw data -> stock-name_draft.rmd/Google Doc template -> stock-name.rmd/.html/.pdf final series of documents. 
+
+Do:
+
+* Change editing mode to "Suggesting" (upper right corner of the Google Docs window, below the "share" button)
+* Replace the text in [brackets] describing content for the section with the indicator specific content.
+* Look at the figures and develop text on how the patterns in the data might be informative to both the assessment and future advice for this stock. 
+* Modify the text within sections beginning and ending with text inside double curly-bracket "mustaches". Anything in these sections will be harvested for the final report. 
+* Add citations! If you have a citation to add, put it at the end of the section in BibTeX format (.bib; e.g., [here](https://www2.cs.arizona.edu/~collberg/Teaching/07.231/BibTeX/bibtex.html)). 
+* Add scientific names, but instead of italicizing, use asterisks before and after, e.g., (*Stenotomus chrysops*).
+
+Don't:
+
+* Alter the text within the mustaches! These are highly technical bookmarks that allow us to scrape the text from this google doc into a Rmarkdown (.rmd) file that will be rendered into both .pdf and .html reports. 
+* Add new sections. If you want to add a new section, let sgaichas@hydrascientificllc.com know and we can modify the template.rmd at a later date.
+
+{{READMEEnd}}
+
+
+## Indicator category
+
+{{CategoryStart}}
+
+[Fill by hand using list of choices, needs decision by Council]
+
+{{CategoryEnd}}
+
+## Indicator name
+
+`r cat(indicator_name)`
+
+Includes variable(s): `r cat(indicator_varname)`
+
+## Indicator brief description
+
+{{DescriptionStart}}
+
+[2-3 sentences max plain language overview]
+
+{{DescriptionEnd}}
+
+## Indicator visualization
+
+{{VizDescriptionStart}}
+
+[What are key trends or patterns we see in the indicator visualization?]
+
+[Add a visualization using a link in markdown format !(caption text)[urllinktofig]]
+
+{{VizDescriptionEnd}}
+
+## Indicator documentation
+
+### Are indicators available for others to use (data downloadable)?
+
+{{DownloadableStart}}
+
+[Yes or No]
+
+{{DownloadableEnd}}
+
+#### Where can indicators be found?
+
+{{DataLinkStart}}
+
+[add link to indicator dataset, or state Unknown.]
+
+{{DataLinkEnd}}
+
+#### How often are they updated? Are future updates likely?
+
+{{UpdateFreqStart}}
+
+[Add frequency of updates to date and speculate on continuation of the indicator, or state Unknown.]
+
+{{UpdateFreqEnd}}
+
+#### Who is the contact?
+
+{{POCStart}}
+
+[add contact info for indicator data, or state Unknown.]
+
+{{POCEnd}}
+
+### Gather indicator statistics
+
+#### Units
+
+{{UnitsStart}}
+
+[what are the specific units of each indicator in the dataset, or state Unknown.]
+
+{{UnitsEnd}}
+
+#### Length of time series, start and end date, periodicity
+
+{{TSlengthStart}}
+
+[What is the temporal scale of the indicator? Add specific begin and end years, count total years and count missing years, or state Unknown.]
+
+{{TSlengthEnd}}
+
+#### Spatial location, scale and extent
+
+{{SpatialStart}}
+
+[What is the spatial scale of the indicator? Add specifics if available (lat/long or state boundaries, etc.), or state Unknown.]
+
+{{SpatialEnd}}
+
+#### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
+
+{{MgtScaleStart}}
+
+[Classify by hand, note gridded data if available could be applied to different species ranges, or state Unknown.]
+
+{{MgtScaleEnd}}
+
+#### Uncertainty metrics
+
+{{UncertaintyStart}}
+
+[Yes or no. Are uncertainty metrics included for the indicator (e.g. SD, SE, CI?), if so which ones?]
+
+{{UncertaintyEnd}}
+
+### Are methods clearly documented to obtain source data and calculate indicators?
+
+{{MethodsStart}}
+
+[Yes or no. Are instructions or documentation for calculating the indicator included? Add citation or links]
+
+{{MethodsEnd}}
+
+#### Can the indicator be calculated from current documentation?
+
+{{CanCalcStart}}
+
+[Yes or no. Briefly state what is missing if no.]
+
+{{CanCalcEnd}}
+
+#### Is code publicly available? up to date?
+
+{{CodeAvailStart}}
+
+[Yes or no. Link to indicator calculation code, note most recent update]
+
+{{CodeAvailEnd}}
+
+#### Have methods changed over time?
+
+{{MethodChangeStart}}
+
+[Record any changes in indicator methodology, or state Unknown.]
+
+{{MethodChangeEnd}}
+
+### Are indicator underlying source data linked or easy to find?
+
+{{SourceDataAvailStart}}
+
+[Yes or no. Include link to source data (may be separate from indicator data)]
+
+{{SourceDataAvailEnd}}
+
+#### Where are source data stored?
+
+{{SourceDataStoreStart}}
+
+[Location of indicator source data (may be separate from indicator data), or state Unknown.]
+
+{{SourceDataStoreEnd}}
+
+#### How/by whom are source data updated? Are future updates likely?
+
+{{SourceDataWhoUpdatesStart}}
+
+[Agency and individuals responsible for source data (may be separate from indicator data), or state Unknown.]
+
+{{SourceDataWhoUpdatseEnd}}
+
+#### How often are they updated?
+
+{{SourceDataUpdateFreqStart}}
+
+[Record frequency of updates, or state Unknown.]
+
+{{SourceDataUpdateFreqEnd}}
+
+
+## Indicator analysis/testing or history of use
+
+### What decision or advice processes are the indicators currently used in?
+
+{{DecisionStart}}
+
+[List details of each process and how the indicator is used. If a current Council process, select the list of management actions/processes using exact keywords]
+
+{{DecisionEnd}}
+
+### What implications of the indicators are currently listed?
+
+{{ImplicationsStart}}
+
+[List the implications of the indicator trends/status/pattern in its current use context]
+
+{{ImplicationsEnd}}
+
+### Do target, limit,  or threshold values already exist for the indicator?
+
+{{RefptsStart}}
+
+[Yes or no. If yes, specifcally what are they?]
+
+{{RefptsEnd}}
+
+### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
+
+{{TestedStart}}
+
+[Yes or no. If yes, briefly describe and add citations or links to analyses or previous experience using the indicator]
+
+{{TetstedEnd}}
+
+### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
+
+{{SensitiveStart}}
+
+[Yes or no if the answer was yes to testing above. Otherwise, state Unknown.]
+
+{{SensitiveEnd}}
+
+### Is there a time lag between the process change and the indicator change? How long?
+
+{{TimeLagStart}}
+
+[Yes or no if the answer was yes to testing above. Otherwise, state Unknown.]
+
+{{TimeLagEnd}}
+
+
+## Comments
+
+### Additional potential links to management in addition to uses listed above
+
+{{MgtPotentialStart}}
+
+[Select from list of management processes/actions using exact keywords]
+
+{{MgtPotentialEnd}}
+
+
+### What additional work would be needed for the Council to use the indicator? 
+
+{{AdditionalWorkStart}}
+
+[List current gaps in the indicator given the current or potentail uses listed above, what resources are needed?]
+
+{{AdditionalWorkEnd}}
+
+
+### What issues are caused if there is a gap or delay in data underlying the indicator
+
+{{DataDelayStart}}
+
+[Link to management process/actions and their requirements]
+
+{{DataDelayEnd}}
+
+
+
