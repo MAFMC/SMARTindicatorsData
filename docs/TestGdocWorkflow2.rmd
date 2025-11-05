@@ -1,18 +1,13 @@
 ---
-title:
-    | 
-    | SMART Indicator Report: TestGdocWorkflow2
-    | 
-#date: "`r format(Sys.time(), '%B %d, %Y')`"
-author: ""
-always_allow_html: yes
+title: "| SMART Indicator Report: TestGdocWorkflow2\n| \n"
+author: ''
+always_allow_html: true
 bibliography: smartind.bib
 link-citations: true
 site: bookdown::bookdown_site
 biblio-style: apalike
 github-repo: MAFMC/SMARTindicatorsData
-header-includes:
-  \\usepackage{array}
+header-includes: \\usepackage{array}
 favicon: favicon.ico
 ---
 
@@ -66,9 +61,9 @@ TESTING!!! This is a workflow test
 
 ## Indicator name
 
-`r cat(indicator_name)`
+`r paste(indicator_name)`
 
-Includes variable(s): `r cat(indicator_varname)`
+Includes variable(s): `r paste(indicator_varname)`
 
 ## Indicator brief description
 

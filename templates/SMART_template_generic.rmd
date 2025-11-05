@@ -59,7 +59,7 @@ indicator_varname <- "{{INDICATOR_VAR}}"
 
 {{READMEStart}}
 
-Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. This document requires hand editing to fill some or all sections. This workflow is inspired by the [Ecosystem Context for Stock Advice](https://github.com/NOAA-EDAB/ECSA/tree/master?tab=readme-ov-file#developing-an-ecsa-project) product workflow. You are looking at an intermediate draft that still needs some work. Check out github.com/noaa-edab/ecsa for more information on the build process that moves raw data -> stock-name_draft.rmd/Google Doc template -> stock-name.rmd/.html/.pdf final series of documents. 
+Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. This document requires hand editing to fill some or all sections. This workflow is inspired by the [Ecosystem Context for Stock Advice](https://github.com/NOAA-EDAB/ECSA/tree/master?tab=readme-ov-file#developing-an-ecsa-project) product workflow. You are looking at an intermediate draft that still needs some work.  
 
 Do:
 
@@ -69,6 +69,7 @@ Do:
 * Modify the text within sections beginning and ending with text inside double curly-bracket "mustaches". Anything in these sections will be harvested for the final report. 
 * Add citations! If you have a citation to add, put it at the end of the section in BibTeX format (.bib; e.g., [here](https://www2.cs.arizona.edu/~collberg/Teaching/07.231/BibTeX/bibtex.html)). 
 * Add scientific names, but instead of italicizing, use asterisks before and after, e.g., (*Stenotomus chrysops*).
+* Before reading back into an rmd, *all changes must be accepted*
 
 Don't:
 
@@ -88,9 +89,9 @@ Don't:
 
 ## Indicator name
 
-`r cat(indicator_name)`
+`r paste(indicator_name)`
 
-Includes variable(s): `r cat(indicator_varname)`
+Includes variable(s): `r paste(indicator_varname)`
 
 ## Indicator brief description
 
