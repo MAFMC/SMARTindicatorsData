@@ -89,7 +89,7 @@ Once templates are created for each indicator by either of the workflows above, 
 ```
 
 
-# Pubising the online report
+# Publising the online report
 
 As of November 2025, this process is manual. It will be automated once contents are finalized.
 
