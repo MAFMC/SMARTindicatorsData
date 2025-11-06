@@ -15,10 +15,11 @@ At present:
 4. A generic template `SMART_template_generic.rmd` can now be rendered to the drafts folder and to google doc using `create_template_generic` to hand-enter all fields for non-SOE indicators. 
 5. Once edited, the filled google doc for a particular indicator is pulled back into the full set of indicator rmds using `gdoc_to_filledrmd`.
 6. The function `renderall` calls `render_smartind` for any rmd file in docs to build the book. The `index.Rmd` file now includes SOE and non SOE indicators.
+7. Equivalent functions retrieving information from the current version of the ecodata [Technical Documentation](https://noaa-edab.github.io/tech-doc/) have been written to retrieve key methods attributes.
+
 
 To do:
 
-1. Equivalent functions retrieving information from the current version of the ecodata [Technical Documentation](https://noaa-edab.github.io/tech-doc/) will be written to retrieve key methods attributes.
 2. Stored methods datasets will be incorporated into `create_template` and the generic `SMART_template.rmd`.
 3. The SOE specific `create_template_SOE` function and template will be modified to write to google docs to allows data entry within the remaining specified fields (comments), then reads edited sections back into the final indicator template page
 4. Attributes from the final SMART template will be saved for each indicator in a comprehensive dataset that can be used for interactive browsing in a shiny app, to be developed in https://github.com/MAFMC/SMARTindicatorsDashboard 

@@ -42,11 +42,20 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', 
   ecodatadat <- readRDS(here::here("data-raw/ecodatadat.rds"))
 
   catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
+  
+  techdocdat <- readRDS(here::here("data-raw/techdocdat.rds"))
+  
+  # match tech doc names to catalog page links if they differ
+  techname <- techdocdat |>
+    dplyr::filter(Varname == "catalog link") |>
+    dplyr::select(IndicatorTD = Indicator, CatLink = Value) |>
+    dplyr::distinct()
 
   lookup <- catalogdat |>
     dplyr::filter(Varname == "ecodata name") |>
     dplyr::select(Indicator, Source, Dataset = Value) |>
-    dplyr::distinct()
+    dplyr::distinct() |>
+    dplyr::left_join(techname, by = c("Source" = "CatLink"))
 
 
 ## Put all mustaches here
