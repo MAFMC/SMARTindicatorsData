@@ -28,9 +28,72 @@ Ultimately, indicators from both workflows are combined into a large online book
 
 This SMART Indicator Reports online book is available as a resource, but each section is summarized into a dataset which can then be searched interactively using the SMART Indicators Dashboard shiny app (currently in development).
 
+To get all the functions described below, install the package either by cloning the repository and building locally, or directly from github using the `remotes` package:
+
+```{r, eval=FALSE}
+
+remotes::install_github("MAFMC/SMARTindicatorsData")
+
+```
+
+
 # SOE workflow
 
+The SOE's existing infrastructure us used to automate filling SMART indicator attributres. Initial functions gather information from online resources to build a dataset of indicator attributes. Subsequent functions use this dataset along with a template to build webpages with SMART attributes for each indicator. The workflow and functions are described below.
+
+## Collect SOE indicator attributes
+
+Functions used are `collect_ecodata_catalog_data()` and `collect_ecodata_indicator_stats()`. Each function defaults to collecting all available information for the full suite of SOE indicators, but can be run for individual indicators. 
+
+The function `collect_ecodata_catalog_data()` calls `scrape_ecodata_catalog()` which pulls indicator attributes from individual Catalog fields. 
+
+The function `collect_ecodata_indicator_stats()` calls `ecodata_indicator_stats()` to pull indicator attributes such as units, begin and end year, and number of years directly from the datasets. 
+
+The output of each of the `collect_` functions is saved to a dataset in the `data-raw` folder of this repository. 
+
+```{r}
+
+```
+
+
+## Create and fill SOE templates
+
+Functions used are `fill_indicator_temlates()` which calls `create_template_SOE()` and fills the template `SMART_template_SOE.rmd`. The `fill_indicator_templates()` function defaults to collecting all available information for the full suite of SOE indicators, but can be run for individual indicators.
+
+```{r}
+
+```
+
+
 # Other indicators workflow
+
+## Collect other indicator attributes
+
+Currently done the old fashioned way, by searching for other indicators and reading the documentation. 
+
+## Create and fill template
+
+However, this information can be entered into the template using a standardized google doc. The function `create_template_generic()` fills the template `SMART_template_generic.rmd` and then renders it to a google doc in the googel Project folder "Projects/MAFMC Indicators/IndicatorReport/". Indicator information is entered manually in the google doc, then pulled back into an rmarkdown document and integrated with all other indicators using the function `gdoc_to_filledrmd()`. The process is outlined in the workflow below.
+
+```{r}
+
+```
+
+
+# Build the SMART Indicator report
+
+Once templates are created for each indicator by either of the workflows above, the function `renderall()` is called to create .html files for each .rmd in the `docs` folder on this repository. It defaults to write only new .html files and not overwrite existing ones, but this can be changed with the argument `overwrite=TRUE`. If there are major changes to the content of templates, overwriting existing files is needed; otherwise if just adding a new indicator, this default saves considerable time.
+
+```{r}
+
+```
+
+
+# Pubising the online report
+
+As of November 2025, this process is manual. It will be automated once contents are finalized.
+
+For now, once all indicator pages are rendered to the `docs` folder, then the `index.Rmd` file should be re-knitted to capture any new pages in the table of contents. Then all changed files need to be pushed to github for the updates to appear on the web.
 
 
 
