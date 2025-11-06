@@ -1,26 +1,26 @@
-#' Scrape ecodata catalog page
+#' Scrape ecodata tech-doc page
 #'
-#' Pulls selected fields, paragraphs, and images from the NOAA-EDAB Indicator Catalog website
+#' Pulls selected fields, paragraphs, and images from the NOAA-EDAB Tech-doc website
 #' and returns a dataframe of the .
 #' Code had to be tailored to this website because not all fields come under standard headers.
 #'
-#'@param url The url of the catalog page to be scraped
+#'@param url The url of the tech-doc page to be scraped
 #'@param FieldList Optional, A character vector of fields to be scraped; must match spelling.
-#'The default FieldList is c("Description", "Data steward", "Data sources", "Data extraction",
-#'"Data analysis","catalog link")
+#'The default FieldList is c("Description", "Data steward", "Public availability statement",
+#' "Data sources", "Data extraction", "Data analysis","catalog link")
 #'
-#'@return a dataframe with variables from the FieldList and values from the catalog webpage. Columns:
+#'@return a dataframe with variables from the FieldList and values from the tech-doc webpage. Columns:
 #'\itemize{
-#'  \item{\code{Indicator}, name of the indicator extracted from catalog page title}
-#'  \item{\code{Source}, URL of the catalog page}
+#'  \item{\code{Indicator}, name of the indicator extracted from tech-doc page title}
+#'  \item{\code{Source}, URL of the tech-doc page}
 #'  \item{\code{Varname}, variable names corresponding to matches from the FieldList}
-#'  \item{\code{Value}, text for each variable name from the catalog page}
+#'  \item{\code{Value}, text for each variable name from the tech-doc page}
 #' }
 #'
 #'@examples
 #'  url <- "https://noaa-edab.github.io/tech-doc/cold_pool.html"
-#'  FieldList <- c("Description", "Data steward", "Data sources", "Data extraction",
-#'  "Data analysis", "catalog link")
+#'  FieldList <- c(""Description", "Data steward", "Public availability statement",
+#'  "Data sources", "Data extraction","Data analysis","catalog link")
 #'  scrape_ecodata_techdoc(url, FieldList)
 #'
 #'@export
@@ -28,8 +28,8 @@ scrape_ecodata_techdoc <- function(url, FieldList=NULL){
 
   # default FieldList for iterating with purrr:map
   if(is.null(FieldList)){
-  FieldList <- c("Description", "Data steward", "Data sources", "Data extraction",
-                 "Data analysis","catalog link")
+  FieldList <- c("Description", "Data steward", "Public availability statement",
+                 "Data sources", "Data extraction","Data analysis","catalog link")
   }
 
   # page to xml
@@ -111,6 +111,9 @@ scrape_ecodata_techdoc <- function(url, FieldList=NULL){
                                            )
     )
 
+  # add whether methods have changed
+  multmethods <- data.frame(matching_fields=NA, Varname = "MethodsChange", Value = Methodchange)
+  df <- dplyr::bind_rows(df, multmethods)
 
   #df <- df[-1]
 
