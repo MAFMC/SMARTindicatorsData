@@ -85,6 +85,8 @@ indicator_varname <- "{{INDICATOR_VAR}}"
       dplyr::filter(Indicator == indicator_varname)
   }
 
+  clean_techdoc <- techdocdat |>
+    dplyr::filter(Indicator == lookup$IndicatorTD[lookup$Indicator == indicator_name])
 
 ```
 
@@ -298,7 +300,7 @@ if (exists(paste0("plot_",dataset), where="package:ecodata", mode="function")) {
 
 ### Are indicators available for others to use (data downloadable)?
 
-```{r download}
+```{r download, results='asis'}
 
 if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
   cat("Yes", "\n")
@@ -311,7 +313,7 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 #### Where can indicators be found?
 
-```{r where}
+```{r where, results='asis'}
 
 if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
   cat("Data: https://noaa-edab.github.io/ecodata/index.html", "\n")
@@ -407,7 +409,7 @@ Indicator specifics:
 
 ### Are methods clearly documented to obtain source data and calculate indicators?
 
-```{r documented}
+```{r documented, results='asis'}
 
 if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
   cat("Yes", "\n")
@@ -419,31 +421,35 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 #### Can the indicator be calculated from current documentation?
 
-[Build link to Tech-doc, look for current and previous methods]
+`r clean_techdoc$Value[clean_techdoc$Varname %in% c("Data Extraction/Analysis", "Data Extraction", "Data extraction")]`
+
+`r clean_techdoc$Value[clean_techdoc$Varname %in% c("Data Analysis", "Data analysis")]`
 
 #### Is code publicly available? up to date?
 
-[Build link to Tech-doc, look for current and previous methods]
+[Requires judgement, enter by hand]
 
 #### Have methods changed over time?
 
-[Build link to Tech-doc, look for current and previous methods]
+`r clean_techdoc$Value[clean_techdoc$Varname=="MethodsChange"]`
 
 ### Are indicator underlying source data linked or easy to find?
 
-[Build link to Tech-doc, look for source, may require judgements]
+`r clean_techdoc$Value[clean_techdoc$Varname=="Public availability statement"]`
 
 #### Where are source data stored?
 
-[Build link to Tech-doc, look for source, may require judgement]
+`r clean_techdoc$Value[clean_techdoc$Varname%in% c("Data Sources", "Data sources")]`
 
 #### How/by whom are source data updated? Are future updates likely?
 
-[Build link to Tech-doc, look for source, may require judgement]
+`r clean_techdoc$Value[clean_techdoc$Varname=="Data steward"]`
+
+[likelihood of source data updates requires judgement, enter by hand]
 
 #### How often are they updated?
 
-[Build link to Tech-doc, look for source, may require judgement]
+[Update by hand, look for source, may require judgement]
 
 
 ## Indicator analysis/testing or history of use
