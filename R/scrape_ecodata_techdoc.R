@@ -7,7 +7,7 @@
 #'@param url The url of the tech-doc page to be scraped
 #'@param FieldList Optional, A character vector of fields to be scraped; must match spelling.
 #'The default FieldList is c("Description", "Data steward", "Public availability statement",
-#' "Data sources", "Data extraction", "Data analysis","catalog link")
+#' "Data sources", "Data extraction", "Data analysis","catalog link","catalog page")
 #'
 #'@return a dataframe with variables from the FieldList and values from the tech-doc webpage. Columns:
 #'\itemize{
@@ -19,8 +19,8 @@
 #'
 #'@examples
 #'  url <- "https://noaa-edab.github.io/tech-doc/cold_pool.html"
-#'  FieldList <- c(""Description", "Data steward", "Public availability statement",
-#'  "Data sources", "Data extraction","Data analysis","catalog link")
+#'  FieldList <- c("Description", "Data steward", "Public availability statement",
+#'  "Data sources", "Data extraction","Data analysis","catalog link", "catalog page")
 #'  scrape_ecodata_techdoc(url, FieldList)
 #'
 #'@export
@@ -29,7 +29,8 @@ scrape_ecodata_techdoc <- function(url, FieldList=NULL){
   # default FieldList for iterating with purrr:map
   if(is.null(FieldList)){
   FieldList <- c("Description", "Data steward", "Public availability statement",
-                 "Data sources", "Data extraction","Data analysis","catalog link")
+                 "Data sources", "Data extraction","Data analysis","catalog link",
+                 "catalog page")
   }
 
   # page to xml
@@ -103,6 +104,10 @@ scrape_ecodata_techdoc <- function(url, FieldList=NULL){
   # three patterns: variable name : value
   # and section number variable name with value from fieldtext
   # and variable name with value as https string
+
+  # catalog link is not consistent sometimes it is catalog page
+  catpattern <-  paste0("(?<=", "link", "|", "page", ")\ *(.*)")
+
   df <- as.data.frame(matching_fields) |>
     dplyr::mutate(Varname = dplyr::case_when(stringr::str_detect(matching_fields, ": ") ~ stringr::str_extract(matching_fields, "[^:]+"),
                                              stringr::str_detect(matching_fields, "^[0-9]+") ~ stringr::str_extract(matching_fields,"[^0-9.0-9 ].*"),
@@ -111,7 +116,7 @@ scrape_ecodata_techdoc <- function(url, FieldList=NULL){
                   ) |>
     dplyr::mutate(Value = dplyr::case_when(stringr::str_detect(matching_fields, ": ") ~ stringr::str_trim(stringr::str_extract(matching_fields, "(?<=:)\ *(.*)*")),
                                            stringr::str_detect(matching_fields, "^[0-9]+") ~ h3fieldvec,
-                                           stringr::str_detect(matching_fields, "catalog") ~ stringr::str_trim(stringr::str_extract(matching_fields, "(?<=link)\ *(.*)"))
+                                           stringr::str_detect(matching_fields, "catalog") ~ stringr::str_trim(stringr::str_extract(matching_fields, catpattern))
                                            )
     )
 

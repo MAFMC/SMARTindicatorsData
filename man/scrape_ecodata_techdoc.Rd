@@ -11,7 +11,7 @@ scrape_ecodata_techdoc(url, FieldList = NULL)
 
 \item{FieldList}{Optional, A character vector of fields to be scraped; must match spelling.
 The default FieldList is c("Description", "Data steward", "Public availability statement",
-"Data sources", "Data extraction", "Data analysis","catalog link")}
+"Data sources", "Data extraction", "Data analysis","catalog link","catalog page")}
 }
 \value{
 a dataframe with variables from the FieldList and values from the tech-doc webpage. Columns:
@@ -26,4 +26,11 @@ a dataframe with variables from the FieldList and values from the tech-doc webpa
 Pulls selected fields, paragraphs, and images from the NOAA-EDAB Tech-doc website
 and returns a dataframe of the .
 Code had to be tailored to this website because not all fields come under standard headers.
+}
+\examples{
+ url <- "https://noaa-edab.github.io/tech-doc/cold_pool.html"
+ FieldList <- c("Description", "Data steward", "Public availability statement",
+ "Data sources", "Data extraction","Data analysis","catalog link", "catalog page")
+ scrape_ecodata_techdoc(url, FieldList)
+
 }
