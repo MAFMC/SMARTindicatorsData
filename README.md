@@ -16,7 +16,7 @@ At present:
 5. Once edited, the filled google doc for a particular indicator is pulled back into the full set of indicator rmds using `gdoc_to_filledrmd`.
 6. The function `renderall` calls `render_smartind` for any rmd file in docs to build the book. The `index.Rmd` file now includes SOE and non SOE indicators.
 7. Equivalent functions retrieving information from the current version of the ecodata [Technical Documentation](https://noaa-edab.github.io/tech-doc/) have been written to retrieve key methods attributes.
-8. Stored methods datasets will be incorporated into `create_template_SOE` and `SMART_template_SOE.rmd`.
+8. Stored methods datasets have been incorporated into `create_template_SOE` and `SMART_template_SOE.rmd`.
 
 
 To do:

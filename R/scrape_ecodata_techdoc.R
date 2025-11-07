@@ -79,6 +79,10 @@ scrape_ecodata_techdoc <- function(url, FieldList=NULL){
   # everything but the old methods goes forward
   matching_fields <- allmatching_fields[!(allmatching_fields %in% h3fieldsOld)]
 
+  # filter matching fields that aren't headers
+  # if text matching h3fields current is found in a paragraph, dont include it in matching fields
+  matching_fields <- grep(stringr::regex(paste(c(h3fieldsCurr,FieldList), collapse = "|")), matching_fields, value = TRUE)
+
   # capture text sections following an h3 field
   fieldind <- which(stringr::str_detect(fields, paste(matching_fields, collapse = "|")))
   headind <- which(stringr::str_detect(fields, paste(h3fieldsCurr, collapse = "|")))
@@ -122,6 +126,7 @@ scrape_ecodata_techdoc <- function(url, FieldList=NULL){
     dplyr::mutate(Indicator = name,
                   Source = url) |>
     dplyr::select(Indicator, Source, Varname, Value) |>
+    dplyr::filter(!is.na(Varname)) |>
     tibble::as_tibble()
 
   return(result)
