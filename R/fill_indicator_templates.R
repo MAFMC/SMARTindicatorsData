@@ -42,7 +42,7 @@ fill_indicator_templates <- function(indlist = NULL, overwrite = FALSE){
   # make filenames with no spaces for the Rmds?
 
   # create templates and save to outdir with filenames
-  if(overwrite) purrr::map(templist, ~create_template(., overwrite = TRUE))
+  if(overwrite) purrr::map(templist, ~create_template_SOE(., overwrite = TRUE))
   if(!overwrite) purrr::map(templist, create_template)
 
 }

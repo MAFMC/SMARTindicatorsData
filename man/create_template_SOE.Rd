@@ -2,7 +2,7 @@
 % Please edit documentation in R/create_template_SOE.R
 \name{create_template_SOE}
 \alias{create_template_SOE}
-\title{#' Create a SMART indicator bookdown template for an indicator of interest from the NEFSC SOE.}
+\title{Create a SMART indicator bookdown template for an indicator of interest from the NEFSC SOE.}
 \usage{
 create_template_SOE(
   indicator_name,
@@ -36,7 +36,7 @@ original code: https://github.com/NOAA-EDAB/ECSA/blob/master/R/create_template.R
 }
 \examples{
 
-create_template(indicator_name = "Phytoplankton", indicator_varname = "ANNUAL_PPD_MEDIAN",
+create_template_SOE(indicator_name = "Phytoplankton", indicator_varname = "ANNUAL_PPD_MEDIAN",
 overwrite = F, output_dir = getwd(), send_to_google_doc = T)
 
 }

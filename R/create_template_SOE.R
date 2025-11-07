@@ -1,4 +1,4 @@
-#'#' Create a SMART indicator bookdown template for an indicator of interest from the NEFSC SOE.
+#' Create a SMART indicator bookdown template for an indicator of interest from the NEFSC SOE.
 #'
 #' Inspired by NOAA-EDAB Ecosystem Context for Stock Assessment workflow
 #' original code: https://github.com/NOAA-EDAB/ECSA/blob/master/R/create_template.R
@@ -15,7 +15,7 @@
 #'
 #' @examples
 #'
-#' create_template(indicator_name = "Phytoplankton", indicator_varname = "ANNUAL_PPD_MEDIAN",
+#' create_template_SOE(indicator_name = "Phytoplankton", indicator_varname = "ANNUAL_PPD_MEDIAN",
 #' overwrite = F, output_dir = getwd(), send_to_google_doc = T)
 #'
 #' @export
@@ -33,10 +33,19 @@ create_template_SOE <- function(indicator_name,
 
   catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
 
+  techdocdat <- readRDS(here::here("data-raw/techdocdat.rds"))
+
+  # match tech doc names to catalog page links if they differ
+  techname <- techdocdat |>
+    dplyr::filter(Varname == "catalog link") |>
+    dplyr::select(IndicatorTD = Indicator, CatLink = Value) |>
+    dplyr::distinct()
+
   lookup <- catalogdat |>
     dplyr::filter(Varname == "ecodata name") |>
     dplyr::select(Indicator, Source, Dataset = Value) |>
-    dplyr::distinct()
+    dplyr::distinct() |>
+    dplyr::left_join(techname, by = c("Source" = "CatLink"))
 
   # check for stuff that needs escaping in indicator_name and escape it so detection works
   esc_indicator_name <- stringr::str_escape(indicator_name)
@@ -55,6 +64,11 @@ create_template_SOE <- function(indicator_name,
     clean_ecodat <- clean_ecodat |>
       dplyr::filter(Indicator == indicator_varname)
   }
+
+  clean_techdoc <- techdocdat |>
+    dplyr::filter(Indicator == lookup$IndicatorTD[lookup$Indicator == indicator_name])|>
+    dplyr::select(Indicator) |>
+    dplyr::distinct()
 
   if (nrow(clean_catdat) < 1){
     stop(sprintf("'%s' is not found. Check spelling or add '%s' as a new indicator to '%s'", indicator_name, indicator_name, path.expand("data/indicatorlist.csv")))

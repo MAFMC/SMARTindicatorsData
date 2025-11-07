@@ -316,8 +316,8 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 ```{r where, results='asis'}
 
 if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
-  cat("Data: https://noaa-edab.github.io/ecodata/index.html", "\n")
-  cat("Description: ", unique(clean_catdat$Source), "\n")
+  cat("Data: https://noaa-edab.github.io/ecodata/index.html", "\n\n")
+  cat("Description: ", unique(clean_catdat$Source), "\n\n")
   cat("Technical documentation: ", unique(clean_catdat$Value[clean_catdat$Varname=="tech-doc link"]), "\n")
 }else{
   cat("Not in ecodata, need to enter info", "\n")
@@ -341,14 +341,15 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 ```{r units}
 
-if(length(unique(clean_ecodat$Units)) == 1){
-  cat(unique(clean_ecodat$Units), "\n")
-}else{
+# if(length(unique(clean_ecodat$Units)) == 1){
+#   cat(unique(clean_ecodat$Units), "\n")
+# }else{
   clean_ecodat |>
     dplyr::select(Indicator, Units) |>
     dplyr::distinct() |>
-    flextable::flextable()
-}
+    flextable::flextable()|>
+    flextable::set_table_properties(layout = "autofit")
+#}
 
 ```
 
@@ -365,7 +366,8 @@ if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
   clean_ecodat |>
     dplyr::select(Indicator, Varname) |>
     dplyr::distinct() |>
-    flextable::flextable()
+    flextable::flextable()|>
+    flextable::set_table_properties(layout = "autofit")
 }else{
   clean_ecodat |>
     dplyr::select(Indicator, EPU, Varname, Value) |>
@@ -375,7 +377,8 @@ if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
     dplyr::select(Indicator, EPU, StartYear, EndYear, NumYears = ActualYrs, MissingYears) |>
     dplyr::distinct() |>
     flextable::flextable() |>
-    flextable::colformat_num(big.mark = "")
+    flextable::colformat_num(big.mark = "") |>
+    flextable::set_table_properties(layout = "autofit")
 }
 ```
 
@@ -391,7 +394,8 @@ Indicator specifics:
   clean_ecodat |>
     dplyr::select(Indicator, EPU) |>
     dplyr::distinct() |>
-    flextable::flextable()
+    flextable::flextable()|>
+    flextable::set_table_properties(layout = "autofit")
 
 ```
 
@@ -402,8 +406,14 @@ Indicator specifics:
 
 #### Uncertainty metrics
 
-```{r}
+Uncertainty is captured in these variables:  
 
+```{r uncert, results='asis'}
+
+uncertvars <- "Lower95|SE|SD|Upper95"
+
+unique(clean_ecodat$Indicator[stringr::str_detect(clean_ecodat$Indicator, uncertvars)])
+  
 ```
 
 

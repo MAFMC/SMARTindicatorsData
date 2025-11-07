@@ -16,12 +16,12 @@ At present:
 5. Once edited, the filled google doc for a particular indicator is pulled back into the full set of indicator rmds using `gdoc_to_filledrmd`.
 6. The function `renderall` calls `render_smartind` for any rmd file in docs to build the book. The `index.Rmd` file now includes SOE and non SOE indicators.
 7. Equivalent functions retrieving information from the current version of the ecodata [Technical Documentation](https://noaa-edab.github.io/tech-doc/) have been written to retrieve key methods attributes.
+8. Stored methods datasets will be incorporated into `create_template_SOE` and `SMART_template_SOE.rmd`.
 
 
 To do:
 
-2. Stored methods datasets will be incorporated into `create_template` and the generic `SMART_template.rmd`.
-3. The SOE specific `create_template_SOE` function and template will be modified to write to google docs to allows data entry within the remaining specified fields (comments), then reads edited sections back into the final indicator template page
-4. Attributes from the final SMART template will be saved for each indicator in a comprehensive dataset that can be used for interactive browsing in a shiny app, to be developed in https://github.com/MAFMC/SMARTindicatorsDashboard 
-5. Automate rendering to on online book using a function similar to https://github.com/NOAA-EDAB/ECSA/blob/master/R/render_ecsa.R 
+1. The SOE specific `create_template_SOE` function and template will be modified to write to google docs to allows data entry within the remaining specified fields (comments), then reads edited sections back into the final indicator template page
+2. Attributes from the final SMART template will be saved for each indicator in a comprehensive dataset that can be used for interactive browsing in a shiny app, to be developed in https://github.com/MAFMC/SMARTindicatorsDashboard 
+3. Automate rendering to on online book using a function similar to https://github.com/NOAA-EDAB/ECSA/blob/master/R/render_ecsa.R 
 
