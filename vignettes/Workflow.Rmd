@@ -43,11 +43,13 @@ The SOE's existing infrastructure us used to automate filling SMART indicator at
 
 ## Collect SOE indicator attributes
 
-Functions used are `collect_ecodata_catalog_data()` and `collect_ecodata_indicator_stats()`. Each function defaults to collecting all available information for the full suite of SOE indicators, but can be run for individual indicators. 
+Functions used are `collect_ecodata_catalog_data()`, `collect_ecodata_indicator_stats()` and `collect_ecodata_techdoc_data()`. Each function defaults to collecting all available information for the full suite of SOE indicators, but can be run for individual indicators. 
 
-The function `collect_ecodata_catalog_data()` calls `scrape_ecodata_catalog()` which pulls indicator attributes from individual Catalog fields. 
+The function `collect_ecodata_catalog_data()` calls `scrape_ecodata_catalog()` which pulls indicator attributes from individual online Catalog fields. 
 
 The function `collect_ecodata_indicator_stats()` calls `ecodata_indicator_stats()` to pull indicator attributes such as units, begin and end year, and number of years directly from the datasets. 
+
+The function `collect_ecodata_techdoc_data()` calls `scrape_ecodata_techdoc()` to pull methods attributes from online descriptions of data sources and analysis to evaluate reproducibility. 
 
 The output of each of the `collect_` functions is saved to a dataset in the `data-raw` folder of this repository. 
 
