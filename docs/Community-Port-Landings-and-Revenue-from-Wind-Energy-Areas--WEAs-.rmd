@@ -410,7 +410,7 @@ Uncertainty is captured in these variables:
 
 ```{r uncert, results='asis'}
 
-uncertvars <- "Lower95|SE|SD|Upper95|Standard Error|CV|lower|upper"
+uncertvars <- "Lower95|SE|se_|SD|Upper95|Standard Error|CV|lower|upper"
 
 unique(clean_ecodat$Indicator[stringr::str_detect(clean_ecodat$Indicator, uncertvars)])
   

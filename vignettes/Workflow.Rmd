@@ -60,7 +60,7 @@ The output of each of the `collect_` functions is saved to a dataset in the `dat
 
 ## Create and fill SOE templates
 
-Functions used are `fill_indicator_temlates()` which calls `create_template_SOE()` and fills the template `SMART_template_SOE.rmd`. The `fill_indicator_templates()` function defaults to collecting all available information for the full suite of SOE indicators, but can be run for individual indicators.
+Functions used are `fill_indicator_templates()` which calls `create_template_SOE()` and fills the template `SMART_template_SOE.rmd`. The `fill_indicator_templates()` function defaults to collecting all available information for the full suite of SOE indicators, but can be run for individual indicators. Set the argument `overwrite = TRUE` to refill all indicator templates; by default the function will not overwrite existing .Rmd files of the same name. 
 
 ```{r}
 
