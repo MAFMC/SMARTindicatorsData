@@ -46,7 +46,7 @@ collect_ecodata_techdoc_data <- function(urllist = NULL, outfile = NULL){
     catlist <- absolute_links[stringr::str_detect(absolute_links, caturl)]
 
     # Remove heading, glossary, references, and index pages (temporarily remove ecosystem overfishing as its headers differ)
-    catlist <- catlist[!stringr::str_detect(catlist, "#|erddap.html|glossary.html|references.html|/index.html|ppr.html")]
+    catlist <- catlist[!stringr::str_detect(catlist, "#|erddap.html|glossary.html|references.html|/index.html")]
 
     # Ensure unique pages
     catlist <- unique(catlist)
