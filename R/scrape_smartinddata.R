@@ -18,19 +18,10 @@
 #'
 #'@examples
 #'  url <- "https://mafmc.github.io/SMARTindicatorsData/Cold-Pool-Index.html"
-#'  FieldList <- c("Description", "Data steward", "Public availability statement",
-#'  "Data sources", "Data extraction","Data analysis","catalog link", "catalog page")
-#'  scrape_ecodata_techdoc(url, FieldList)
+#'  scrape_smartinddata(url)
 #'
 #'@export
-scrape_smartinddata <- function(url, FieldList=NULL){
-
-  # default FieldList for iterating with purrr:map
-  if(is.null(FieldList)){
-  FieldList <- c("Description", "Data steward", "Public availability statement",
-                 "Data sources", "Data extraction","Data analysis","catalog link",
-                 "catalog page")
-  }
+scrape_smartinddata <- function(url){
 
   # page to xml
   page <- rvest::read_html(url)
@@ -47,22 +38,38 @@ scrape_smartinddata <- function(url, FieldList=NULL){
     rvest::html_elements("h2") |>
     rvest::html_text2()
 
+  h2descriptive <- h2heads[1:4]
+
+  h2smart <- h2heads[5:6]
+
   # descriptive fields in h2 paragraphs 1-4
   h2fields <- page |>
     rvest::html_elements("h2, p") |>
     rvest::html_text2()
 
-
+  # descriptive keep all in vector before "2.1 Indicator documentation"
+  desckey <- h2smart[1]
+  descind <- which(h2fields==desckey)
+  descfields <- h2fields[2:(descind-1)]
 
   # SMART fields in level 3 headings and paragraphs
-  fields <- page |>
-    rvest::html_elements("h3, p") |>
+  # need the headers for variables 5-7
+  h34heads <- page |>
+    rvest::html_elements("h3, h4") |>
     rvest::html_text2()
 
-  # need the headers for variables 5-7
-  h3fields <- page |>
-    rvest::html_elements("h3") |>
+  h34fields <- page |>
+    rvest::html_elements("h3, h4, p") |>
     rvest::html_text2()
+
+  # SMART keep all including and after the first h34heading
+  smartkey <- h34heads[1]
+  smartind <- which(h34fields==smartkey)
+  lastsmart <- length(h34fields)
+  smartfields <- h34fields[smartind:lastsmart]
+
+
+  ################ revise below
 
   # filter by the fieldlist
   # need to take either the FIRST set of data sources, extraction, analysis or all
