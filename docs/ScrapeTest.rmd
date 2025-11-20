@@ -1,0 +1,221 @@
+----
+title:
+    | 
+    | SMART Indicator Report: ScrapeTest
+    | 
+#date: "`r format(Sys.time(), '%B %d, %Y')`"
+author: ""
+always_allow_html: yes
+bibliography: smartind.bib
+link-citations: true
+site: bookdown::bookdown_site
+biblio-style: apalike
+github-repo: MAFMC/SMARTindicatorsData
+header-includes:
+  \\usepackage{array}
+favicon: favicon.ico
+---
+
+```{r, include = FALSE}
+## Load packages
+# library(tidyverse)
+library(ggplot2)
+library(tidyr)
+library(dplyr)
+library(ecodata)
+library(plotly)
+library(DT)
+library(jpeg)
+library(patchwork)
+library(ggthemes)
+library(here)
+library(zoo)
+library(gt)
+library(kableExtra)
+library(ggiraph)
+
+knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', eval.after = 'fig.cap')
+
+## Read in needed data
+
+
+## Put all mustaches here
+indicator_name <- "ScrapeTest"
+indicator_varname <- "ALL"
+
+# cc_name <- "{{CC_NAME}}"
+# common_name <- "{{COMMON_NAME}}"
+# interactive <-  ifelse(knitr::is_latex_output(), F,T)
+# 
+
+## Pull out text and stats for indicator_name
+
+  # check for stuff that needs escaping in indicator_name and escape it so detection works
+  esc_indicator_name <- stringr::str_escape(indicator_name)
+
+
+
+```
+
+# Descriptive Section
+
+## Indicator category
+
+
+Fake Indicator
+
+
+## Indicator name
+
+`r paste(indicator_name)`
+
+Includes variable(s): `r paste(indicator_varname)`
+
+## Indicator brief description
+
+
+This is a test of web scraping to collect data
+
+
+## Indicator visualization
+
+
+This indicator is increasing and above average in every way
+!(hydralogo)[https://github.com/sgaichas/HSpresentations/raw/main/docs/images/logotype_verti_c.png]
+
+
+# SMART Attribute Section
+
+## Indicator documentation
+
+### Are indicators available for others to use (data downloadable)?
+
+
+Yes
+
+
+#### Where can indicators be found?
+
+
+Unknown
+
+
+#### How often are they updated? Are future updates likely?
+
+
+Updated annually. Updates are likely.
+
+
+#### Who is the contact?
+
+
+sgaichas@hydrascientificllc.com
+
+
+### Gather indicator statistics
+
+#### Units
+
+
+Miles, Tons, Hours
+
+
+#### Length of time series, start and end date, periodicity
+
+
+Starts in 2000 ends in 2025
+
+
+#### Spatial location, scale and extent
+
+
+Northeast US, every square km from Cape Hatteras to Maine
+
+
+#### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
+
+
+FMP level, cannot be separated
+
+
+#### Uncertainty metrics
+
+
+Yes, standard deviation
+
+
+### Are methods clearly documented to obtain source data and calculate indicators?
+
+
+Yes]
+
+
+#### Can the indicator be calculated from current documentation?
+
+
+Yes
+
+
+#### Is code publicly available? up to date?
+
+
+Yes, but one year out of date
+
+
+#### Have methods changed over time?
+
+
+Yes
+
+
+### Are indicator underlying source data linked or easy to find?
+
+
+No 
+
+
+#### Where are source data stored?
+
+
+Inside a government firewall
+
+
+#### How/by whom are source data updated? Are future updates likely?
+
+### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
+
+
+Unknown
+
+
+### Is there a time lag between the process change and the indicator change? How long?
+
+
+Unknown
+
+
+
+## Comments
+
+### Additional potential links to management in addition to uses listed above
+
+
+List item 1
+
+
+
+### What additional work would be needed for the Council to use the indicator? 
+
+
+Someone to make the data publicly available
+
+
+
+### What issues are caused if there is a gap or delay in data underlying the indicator
+
+
+A gap of up to 3 years is ok
+
+
+
+
