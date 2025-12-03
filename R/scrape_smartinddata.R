@@ -42,7 +42,7 @@ scrape_smartinddata <- function(url){
 
   h2smart <- h2heads[5:6]
 
-  # descriptive fields in h2 paragraphs 1-4
+  # descriptive fields start with 1,  h2 paragraphs 1-4
   h2fields <- page |>
     rvest::html_elements("h2, p") |>
     rvest::html_text2()
@@ -52,7 +52,7 @@ scrape_smartinddata <- function(url){
   descind <- which(h2fields==desckey)
   descfields <- h2fields[2:(descind-1)]
 
-  # SMART fields in level 3 headings and paragraphs
+  # SMART fields in section 2, level 3 headings and paragraphs
   # need the headers for variables 5-7
   h34heads <- page |>
     rvest::html_elements("h3, h4") |>
