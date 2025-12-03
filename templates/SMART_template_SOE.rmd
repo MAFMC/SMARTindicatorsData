@@ -441,7 +441,7 @@ if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
   
   #end date >2023 for 2025 report = 1 Time-bound, 2020-2023 = 0.5, <2020 = 0
   # generalize to when this report is posted
-  curryr <- format(Sys.Date(), "%Y")
+  curryr <- as.numeric(format(Sys.Date(), "%Y"))
   
   maxendyr <- clean_ecodat |>
     dplyr::select(Indicator, EPU, Varname, Value) |>
@@ -451,9 +451,9 @@ if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
     dplyr::distinct() |>
     dplyr::summarise(maxyr = max(EndYear, na.rm=TRUE))
     
-  if(curryr-maxyr == 1) timebound.2 <- 1
-  if(curryr-maxyr >=1 &  curryr-maxyr < 5) timebound.2 <- 0.5
-  if(curryr-maxyr >= 5) timebound.2 <- 0
+  if(curryr-maxendyr$maxyr == 1) timebound.2 <- 1
+  if(curryr-maxendyr$maxyr >=1 &  curryr-maxendyr$maxyr < 5) timebound.2 <- 0.5
+  if(curryr-maxendyr$maxyr >= 5) timebound.2 <- 0
 }
 
 ```
@@ -491,7 +491,7 @@ Uncertainty is captured in these variables:
 
 ```{r uncert, results='asis'}
 
-uncertvars <- "Lower95|SE|se_|SD|Upper95|Standard Error|CV|lower|upper"
+uncertvars <- "Lower95|SE|se_|SD|Upper95|Standard Error|CV|lower|upper|LCI|UCI"
 
 unique(clean_ecodat$Indicator[stringr::str_detect(clean_ecodat$Indicator, uncertvars)])
 
@@ -528,7 +528,7 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 ```{r codeS6, results='asis'}
 
 # search for a github link in the tech doc page
-if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "https://github.com/"))) > 0){
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "https://github.com/")))[1] > 0){
   cat("GitHub code repository linked", "\n")
   specific.6 <- 1
 }else{
@@ -551,10 +551,10 @@ if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, 
 
 ```{r M4}
 #currently a test for existence
-measurable.4 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Public availability statement"]) == 0, 0, 1)
+measurable.4 <- ifelse(length(clean_catdat$Value[clean_techdoc$Varname=="Public availability statement"]) == 0, 0, 1)
 
 #search for the phrase "not publically available" and assign 0 for that
-if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "are NOT pub|are not pub"))) > 0){
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "are NOT pub|are not pub")))[1] > 0){
   measurable.4 <- 0
 }
 
@@ -567,7 +567,7 @@ if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, 
 
 ```{r M5}
 #currently a test for existence
-measurable.5 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname%in% c("Data Sources", "Data sources")]) == 0, 0, 1)
+measurable.5 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname%in% c("Data Sources", "Data sources")]) == 0, 0, 1)
 
 ```
 
@@ -577,7 +577,7 @@ measurable.5 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname%in% c("Dat
 
 ```{r M6}
 #currently a test for existence
-measurable.6 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Data steward"]) == 0, 0, 1)
+measurable.6 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname=="Data steward"]) == 0, 0, 1)
 
 ```
 
@@ -615,7 +615,7 @@ relevant.2 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Implicatio
 
 ```{r targlimthreshr3, results='asis'}
 
-if(length(dplyr::filter(clean_catdat, stringr::str_detect(clean_catdat$Value, "target|limit|threshold"))) > 0){
+if(dim(dplyr::filter(clean_catdat, stringr::str_detect(clean_catdat$Value, "target|limit|threshold")))[1] > 0){
   cat("Target, limit, or threshold terms detected", "\n")
   relevant.3 <- 1
 }else{
@@ -628,9 +628,9 @@ if(length(dplyr::filter(clean_catdat, stringr::str_detect(clean_catdat$Value, "t
 
 ### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
 
-```{r A1}
+```{r A1, results='asis'}
 #currently a weak test for existence
-if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "simulation|simulated|test"))) > 0){
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "simulation|simulated|test")))[1] > 0){
   cat("Simulation or test terms detected", "\n")
   attainable.1 <- 1
 }else{
@@ -642,9 +642,9 @@ if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, 
 
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
-```{r A2}
+```{r A2, results='asis'}
 #currently a weak test for existence
-if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "sensitivity|sensitive|detection|detect"))) > 0){
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "sensitivity|sensitive|detection|detect")))[1] > 0){
   cat("Sensitivity terms detected", "\n")
   attainable.2 <- 1
 }else{
@@ -656,15 +656,61 @@ if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, 
 
 ### Is there a time lag between the process change and the indicator change? How long?
 
-```{r A3}
+```{r A3, results='asis'}
 #currently a weak test for existence
-if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "lagging indicator|time lag"))) > 0){
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "lagging indicator|time lag")))[1] > 0){
   cat("Lag terms detected", "\n")
   attainable.3 <- 1
 }else{
   cat("Unknown", "\n")
   attainable.3 <- 0
 }
+
+```
+
+# SMART rating
+
+```{r SMART}
+
+indratings <- c("Described" = specific.1, "Units" = specific.2, "Spatial" = specific.3, "Uncertainty" = specific.4, 
+                "Methods" = specific.5, "Code" = specific.6,
+             "Available" =  measurable.1, "Online" = measurable.2, "Contact" = measurable.3, "SourceDat" = measurable.4, 
+             "SourceAvail" = measurable.5, "SourceContact" = measurable.6,
+             "Tested" = attainable.1, "Sensitivity" = attainable.2, "TimeLag" = attainable.3,
+             "Advice" = relevant.1, "Implications" = relevant.2, "TargThresh" = relevant.3,
+             "Frequency" = timebound.1, "Updated" = timebound.2)
+
+ratings <- stack(indratings)
+
+colnames(ratings) <- c("Rating", "Attribute")
+
+ratings$Element <- c(rep("Specific", 6),
+                     rep("Measurable", 6),
+                     rep("Achievable", 3),
+                     rep("Relevant", 3),
+                     rep("Timebound", 2))
+
+ratings$Indicator <- unique(clean_catdat$Indicator)
+ratings$Category <- category
+
+ratings <- ratings[,c("Category", "Indicator", "Element", "Attribute", "Rating")]
+
+elements <- ratings |>
+  dplyr::group_by(Element) |>
+  dplyr::summarise(ElementRating = mean(Rating, na.rm=TRUE))
+
+overall <- elements |>
+  dplyr::summarise(OverallRating = mean(ElementRating, na.rm=TRUE))
+
+ratingsumm <- ratings |>
+  dplyr::left_join(elements) |>
+  dplyr::mutate(OverallRating = overall$OverallRating)
+
+outfile <- paste0(here::here("data-raw/indratings/"), indicator_name, "_ratingsumm.csv")
+
+write.csv(ratingsumm, outfile)
+
+flextable::flextable(ratingsumm)
 
 ```
 
