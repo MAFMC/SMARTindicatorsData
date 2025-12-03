@@ -525,14 +525,18 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 #### Is code publicly available? up to date?
 
-[Requires judgement, enter by hand]
+```{r codeS6, results='asis'}
 
-```{r}
 # search for a github link in the tech doc page
-
+if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "https://github.com/"))) > 0){
+  cat("GitHub code repository linked", "\n")
+  specific.6 <- 1
+}else{
+  cat("No", "\n")
+  specific.6 <- 0
+}
 
 # existence of link will be considered available, can't tell up to date
-
 
 ```
 
@@ -550,6 +554,9 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 measurable.4 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Public availability statement"]) == 0, 0, 1)
 
 #search for the phrase "not publically available" and assign 0 for that
+if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "are NOT pub|are not pub"))) > 0){
+  measurable.4 <- 0
+}
 
 ```
 
@@ -587,25 +594,79 @@ measurable.6 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Data ste
 
 `r clean_catdat$Value[clean_catdat$Varname=="Introduction to Indicator"]`
 
+```{r R1}
+# These are in the SOE so we'll count them as being part of an "advice process" for now
+#currently a test for existence
+relevant.1 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Introduction to Indicator"]) == 0, 0, 1)
+
+```
+
 ### What implications of the indicators are currently listed?
 
 `r clean_catdat$Value[clean_catdat$Varname=="Implications"]`
 
+```{r R2}
+#currently a test for existence
+relevant.2 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Implications"]) == 0, 0, 1)
+
+```
+
 ### Do target, limit,  or threshold values already exist for the indicator?
 
-[Fill by hand; if not in key results or implications, likely does not exist]
+```{r targlimthreshr3, results='asis'}
+
+if(length(dplyr::filter(clean_catdat, stringr::str_detect(clean_catdat$Value, "target|limit|threshold"))) > 0){
+  cat("Target, limit, or threshold terms detected", "\n")
+  relevant.3 <- 1
+}else{
+  cat("No", "\n")
+  relevant.3 <- 0
+}
+
+```
+
 
 ### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
 
-[Fill by hand; if not in introduction, key results, or implications, likely not tested]
+```{r A1}
+#currently a weak test for existence
+if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "simulation|simulated|test"))) > 0){
+  cat("Simulation or test terms detected", "\n")
+  attainable.1 <- 1
+}else{
+  cat("No", "\n")
+  attainable.1 <- 0
+}
+
+```
 
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
-[Fill by hand; if not in introduction, key results, or implications, likely not tested]
+```{r A2}
+#currently a weak test for existence
+if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "sensitivity|sensitive|detection|detect"))) > 0){
+  cat("Sensitivity terms detected", "\n")
+  attainable.2 <- 1
+}else{
+  cat("Unknown", "\n")
+  attainable.2 <- 0
+}
+
+```
 
 ### Is there a time lag between the process change and the indicator change? How long?
 
-[Fill by hand; if not in introduction, key results, or implications, likely not tested]
+```{r A3}
+#currently a weak test for existence
+if(length(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "lagging indicator|time lag"))) > 0){
+  cat("Lag terms detected", "\n")
+  attainable.3 <- 1
+}else{
+  cat("Unknown", "\n")
+  attainable.3 <- 0
+}
+
+```
 
 
 ## Comments
