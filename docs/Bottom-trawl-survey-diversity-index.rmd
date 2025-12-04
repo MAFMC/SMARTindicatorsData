@@ -90,10 +90,46 @@ indicator_varname <- "ALL"
 
 ```
 
+# Descriptive Section
 
 ## Indicator category
 
-[Fill by hand, needs decision by Council]
+```{r category, results='asis'}
+
+keywords <- data.frame(keystring = c("water quality", "temperature", "sst", "salinity", "habitat", "warm", "cold", "gulf stream", "slopewater", "heat", "sound", "thermal",
+                                     "submerged aquatic vegetation", "harmful algal",
+                                     "plankton", "benthos", "benthic",
+                                     "whale", "cetacean", "porpoise", "seal", "salmon", "seabird",
+                                     "commercial", "recreational", "landings", "fishing", "stock", "aquaculture",
+                                     "revenue", "bennet",
+                                     "community", "social",
+                                     "offshore wind"),
+                       category = c(rep("Habitat-Physical", 12),
+                                    rep("Habitat-Living", 2),
+                                    rep("Food-Web-Base", 3),
+                                    rep("Protected",6),
+                                    rep("Fishery",6),
+                                    rep("Economic",2),
+                                    rep("Social",2),
+                                    "Ocean-Use")
+)
+
+indname <- tolower(unique(clean_catdat$Indicator))
+
+category <- keywords$category[stringr::str_detect(indname, keywords$keystring)] 
+
+# Fish category is everything not mapped above
+if(length(category) == 0){
+  category <- "Fish"
+}
+
+category <- unique(category)
+
+if(length(category) > 1 ) category <- paste(category, collapse = " ")
+
+category
+
+```
 
 ## Indicator name
 
@@ -104,6 +140,12 @@ Includes variable(s): `r unique(clean_ecodat$Indicator)`
 ## Indicator brief description
 
 `r clean_catdat$Value[clean_catdat$Varname=="Description"]`
+
+```{r S1}
+#currently a test for existence
+specific.1 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Description"]) == 0, 0, 1)
+```
+
 
 ## Indicator visualization
 
@@ -295,6 +337,7 @@ if (exists(paste0("plot_",dataset), where="package:ecodata", mode="function")) {
 
 ```
 
+# SMART Attribute Section
 
 ## Indicator documentation
 
@@ -304,10 +347,13 @@ if (exists(paste0("plot_",dataset), where="package:ecodata", mode="function")) {
 
 if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
   cat("Yes", "\n")
+  measurable.1 <- 1
 }else{
   cat("Not in ecodata, need to enter info", "\n")
+  measurable.1 <- 0
 }
   
+
 
 ```
 
@@ -319,8 +365,10 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
   cat("Data: https://noaa-edab.github.io/ecodata/index.html", "\n\n")
   cat("Description: ", unique(clean_catdat$Source), "\n\n")
   cat("Technical documentation: ", unique(clean_catdat$Value[clean_catdat$Varname=="tech-doc link"]), "\n")
+  measurable.2 <- 1
 }else{
   cat("Not in ecodata, need to enter info", "\n")
+  measurable.2 <- 0
 }
   
 
@@ -335,11 +383,20 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 `r clean_catdat$Value[clean_catdat$Varname=="Point of contact"]`
 
+```{r M3}
+#currently a test for existence
+measurable.3 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Point of contact"]) == 0, 0, 1)
+```
+
 ### Gather indicator statistics
 
 #### Units
 
 ```{r units}
+
+specific.2 <- ifelse(length(unique(clean_ecodat$Units)) == 0, 0, 1)
+if(length(unique(clean_ecodat$Units)) == 1 & any(is.na(clean_ecodat$Units)|stringr::str_detect(unique(clean_ecodat$Units), "no Units field"))) specific.2 <- 0 #either NA or no units
+if(length(unique(clean_ecodat$Units)) > 1 & any(is.na(clean_ecodat$Units)|stringr::str_detect(unique(clean_ecodat$Units), "no Units field"))) specific.2 <- 0.5 #some NA
 
 # if(length(unique(clean_ecodat$Units)) == 1){
 #   cat(unique(clean_ecodat$Units), "\n")
@@ -357,18 +414,41 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 General overview: `r clean_catdat$Value[clean_catdat$Varname=="Temporal scale"]`
 
-Indicator specifics:
+```{r T1}
+#currently a test for existence
+timebound.1 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Temporal scale"]) == 0, 0, 1)
+```
 
+Indicator specifics:
 
 ```{r}
 
 if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
+  timebound.2 <- 0 #no time variables, so not recent
+  
   clean_ecodat |>
     dplyr::select(Indicator, Varname) |>
     dplyr::distinct() |>
     flextable::flextable()|>
     flextable::set_table_properties(layout = "autofit")
+  
 }else{
+  #end date >2023 for 2025 report = 1 Time-bound, 2020-2023 = 0.5, <2020 = 0
+  # generalize to when this report is posted
+  curryr <- as.numeric(format(Sys.Date(), "%Y"))
+  
+  maxendyr <- clean_ecodat |>
+    dplyr::select(Indicator, EPU, Varname, Value) |>
+    dplyr::filter(Varname %in% c("EndYear")) |>
+    tidyr::pivot_wider(names_from = Varname, values_from = Value) |>
+    dplyr::select(EndYear) |>
+    dplyr::distinct() |>
+    dplyr::summarise(maxyr = max(EndYear, na.rm=TRUE))
+    
+  if(curryr-maxendyr$maxyr <= 1) timebound.2 <- 1
+  if(curryr-maxendyr$maxyr >=1 &  curryr-maxendyr$maxyr < 5) timebound.2 <- 0.5
+  if(curryr-maxendyr$maxyr >= 5) timebound.2 <- 0
+
   clean_ecodat |>
     dplyr::select(Indicator, EPU, Varname, Value) |>
     dplyr::filter(Varname %in% c("StartYear", "EndYear", "EstYrs", "ActualYrs")) |>
@@ -379,13 +459,20 @@ if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
     flextable::flextable() |>
     flextable::colformat_num(big.mark = "") |>
     flextable::set_table_properties(layout = "autofit")
+
 }
+
 ```
 
 
 #### Spatial location, scale and extent
 
 General overview: `r clean_catdat$Value[clean_catdat$Varname=="Spatial scale"]`
+
+```{r S3}
+#currently a test for existence
+specific.3 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Description"]) == 0, 0, 1)
+```
 
 Indicator specifics:
 
@@ -410,9 +497,14 @@ Uncertainty is captured in these variables:
 
 ```{r uncert, results='asis'}
 
-uncertvars <- "Lower95|SE|se_|SD|Upper95|Standard Error|CV|lower|upper"
+uncertvars <- "Lower95|SE|se_|SD|Upper95|Standard Error|CV|lower|upper|LCI|UCI"
 
 unique(clean_ecodat$Indicator[stringr::str_detect(clean_ecodat$Indicator, uncertvars)])
+
+
+#currently a test for existence
+specific.4 <- ifelse(length(unique(clean_ecodat$Indicator[stringr::str_detect(clean_ecodat$Indicator, uncertvars)])) == 0, 0, 1)
+
   
 ```
 
@@ -423,8 +515,10 @@ unique(clean_ecodat$Indicator[stringr::str_detect(clean_ecodat$Indicator, uncert
 
 if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"], "ecodata::")){
   cat("Yes", "\n")
+  specific.5 <- 1
 }else{
   cat("Not in ecodata, need to enter info", "\n")
+  specific.5 <- 0
 }
 
 ```
@@ -437,7 +531,21 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 #### Is code publicly available? up to date?
 
-[Requires judgement, enter by hand]
+```{r codeS6, results='asis'}
+
+# search for a github link in the tech doc page
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "https://github.com/")))[1] > 0){
+  cat("GitHub code repository linked", "\n")
+  specific.6 <- 1
+}else{
+  cat("No", "\n")
+  specific.6 <- 0
+}
+
+# existence of link will be considered available, can't tell up to date
+
+```
+
 
 #### Have methods changed over time?
 
@@ -447,13 +555,37 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 `r clean_techdoc$Value[clean_techdoc$Varname=="Public availability statement"]`
 
+```{r M4}
+#currently a test for existence
+measurable.4 <- ifelse(length(clean_catdat$Value[clean_techdoc$Varname=="Public availability statement"]) == 0, 0, 1)
+
+#search for the phrase "not publically available" and assign 0 for that
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "are NOT pub|are not pub")))[1] > 0){
+  measurable.4 <- 0
+}
+
+```
+
+
 #### Where are source data stored?
 
 `r clean_techdoc$Value[clean_techdoc$Varname%in% c("Data Sources", "Data sources")]`
 
+```{r M5}
+#currently a test for existence
+measurable.5 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname%in% c("Data Sources", "Data sources")]) == 0, 0, 1)
+
+```
+
 #### How/by whom are source data updated? Are future updates likely?
 
 `r clean_techdoc$Value[clean_techdoc$Varname=="Data steward"]`
+
+```{r M6}
+#currently a test for existence
+measurable.6 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname=="Data steward"]) == 0, 0, 1)
+
+```
 
 [likelihood of source data updates requires judgement, enter by hand]
 
@@ -468,25 +600,125 @@ if(stringr::str_detect(clean_catdat$Value[clean_catdat$Varname=="ecodata name"],
 
 `r clean_catdat$Value[clean_catdat$Varname=="Introduction to Indicator"]`
 
+```{r R1}
+# These are in the SOE so we'll count them as being part of an "advice process" for now
+#currently a test for existence
+relevant.1 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Introduction to Indicator"]) == 0, 0, 1)
+
+```
+
 ### What implications of the indicators are currently listed?
 
 `r clean_catdat$Value[clean_catdat$Varname=="Implications"]`
 
+```{r R2}
+#currently a test for existence
+relevant.2 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Implications"]) == 0, 0, 1)
+
+```
+
 ### Do target, limit,  or threshold values already exist for the indicator?
 
-[Fill by hand; if not in key results or implications, likely does not exist]
+```{r targlimthreshr3, results='asis'}
+
+if(dim(dplyr::filter(clean_catdat, stringr::str_detect(clean_catdat$Value, "target|limit|threshold")))[1] > 0){
+  cat("Target, limit, or threshold terms detected", "\n")
+  relevant.3 <- 1
+}else{
+  cat("No", "\n")
+  relevant.3 <- 0
+}
+
+```
+
 
 ### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
 
-[Fill by hand; if not in introduction, key results, or implications, likely not tested]
+```{r A1, results='asis'}
+#currently a weak test for existence
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "simulation|simulated|test")))[1] > 0){
+  cat("Simulation or test terms detected", "\n")
+  attainable.1 <- 1
+}else{
+  cat("No", "\n")
+  attainable.1 <- 0
+}
+
+```
 
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
-[Fill by hand; if not in introduction, key results, or implications, likely not tested]
+```{r A2, results='asis'}
+#currently a weak test for existence
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "sensitivity|sensitive|detection|detect")))[1] > 0){
+  cat("Sensitivity terms detected", "\n")
+  attainable.2 <- 1
+}else{
+  cat("Unknown", "\n")
+  attainable.2 <- 0
+}
+
+```
 
 ### Is there a time lag between the process change and the indicator change? How long?
 
-[Fill by hand; if not in introduction, key results, or implications, likely not tested]
+```{r A3, results='asis'}
+#currently a weak test for existence
+if(dim(dplyr::filter(clean_techdoc, stringr::str_detect(clean_techdoc$Value, "lagging indicator|time lag")))[1] > 0){
+  cat("Lag terms detected", "\n")
+  attainable.3 <- 1
+}else{
+  cat("Unknown", "\n")
+  attainable.3 <- 0
+}
+
+```
+
+# SMART rating
+
+```{r SMART}
+
+indratings <- c("Described" = specific.1, "Units" = specific.2, "Spatial" = specific.3, "Uncertainty" = specific.4, 
+                "Methods" = specific.5, "Code" = specific.6,
+             "Available" =  measurable.1, "Online" = measurable.2, "Contact" = measurable.3, "SourceDat" = measurable.4, 
+             "SourceAvail" = measurable.5, "SourceContact" = measurable.6,
+             "Tested" = attainable.1, "Sensitivity" = attainable.2, "TimeLag" = attainable.3,
+             "Advice" = relevant.1, "Implications" = relevant.2, "TargThresh" = relevant.3,
+             "Frequency" = timebound.1, "Updated" = timebound.2)
+
+ratings <- stack(indratings)
+
+colnames(ratings) <- c("Rating", "Attribute")
+
+ratings$Element <- c(rep("Specific", 6),
+                     rep("Measurable", 6),
+                     rep("Achievable", 3),
+                     rep("Relevant", 3),
+                     rep("Timebound", 2))
+
+ratings$Indicator <- unique(clean_catdat$Indicator)
+ratings$Category <- category
+
+ratings <- ratings[,c("Category", "Indicator", "Element", "Attribute", "Rating")]
+
+elements <- ratings |>
+  dplyr::group_by(Element) |>
+  dplyr::summarise(ElementRating = mean(Rating, na.rm=TRUE))
+
+overall <- elements |>
+  dplyr::summarise(OverallRating = mean(ElementRating, na.rm=TRUE))
+
+ratingsumm <- ratings |>
+  dplyr::left_join(elements) |>
+  dplyr::mutate(OverallRating = overall$OverallRating)
+
+outfile <- paste0(here::here("data-raw/indratings/"), indicator_name, "_ratingsumm.csv")
+
+write.csv(ratingsumm, outfile)
+
+flextable::flextable(ratingsumm)
+
+```
 
 
 ## Comments

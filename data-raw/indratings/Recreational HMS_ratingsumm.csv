@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fishery","Recreational HMS","Specific","Described",1,0.5,0.583333333333333
+"2","Fishery","Recreational HMS","Specific","Units",0,0.5,0.583333333333333
+"3","Fishery","Recreational HMS","Specific","Spatial",1,0.5,0.583333333333333
+"4","Fishery","Recreational HMS","Specific","Uncertainty",0,0.5,0.583333333333333
+"5","Fishery","Recreational HMS","Specific","Methods",1,0.5,0.583333333333333
+"6","Fishery","Recreational HMS","Specific","Code",0,0.5,0.583333333333333
+"7","Fishery","Recreational HMS","Measurable","Available",1,1,0.583333333333333
+"8","Fishery","Recreational HMS","Measurable","Online",1,1,0.583333333333333
+"9","Fishery","Recreational HMS","Measurable","Contact",1,1,0.583333333333333
+"10","Fishery","Recreational HMS","Measurable","SourceDat",1,1,0.583333333333333
+"11","Fishery","Recreational HMS","Measurable","SourceAvail",1,1,0.583333333333333
+"12","Fishery","Recreational HMS","Measurable","SourceContact",1,1,0.583333333333333
+"13","Fishery","Recreational HMS","Achievable","Tested",0,0,0.583333333333333
+"14","Fishery","Recreational HMS","Achievable","Sensitivity",0,0,0.583333333333333
+"15","Fishery","Recreational HMS","Achievable","TimeLag",0,0,0.583333333333333
+"16","Fishery","Recreational HMS","Relevant","Advice",1,0.666666666666667,0.583333333333333
+"17","Fishery","Recreational HMS","Relevant","Implications",1,0.666666666666667,0.583333333333333
+"18","Fishery","Recreational HMS","Relevant","TargThresh",0,0.666666666666667,0.583333333333333
+"19","Fishery","Recreational HMS","Timebound","Frequency",1,0.75,0.583333333333333
+"20","Fishery","Recreational HMS","Timebound","Updated",0.5,0.75,0.583333333333333

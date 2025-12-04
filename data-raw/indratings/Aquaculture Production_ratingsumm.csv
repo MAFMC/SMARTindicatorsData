@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fishery","Aquaculture Production","Specific","Described",1,0.5,0.583333333333333
+"2","Fishery","Aquaculture Production","Specific","Units",0,0.5,0.583333333333333
+"3","Fishery","Aquaculture Production","Specific","Spatial",1,0.5,0.583333333333333
+"4","Fishery","Aquaculture Production","Specific","Uncertainty",0,0.5,0.583333333333333
+"5","Fishery","Aquaculture Production","Specific","Methods",1,0.5,0.583333333333333
+"6","Fishery","Aquaculture Production","Specific","Code",0,0.5,0.583333333333333
+"7","Fishery","Aquaculture Production","Measurable","Available",1,1,0.583333333333333
+"8","Fishery","Aquaculture Production","Measurable","Online",1,1,0.583333333333333
+"9","Fishery","Aquaculture Production","Measurable","Contact",1,1,0.583333333333333
+"10","Fishery","Aquaculture Production","Measurable","SourceDat",1,1,0.583333333333333
+"11","Fishery","Aquaculture Production","Measurable","SourceAvail",1,1,0.583333333333333
+"12","Fishery","Aquaculture Production","Measurable","SourceContact",1,1,0.583333333333333
+"13","Fishery","Aquaculture Production","Achievable","Tested",0,0,0.583333333333333
+"14","Fishery","Aquaculture Production","Achievable","Sensitivity",0,0,0.583333333333333
+"15","Fishery","Aquaculture Production","Achievable","TimeLag",0,0,0.583333333333333
+"16","Fishery","Aquaculture Production","Relevant","Advice",1,0.666666666666667,0.583333333333333
+"17","Fishery","Aquaculture Production","Relevant","Implications",1,0.666666666666667,0.583333333333333
+"18","Fishery","Aquaculture Production","Relevant","TargThresh",0,0.666666666666667,0.583333333333333
+"19","Fishery","Aquaculture Production","Timebound","Frequency",1,0.75,0.583333333333333
+"20","Fishery","Aquaculture Production","Timebound","Updated",0.5,0.75,0.583333333333333

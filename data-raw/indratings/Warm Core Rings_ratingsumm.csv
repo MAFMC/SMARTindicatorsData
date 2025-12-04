@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","Warm Core Rings","Specific","Described",1,0.666666666666667,0.683333333333333
+"2","Habitat-Physical","Warm Core Rings","Specific","Units",1,0.666666666666667,0.683333333333333
+"3","Habitat-Physical","Warm Core Rings","Specific","Spatial",1,0.666666666666667,0.683333333333333
+"4","Habitat-Physical","Warm Core Rings","Specific","Uncertainty",0,0.666666666666667,0.683333333333333
+"5","Habitat-Physical","Warm Core Rings","Specific","Methods",1,0.666666666666667,0.683333333333333
+"6","Habitat-Physical","Warm Core Rings","Specific","Code",0,0.666666666666667,0.683333333333333
+"7","Habitat-Physical","Warm Core Rings","Measurable","Available",1,1,0.683333333333333
+"8","Habitat-Physical","Warm Core Rings","Measurable","Online",1,1,0.683333333333333
+"9","Habitat-Physical","Warm Core Rings","Measurable","Contact",1,1,0.683333333333333
+"10","Habitat-Physical","Warm Core Rings","Measurable","SourceDat",1,1,0.683333333333333
+"11","Habitat-Physical","Warm Core Rings","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Habitat-Physical","Warm Core Rings","Measurable","SourceContact",1,1,0.683333333333333
+"13","Habitat-Physical","Warm Core Rings","Achievable","Tested",0,0.333333333333333,0.683333333333333
+"14","Habitat-Physical","Warm Core Rings","Achievable","Sensitivity",1,0.333333333333333,0.683333333333333
+"15","Habitat-Physical","Warm Core Rings","Achievable","TimeLag",0,0.333333333333333,0.683333333333333
+"16","Habitat-Physical","Warm Core Rings","Relevant","Advice",1,0.666666666666667,0.683333333333333
+"17","Habitat-Physical","Warm Core Rings","Relevant","Implications",1,0.666666666666667,0.683333333333333
+"18","Habitat-Physical","Warm Core Rings","Relevant","TargThresh",0,0.666666666666667,0.683333333333333
+"19","Habitat-Physical","Warm Core Rings","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Habitat-Physical","Warm Core Rings","Timebound","Updated",0.5,0.75,0.683333333333333

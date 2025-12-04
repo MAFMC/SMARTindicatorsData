@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","Thermal Habitat Area","Specific","Described",1,0.666666666666667,0.583333333333333
+"2","Habitat-Physical","Thermal Habitat Area","Specific","Units",1,0.666666666666667,0.583333333333333
+"3","Habitat-Physical","Thermal Habitat Area","Specific","Spatial",1,0.666666666666667,0.583333333333333
+"4","Habitat-Physical","Thermal Habitat Area","Specific","Uncertainty",0,0.666666666666667,0.583333333333333
+"5","Habitat-Physical","Thermal Habitat Area","Specific","Methods",1,0.666666666666667,0.583333333333333
+"6","Habitat-Physical","Thermal Habitat Area","Specific","Code",0,0.666666666666667,0.583333333333333
+"7","Habitat-Physical","Thermal Habitat Area","Measurable","Available",1,0.5,0.583333333333333
+"8","Habitat-Physical","Thermal Habitat Area","Measurable","Online",1,0.5,0.583333333333333
+"9","Habitat-Physical","Thermal Habitat Area","Measurable","Contact",1,0.5,0.583333333333333
+"10","Habitat-Physical","Thermal Habitat Area","Measurable","SourceDat",0,0.5,0.583333333333333
+"11","Habitat-Physical","Thermal Habitat Area","Measurable","SourceAvail",0,0.5,0.583333333333333
+"12","Habitat-Physical","Thermal Habitat Area","Measurable","SourceContact",0,0.5,0.583333333333333
+"13","Habitat-Physical","Thermal Habitat Area","Achievable","Tested",0,0,0.583333333333333
+"14","Habitat-Physical","Thermal Habitat Area","Achievable","Sensitivity",0,0,0.583333333333333
+"15","Habitat-Physical","Thermal Habitat Area","Achievable","TimeLag",0,0,0.583333333333333
+"16","Habitat-Physical","Thermal Habitat Area","Relevant","Advice",1,1,0.583333333333333
+"17","Habitat-Physical","Thermal Habitat Area","Relevant","Implications",1,1,0.583333333333333
+"18","Habitat-Physical","Thermal Habitat Area","Relevant","TargThresh",1,1,0.583333333333333
+"19","Habitat-Physical","Thermal Habitat Area","Timebound","Frequency",1,0.75,0.583333333333333
+"20","Habitat-Physical","Thermal Habitat Area","Timebound","Updated",0.5,0.75,0.583333333333333

@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fish","Feeding guilds by management bodies","Specific","Described",1,0.5,0.533333333333333
+"2","Fish","Feeding guilds by management bodies","Specific","Units",0,0.5,0.533333333333333
+"3","Fish","Feeding guilds by management bodies","Specific","Spatial",1,0.5,0.533333333333333
+"4","Fish","Feeding guilds by management bodies","Specific","Uncertainty",0,0.5,0.533333333333333
+"5","Fish","Feeding guilds by management bodies","Specific","Methods",1,0.5,0.533333333333333
+"6","Fish","Feeding guilds by management bodies","Specific","Code",0,0.5,0.533333333333333
+"7","Fish","Feeding guilds by management bodies","Measurable","Available",1,1,0.533333333333333
+"8","Fish","Feeding guilds by management bodies","Measurable","Online",1,1,0.533333333333333
+"9","Fish","Feeding guilds by management bodies","Measurable","Contact",1,1,0.533333333333333
+"10","Fish","Feeding guilds by management bodies","Measurable","SourceDat",1,1,0.533333333333333
+"11","Fish","Feeding guilds by management bodies","Measurable","SourceAvail",1,1,0.533333333333333
+"12","Fish","Feeding guilds by management bodies","Measurable","SourceContact",1,1,0.533333333333333
+"13","Fish","Feeding guilds by management bodies","Achievable","Tested",0,0,0.533333333333333
+"14","Fish","Feeding guilds by management bodies","Achievable","Sensitivity",0,0,0.533333333333333
+"15","Fish","Feeding guilds by management bodies","Achievable","TimeLag",0,0,0.533333333333333
+"16","Fish","Feeding guilds by management bodies","Relevant","Advice",1,0.666666666666667,0.533333333333333
+"17","Fish","Feeding guilds by management bodies","Relevant","Implications",1,0.666666666666667,0.533333333333333
+"18","Fish","Feeding guilds by management bodies","Relevant","TargThresh",0,0.666666666666667,0.533333333333333
+"19","Fish","Feeding guilds by management bodies","Timebound","Frequency",1,0.5,0.533333333333333
+"20","Fish","Feeding guilds by management bodies","Timebound","Updated",0,0.5,0.533333333333333

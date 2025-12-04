@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","Cold Pool Index","Specific","Described",1,0.666666666666667,0.583333333333333
+"2","Habitat-Physical","Cold Pool Index","Specific","Units",0,0.666666666666667,0.583333333333333
+"3","Habitat-Physical","Cold Pool Index","Specific","Spatial",1,0.666666666666667,0.583333333333333
+"4","Habitat-Physical","Cold Pool Index","Specific","Uncertainty",1,0.666666666666667,0.583333333333333
+"5","Habitat-Physical","Cold Pool Index","Specific","Methods",1,0.666666666666667,0.583333333333333
+"6","Habitat-Physical","Cold Pool Index","Specific","Code",0,0.666666666666667,0.583333333333333
+"7","Habitat-Physical","Cold Pool Index","Measurable","Available",1,0.833333333333333,0.583333333333333
+"8","Habitat-Physical","Cold Pool Index","Measurable","Online",1,0.833333333333333,0.583333333333333
+"9","Habitat-Physical","Cold Pool Index","Measurable","Contact",1,0.833333333333333,0.583333333333333
+"10","Habitat-Physical","Cold Pool Index","Measurable","SourceDat",0,0.833333333333333,0.583333333333333
+"11","Habitat-Physical","Cold Pool Index","Measurable","SourceAvail",1,0.833333333333333,0.583333333333333
+"12","Habitat-Physical","Cold Pool Index","Measurable","SourceContact",1,0.833333333333333,0.583333333333333
+"13","Habitat-Physical","Cold Pool Index","Achievable","Tested",0,0,0.583333333333333
+"14","Habitat-Physical","Cold Pool Index","Achievable","Sensitivity",0,0,0.583333333333333
+"15","Habitat-Physical","Cold Pool Index","Achievable","TimeLag",0,0,0.583333333333333
+"16","Habitat-Physical","Cold Pool Index","Relevant","Advice",1,0.666666666666667,0.583333333333333
+"17","Habitat-Physical","Cold Pool Index","Relevant","Implications",1,0.666666666666667,0.583333333333333
+"18","Habitat-Physical","Cold Pool Index","Relevant","TargThresh",0,0.666666666666667,0.583333333333333
+"19","Habitat-Physical","Cold Pool Index","Timebound","Frequency",1,0.75,0.583333333333333
+"20","Habitat-Physical","Cold Pool Index","Timebound","Updated",0.5,0.75,0.583333333333333

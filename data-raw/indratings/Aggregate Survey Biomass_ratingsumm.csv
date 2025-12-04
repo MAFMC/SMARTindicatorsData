@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fish","Aggregate Survey Biomass","Specific","Described",1,0.833333333333333,0.65
+"2","Fish","Aggregate Survey Biomass","Specific","Units",1,0.833333333333333,0.65
+"3","Fish","Aggregate Survey Biomass","Specific","Spatial",1,0.833333333333333,0.65
+"4","Fish","Aggregate Survey Biomass","Specific","Uncertainty",1,0.833333333333333,0.65
+"5","Fish","Aggregate Survey Biomass","Specific","Methods",1,0.833333333333333,0.65
+"6","Fish","Aggregate Survey Biomass","Specific","Code",0,0.833333333333333,0.65
+"7","Fish","Aggregate Survey Biomass","Measurable","Available",1,1,0.65
+"8","Fish","Aggregate Survey Biomass","Measurable","Online",1,1,0.65
+"9","Fish","Aggregate Survey Biomass","Measurable","Contact",1,1,0.65
+"10","Fish","Aggregate Survey Biomass","Measurable","SourceDat",1,1,0.65
+"11","Fish","Aggregate Survey Biomass","Measurable","SourceAvail",1,1,0.65
+"12","Fish","Aggregate Survey Biomass","Measurable","SourceContact",1,1,0.65
+"13","Fish","Aggregate Survey Biomass","Achievable","Tested",0,0,0.65
+"14","Fish","Aggregate Survey Biomass","Achievable","Sensitivity",0,0,0.65
+"15","Fish","Aggregate Survey Biomass","Achievable","TimeLag",0,0,0.65
+"16","Fish","Aggregate Survey Biomass","Relevant","Advice",1,0.666666666666667,0.65
+"17","Fish","Aggregate Survey Biomass","Relevant","Implications",1,0.666666666666667,0.65
+"18","Fish","Aggregate Survey Biomass","Relevant","TargThresh",0,0.666666666666667,0.65
+"19","Fish","Aggregate Survey Biomass","Timebound","Frequency",1,0.75,0.65
+"20","Fish","Aggregate Survey Biomass","Timebound","Updated",0.5,0.75,0.65

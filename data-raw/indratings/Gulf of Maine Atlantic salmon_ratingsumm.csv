@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Protected","Gulf of Maine Atlantic salmon","Specific","Described",1,0.666666666666667,0.683333333333333
+"2","Protected","Gulf of Maine Atlantic salmon","Specific","Units",1,0.666666666666667,0.683333333333333
+"3","Protected","Gulf of Maine Atlantic salmon","Specific","Spatial",1,0.666666666666667,0.683333333333333
+"4","Protected","Gulf of Maine Atlantic salmon","Specific","Uncertainty",0,0.666666666666667,0.683333333333333
+"5","Protected","Gulf of Maine Atlantic salmon","Specific","Methods",1,0.666666666666667,0.683333333333333
+"6","Protected","Gulf of Maine Atlantic salmon","Specific","Code",0,0.666666666666667,0.683333333333333
+"7","Protected","Gulf of Maine Atlantic salmon","Measurable","Available",1,1,0.683333333333333
+"8","Protected","Gulf of Maine Atlantic salmon","Measurable","Online",1,1,0.683333333333333
+"9","Protected","Gulf of Maine Atlantic salmon","Measurable","Contact",1,1,0.683333333333333
+"10","Protected","Gulf of Maine Atlantic salmon","Measurable","SourceDat",1,1,0.683333333333333
+"11","Protected","Gulf of Maine Atlantic salmon","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Protected","Gulf of Maine Atlantic salmon","Measurable","SourceContact",1,1,0.683333333333333
+"13","Protected","Gulf of Maine Atlantic salmon","Achievable","Tested",0,0,0.683333333333333
+"14","Protected","Gulf of Maine Atlantic salmon","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Protected","Gulf of Maine Atlantic salmon","Achievable","TimeLag",0,0,0.683333333333333
+"16","Protected","Gulf of Maine Atlantic salmon","Relevant","Advice",1,1,0.683333333333333
+"17","Protected","Gulf of Maine Atlantic salmon","Relevant","Implications",1,1,0.683333333333333
+"18","Protected","Gulf of Maine Atlantic salmon","Relevant","TargThresh",1,1,0.683333333333333
+"19","Protected","Gulf of Maine Atlantic salmon","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Protected","Gulf of Maine Atlantic salmon","Timebound","Updated",0.5,0.75,0.683333333333333

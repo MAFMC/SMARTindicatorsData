@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fish","Forage Fish Index","Specific","Described",1,1,0.683333333333333
+"2","Fish","Forage Fish Index","Specific","Units",1,1,0.683333333333333
+"3","Fish","Forage Fish Index","Specific","Spatial",1,1,0.683333333333333
+"4","Fish","Forage Fish Index","Specific","Uncertainty",1,1,0.683333333333333
+"5","Fish","Forage Fish Index","Specific","Methods",1,1,0.683333333333333
+"6","Fish","Forage Fish Index","Specific","Code",1,1,0.683333333333333
+"7","Fish","Forage Fish Index","Measurable","Available",1,1,0.683333333333333
+"8","Fish","Forage Fish Index","Measurable","Online",1,1,0.683333333333333
+"9","Fish","Forage Fish Index","Measurable","Contact",1,1,0.683333333333333
+"10","Fish","Forage Fish Index","Measurable","SourceDat",1,1,0.683333333333333
+"11","Fish","Forage Fish Index","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Fish","Forage Fish Index","Measurable","SourceContact",1,1,0.683333333333333
+"13","Fish","Forage Fish Index","Achievable","Tested",0,0,0.683333333333333
+"14","Fish","Forage Fish Index","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Fish","Forage Fish Index","Achievable","TimeLag",0,0,0.683333333333333
+"16","Fish","Forage Fish Index","Relevant","Advice",1,0.666666666666667,0.683333333333333
+"17","Fish","Forage Fish Index","Relevant","Implications",1,0.666666666666667,0.683333333333333
+"18","Fish","Forage Fish Index","Relevant","TargThresh",0,0.666666666666667,0.683333333333333
+"19","Fish","Forage Fish Index","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Fish","Forage Fish Index","Timebound","Updated",0.5,0.75,0.683333333333333

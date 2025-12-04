@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Specific","Described",1,0.666666666666667,0.616666666666667
+"2","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Specific","Units",1,0.666666666666667,0.616666666666667
+"3","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Specific","Spatial",1,0.666666666666667,0.616666666666667
+"4","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Specific","Uncertainty",0,0.666666666666667,0.616666666666667
+"5","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Specific","Methods",1,0.666666666666667,0.616666666666667
+"6","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Specific","Code",0,0.666666666666667,0.616666666666667
+"7","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Measurable","Available",1,1,0.616666666666667
+"8","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Measurable","Online",1,1,0.616666666666667
+"9","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Measurable","Contact",1,1,0.616666666666667
+"10","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Measurable","SourceDat",1,1,0.616666666666667
+"11","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Measurable","SourceAvail",1,1,0.616666666666667
+"12","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Measurable","SourceContact",1,1,0.616666666666667
+"13","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Achievable","Tested",0,0,0.616666666666667
+"14","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Achievable","Sensitivity",0,0,0.616666666666667
+"15","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Achievable","TimeLag",0,0,0.616666666666667
+"16","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Relevant","Advice",1,0.666666666666667,0.616666666666667
+"17","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Relevant","Implications",1,0.666666666666667,0.616666666666667
+"18","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Relevant","TargThresh",0,0.666666666666667,0.616666666666667
+"19","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Timebound","Frequency",1,0.75,0.616666666666667
+"20","Habitat-Physical","NE Shelf Annual Sea Surface Temperature (SST)","Timebound","Updated",0.5,0.75,0.616666666666667

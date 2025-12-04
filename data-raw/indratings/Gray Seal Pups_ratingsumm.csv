@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Protected","Gray Seal Pups","Specific","Described",1,0.5,0.583333333333333
+"2","Protected","Gray Seal Pups","Specific","Units",0,0.5,0.583333333333333
+"3","Protected","Gray Seal Pups","Specific","Spatial",1,0.5,0.583333333333333
+"4","Protected","Gray Seal Pups","Specific","Uncertainty",0,0.5,0.583333333333333
+"5","Protected","Gray Seal Pups","Specific","Methods",1,0.5,0.583333333333333
+"6","Protected","Gray Seal Pups","Specific","Code",0,0.5,0.583333333333333
+"7","Protected","Gray Seal Pups","Measurable","Available",1,1,0.583333333333333
+"8","Protected","Gray Seal Pups","Measurable","Online",1,1,0.583333333333333
+"9","Protected","Gray Seal Pups","Measurable","Contact",1,1,0.583333333333333
+"10","Protected","Gray Seal Pups","Measurable","SourceDat",1,1,0.583333333333333
+"11","Protected","Gray Seal Pups","Measurable","SourceAvail",1,1,0.583333333333333
+"12","Protected","Gray Seal Pups","Measurable","SourceContact",1,1,0.583333333333333
+"13","Protected","Gray Seal Pups","Achievable","Tested",0,0,0.583333333333333
+"14","Protected","Gray Seal Pups","Achievable","Sensitivity",0,0,0.583333333333333
+"15","Protected","Gray Seal Pups","Achievable","TimeLag",0,0,0.583333333333333
+"16","Protected","Gray Seal Pups","Relevant","Advice",1,0.666666666666667,0.583333333333333
+"17","Protected","Gray Seal Pups","Relevant","Implications",1,0.666666666666667,0.583333333333333
+"18","Protected","Gray Seal Pups","Relevant","TargThresh",0,0.666666666666667,0.583333333333333
+"19","Protected","Gray Seal Pups","Timebound","Frequency",1,0.75,0.583333333333333
+"20","Protected","Gray Seal Pups","Timebound","Updated",0.5,0.75,0.583333333333333

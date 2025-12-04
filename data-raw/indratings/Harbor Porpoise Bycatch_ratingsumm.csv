@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Protected","Harbor Porpoise Bycatch","Specific","Described",1,0.666666666666667,0.683333333333333
+"2","Protected","Harbor Porpoise Bycatch","Specific","Units",0,0.666666666666667,0.683333333333333
+"3","Protected","Harbor Porpoise Bycatch","Specific","Spatial",1,0.666666666666667,0.683333333333333
+"4","Protected","Harbor Porpoise Bycatch","Specific","Uncertainty",1,0.666666666666667,0.683333333333333
+"5","Protected","Harbor Porpoise Bycatch","Specific","Methods",1,0.666666666666667,0.683333333333333
+"6","Protected","Harbor Porpoise Bycatch","Specific","Code",0,0.666666666666667,0.683333333333333
+"7","Protected","Harbor Porpoise Bycatch","Measurable","Available",1,1,0.683333333333333
+"8","Protected","Harbor Porpoise Bycatch","Measurable","Online",1,1,0.683333333333333
+"9","Protected","Harbor Porpoise Bycatch","Measurable","Contact",1,1,0.683333333333333
+"10","Protected","Harbor Porpoise Bycatch","Measurable","SourceDat",1,1,0.683333333333333
+"11","Protected","Harbor Porpoise Bycatch","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Protected","Harbor Porpoise Bycatch","Measurable","SourceContact",1,1,0.683333333333333
+"13","Protected","Harbor Porpoise Bycatch","Achievable","Tested",0,0,0.683333333333333
+"14","Protected","Harbor Porpoise Bycatch","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Protected","Harbor Porpoise Bycatch","Achievable","TimeLag",0,0,0.683333333333333
+"16","Protected","Harbor Porpoise Bycatch","Relevant","Advice",1,1,0.683333333333333
+"17","Protected","Harbor Porpoise Bycatch","Relevant","Implications",1,1,0.683333333333333
+"18","Protected","Harbor Porpoise Bycatch","Relevant","TargThresh",1,1,0.683333333333333
+"19","Protected","Harbor Porpoise Bycatch","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Protected","Harbor Porpoise Bycatch","Timebound","Updated",0.5,0.75,0.683333333333333

@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fish","Species Distribution Indicators","Specific","Described",1,0.666666666666667,0.683333333333333
+"2","Fish","Species Distribution Indicators","Specific","Units",1,0.666666666666667,0.683333333333333
+"3","Fish","Species Distribution Indicators","Specific","Spatial",1,0.666666666666667,0.683333333333333
+"4","Fish","Species Distribution Indicators","Specific","Uncertainty",0,0.666666666666667,0.683333333333333
+"5","Fish","Species Distribution Indicators","Specific","Methods",1,0.666666666666667,0.683333333333333
+"6","Fish","Species Distribution Indicators","Specific","Code",0,0.666666666666667,0.683333333333333
+"7","Fish","Species Distribution Indicators","Measurable","Available",1,1,0.683333333333333
+"8","Fish","Species Distribution Indicators","Measurable","Online",1,1,0.683333333333333
+"9","Fish","Species Distribution Indicators","Measurable","Contact",1,1,0.683333333333333
+"10","Fish","Species Distribution Indicators","Measurable","SourceDat",1,1,0.683333333333333
+"11","Fish","Species Distribution Indicators","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Fish","Species Distribution Indicators","Measurable","SourceContact",1,1,0.683333333333333
+"13","Fish","Species Distribution Indicators","Achievable","Tested",0,0,0.683333333333333
+"14","Fish","Species Distribution Indicators","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Fish","Species Distribution Indicators","Achievable","TimeLag",0,0,0.683333333333333
+"16","Fish","Species Distribution Indicators","Relevant","Advice",1,1,0.683333333333333
+"17","Fish","Species Distribution Indicators","Relevant","Implications",1,1,0.683333333333333
+"18","Fish","Species Distribution Indicators","Relevant","TargThresh",1,1,0.683333333333333
+"19","Fish","Species Distribution Indicators","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Fish","Species Distribution Indicators","Timebound","Updated",0.5,0.75,0.683333333333333

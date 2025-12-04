@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Specific","Described",1,0.5,0.5
+"2","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Specific","Units",0,0.5,0.5
+"3","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Specific","Spatial",1,0.5,0.5
+"4","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Specific","Uncertainty",0,0.5,0.5
+"5","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Specific","Methods",1,0.5,0.5
+"6","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Specific","Code",0,0.5,0.5
+"7","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Measurable","Available",1,0.833333333333333,0.5
+"8","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Measurable","Online",1,0.833333333333333,0.5
+"9","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Measurable","Contact",1,0.833333333333333,0.5
+"10","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Measurable","SourceDat",0,0.833333333333333,0.5
+"11","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Measurable","SourceAvail",1,0.833333333333333,0.5
+"12","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Measurable","SourceContact",1,0.833333333333333,0.5
+"13","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Achievable","Tested",0,0,0.5
+"14","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Achievable","Sensitivity",0,0,0.5
+"15","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Achievable","TimeLag",0,0,0.5
+"16","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Relevant","Advice",1,0.666666666666667,0.5
+"17","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Relevant","Implications",1,0.666666666666667,0.5
+"18","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Relevant","TargThresh",0,0.666666666666667,0.5
+"19","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Timebound","Frequency",1,0.5,0.5
+"20","Fishery Economic Social","Community Port Landings and Revenue from Wind Energy Areas (WEAs)","Timebound","Updated",0,0.5,0.5

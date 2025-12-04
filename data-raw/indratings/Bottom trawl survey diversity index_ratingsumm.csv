@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fish","Bottom trawl survey diversity index","Specific","Described",1,0.666666666666667,0.616666666666667
+"2","Fish","Bottom trawl survey diversity index","Specific","Units",1,0.666666666666667,0.616666666666667
+"3","Fish","Bottom trawl survey diversity index","Specific","Spatial",1,0.666666666666667,0.616666666666667
+"4","Fish","Bottom trawl survey diversity index","Specific","Uncertainty",0,0.666666666666667,0.616666666666667
+"5","Fish","Bottom trawl survey diversity index","Specific","Methods",1,0.666666666666667,0.616666666666667
+"6","Fish","Bottom trawl survey diversity index","Specific","Code",0,0.666666666666667,0.616666666666667
+"7","Fish","Bottom trawl survey diversity index","Measurable","Available",1,1,0.616666666666667
+"8","Fish","Bottom trawl survey diversity index","Measurable","Online",1,1,0.616666666666667
+"9","Fish","Bottom trawl survey diversity index","Measurable","Contact",1,1,0.616666666666667
+"10","Fish","Bottom trawl survey diversity index","Measurable","SourceDat",1,1,0.616666666666667
+"11","Fish","Bottom trawl survey diversity index","Measurable","SourceAvail",1,1,0.616666666666667
+"12","Fish","Bottom trawl survey diversity index","Measurable","SourceContact",1,1,0.616666666666667
+"13","Fish","Bottom trawl survey diversity index","Achievable","Tested",0,0,0.616666666666667
+"14","Fish","Bottom trawl survey diversity index","Achievable","Sensitivity",0,0,0.616666666666667
+"15","Fish","Bottom trawl survey diversity index","Achievable","TimeLag",0,0,0.616666666666667
+"16","Fish","Bottom trawl survey diversity index","Relevant","Advice",1,0.666666666666667,0.616666666666667
+"17","Fish","Bottom trawl survey diversity index","Relevant","Implications",1,0.666666666666667,0.616666666666667
+"18","Fish","Bottom trawl survey diversity index","Relevant","TargThresh",0,0.666666666666667,0.616666666666667
+"19","Fish","Bottom trawl survey diversity index","Timebound","Frequency",1,0.75,0.616666666666667
+"20","Fish","Bottom trawl survey diversity index","Timebound","Updated",0.5,0.75,0.616666666666667

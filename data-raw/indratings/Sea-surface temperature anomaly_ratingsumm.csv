@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","Sea-surface temperature anomaly","Specific","Described",1,0.5,0.483333333333333
+"2","Habitat-Physical","Sea-surface temperature anomaly","Specific","Units",0,0.5,0.483333333333333
+"3","Habitat-Physical","Sea-surface temperature anomaly","Specific","Spatial",1,0.5,0.483333333333333
+"4","Habitat-Physical","Sea-surface temperature anomaly","Specific","Uncertainty",0,0.5,0.483333333333333
+"5","Habitat-Physical","Sea-surface temperature anomaly","Specific","Methods",1,0.5,0.483333333333333
+"6","Habitat-Physical","Sea-surface temperature anomaly","Specific","Code",0,0.5,0.483333333333333
+"7","Habitat-Physical","Sea-surface temperature anomaly","Measurable","Available",1,0.5,0.483333333333333
+"8","Habitat-Physical","Sea-surface temperature anomaly","Measurable","Online",1,0.5,0.483333333333333
+"9","Habitat-Physical","Sea-surface temperature anomaly","Measurable","Contact",1,0.5,0.483333333333333
+"10","Habitat-Physical","Sea-surface temperature anomaly","Measurable","SourceDat",0,0.5,0.483333333333333
+"11","Habitat-Physical","Sea-surface temperature anomaly","Measurable","SourceAvail",0,0.5,0.483333333333333
+"12","Habitat-Physical","Sea-surface temperature anomaly","Measurable","SourceContact",0,0.5,0.483333333333333
+"13","Habitat-Physical","Sea-surface temperature anomaly","Achievable","Tested",0,0,0.483333333333333
+"14","Habitat-Physical","Sea-surface temperature anomaly","Achievable","Sensitivity",0,0,0.483333333333333
+"15","Habitat-Physical","Sea-surface temperature anomaly","Achievable","TimeLag",0,0,0.483333333333333
+"16","Habitat-Physical","Sea-surface temperature anomaly","Relevant","Advice",1,0.666666666666667,0.483333333333333
+"17","Habitat-Physical","Sea-surface temperature anomaly","Relevant","Implications",1,0.666666666666667,0.483333333333333
+"18","Habitat-Physical","Sea-surface temperature anomaly","Relevant","TargThresh",0,0.666666666666667,0.483333333333333
+"19","Habitat-Physical","Sea-surface temperature anomaly","Timebound","Frequency",1,0.75,0.483333333333333
+"20","Habitat-Physical","Sea-surface temperature anomaly","Timebound","Updated",0.5,0.75,0.483333333333333

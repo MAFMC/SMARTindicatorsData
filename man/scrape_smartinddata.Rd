@@ -4,7 +4,7 @@
 \alias{scrape_smartinddata}
 \title{Scrape smart indicator data pages to make a dataset}
 \usage{
-scrape_smartinddata(url, FieldList = NULL)
+scrape_smartinddata(url)
 }
 \arguments{
 \item{url}{The url of the SMART indicator page to be scraped}
@@ -28,8 +28,6 @@ This dataset is the input for the searchable shiny app/dashboard
 }
 \examples{
  url <- "https://mafmc.github.io/SMARTindicatorsData/Cold-Pool-Index.html"
- FieldList <- c("Description", "Data steward", "Public availability statement",
- "Data sources", "Data extraction","Data analysis","catalog link", "catalog page")
- scrape_ecodata_techdoc(url, FieldList)
+ scrape_smartinddata(url)
 
 }

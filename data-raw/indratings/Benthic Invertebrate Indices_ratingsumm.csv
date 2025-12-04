@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Food-Web-Base","Benthic Invertebrate Indices","Specific","Described",1,1,0.683333333333333
+"2","Food-Web-Base","Benthic Invertebrate Indices","Specific","Units",1,1,0.683333333333333
+"3","Food-Web-Base","Benthic Invertebrate Indices","Specific","Spatial",1,1,0.683333333333333
+"4","Food-Web-Base","Benthic Invertebrate Indices","Specific","Uncertainty",1,1,0.683333333333333
+"5","Food-Web-Base","Benthic Invertebrate Indices","Specific","Methods",1,1,0.683333333333333
+"6","Food-Web-Base","Benthic Invertebrate Indices","Specific","Code",1,1,0.683333333333333
+"7","Food-Web-Base","Benthic Invertebrate Indices","Measurable","Available",1,1,0.683333333333333
+"8","Food-Web-Base","Benthic Invertebrate Indices","Measurable","Online",1,1,0.683333333333333
+"9","Food-Web-Base","Benthic Invertebrate Indices","Measurable","Contact",1,1,0.683333333333333
+"10","Food-Web-Base","Benthic Invertebrate Indices","Measurable","SourceDat",1,1,0.683333333333333
+"11","Food-Web-Base","Benthic Invertebrate Indices","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Food-Web-Base","Benthic Invertebrate Indices","Measurable","SourceContact",1,1,0.683333333333333
+"13","Food-Web-Base","Benthic Invertebrate Indices","Achievable","Tested",0,0,0.683333333333333
+"14","Food-Web-Base","Benthic Invertebrate Indices","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Food-Web-Base","Benthic Invertebrate Indices","Achievable","TimeLag",0,0,0.683333333333333
+"16","Food-Web-Base","Benthic Invertebrate Indices","Relevant","Advice",1,0.666666666666667,0.683333333333333
+"17","Food-Web-Base","Benthic Invertebrate Indices","Relevant","Implications",1,0.666666666666667,0.683333333333333
+"18","Food-Web-Base","Benthic Invertebrate Indices","Relevant","TargThresh",0,0.666666666666667,0.683333333333333
+"19","Food-Web-Base","Benthic Invertebrate Indices","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Food-Web-Base","Benthic Invertebrate Indices","Timebound","Updated",0.5,0.75,0.683333333333333

@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","Marine Heatwave Events","Specific","Described",1,0.5,0.433333333333333
+"2","Habitat-Physical","Marine Heatwave Events","Specific","Units",0,0.5,0.433333333333333
+"3","Habitat-Physical","Marine Heatwave Events","Specific","Spatial",1,0.5,0.433333333333333
+"4","Habitat-Physical","Marine Heatwave Events","Specific","Uncertainty",0,0.5,0.433333333333333
+"5","Habitat-Physical","Marine Heatwave Events","Specific","Methods",1,0.5,0.433333333333333
+"6","Habitat-Physical","Marine Heatwave Events","Specific","Code",0,0.5,0.433333333333333
+"7","Habitat-Physical","Marine Heatwave Events","Measurable","Available",1,0.5,0.433333333333333
+"8","Habitat-Physical","Marine Heatwave Events","Measurable","Online",1,0.5,0.433333333333333
+"9","Habitat-Physical","Marine Heatwave Events","Measurable","Contact",1,0.5,0.433333333333333
+"10","Habitat-Physical","Marine Heatwave Events","Measurable","SourceDat",0,0.5,0.433333333333333
+"11","Habitat-Physical","Marine Heatwave Events","Measurable","SourceAvail",0,0.5,0.433333333333333
+"12","Habitat-Physical","Marine Heatwave Events","Measurable","SourceContact",0,0.5,0.433333333333333
+"13","Habitat-Physical","Marine Heatwave Events","Achievable","Tested",0,0,0.433333333333333
+"14","Habitat-Physical","Marine Heatwave Events","Achievable","Sensitivity",0,0,0.433333333333333
+"15","Habitat-Physical","Marine Heatwave Events","Achievable","TimeLag",0,0,0.433333333333333
+"16","Habitat-Physical","Marine Heatwave Events","Relevant","Advice",1,0.666666666666667,0.433333333333333
+"17","Habitat-Physical","Marine Heatwave Events","Relevant","Implications",1,0.666666666666667,0.433333333333333
+"18","Habitat-Physical","Marine Heatwave Events","Relevant","TargThresh",0,0.666666666666667,0.433333333333333
+"19","Habitat-Physical","Marine Heatwave Events","Timebound","Frequency",1,0.5,0.433333333333333
+"20","Habitat-Physical","Marine Heatwave Events","Timebound","Updated",0,0.5,0.433333333333333

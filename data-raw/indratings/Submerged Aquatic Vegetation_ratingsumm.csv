@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Living","Submerged Aquatic Vegetation","Specific","Described",1,0.5,0.55
+"2","Habitat-Living","Submerged Aquatic Vegetation","Specific","Units",0,0.5,0.55
+"3","Habitat-Living","Submerged Aquatic Vegetation","Specific","Spatial",1,0.5,0.55
+"4","Habitat-Living","Submerged Aquatic Vegetation","Specific","Uncertainty",0,0.5,0.55
+"5","Habitat-Living","Submerged Aquatic Vegetation","Specific","Methods",1,0.5,0.55
+"6","Habitat-Living","Submerged Aquatic Vegetation","Specific","Code",0,0.5,0.55
+"7","Habitat-Living","Submerged Aquatic Vegetation","Measurable","Available",1,0.833333333333333,0.55
+"8","Habitat-Living","Submerged Aquatic Vegetation","Measurable","Online",1,0.833333333333333,0.55
+"9","Habitat-Living","Submerged Aquatic Vegetation","Measurable","Contact",1,0.833333333333333,0.55
+"10","Habitat-Living","Submerged Aquatic Vegetation","Measurable","SourceDat",0,0.833333333333333,0.55
+"11","Habitat-Living","Submerged Aquatic Vegetation","Measurable","SourceAvail",1,0.833333333333333,0.55
+"12","Habitat-Living","Submerged Aquatic Vegetation","Measurable","SourceContact",1,0.833333333333333,0.55
+"13","Habitat-Living","Submerged Aquatic Vegetation","Achievable","Tested",0,0,0.55
+"14","Habitat-Living","Submerged Aquatic Vegetation","Achievable","Sensitivity",0,0,0.55
+"15","Habitat-Living","Submerged Aquatic Vegetation","Achievable","TimeLag",0,0,0.55
+"16","Habitat-Living","Submerged Aquatic Vegetation","Relevant","Advice",1,0.666666666666667,0.55
+"17","Habitat-Living","Submerged Aquatic Vegetation","Relevant","Implications",1,0.666666666666667,0.55
+"18","Habitat-Living","Submerged Aquatic Vegetation","Relevant","TargThresh",0,0.666666666666667,0.55
+"19","Habitat-Living","Submerged Aquatic Vegetation","Timebound","Frequency",1,0.75,0.55
+"20","Habitat-Living","Submerged Aquatic Vegetation","Timebound","Updated",0.5,0.75,0.55

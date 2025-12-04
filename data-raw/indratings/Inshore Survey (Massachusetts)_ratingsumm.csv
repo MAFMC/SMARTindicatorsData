@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fish","Inshore Survey (Massachusetts)","Specific","Described",1,0.833333333333333,0.55
+"2","Fish","Inshore Survey (Massachusetts)","Specific","Units",1,0.833333333333333,0.55
+"3","Fish","Inshore Survey (Massachusetts)","Specific","Spatial",1,0.833333333333333,0.55
+"4","Fish","Inshore Survey (Massachusetts)","Specific","Uncertainty",1,0.833333333333333,0.55
+"5","Fish","Inshore Survey (Massachusetts)","Specific","Methods",1,0.833333333333333,0.55
+"6","Fish","Inshore Survey (Massachusetts)","Specific","Code",0,0.833333333333333,0.55
+"7","Fish","Inshore Survey (Massachusetts)","Measurable","Available",1,0.5,0.55
+"8","Fish","Inshore Survey (Massachusetts)","Measurable","Online",1,0.5,0.55
+"9","Fish","Inshore Survey (Massachusetts)","Measurable","Contact",1,0.5,0.55
+"10","Fish","Inshore Survey (Massachusetts)","Measurable","SourceDat",0,0.5,0.55
+"11","Fish","Inshore Survey (Massachusetts)","Measurable","SourceAvail",0,0.5,0.55
+"12","Fish","Inshore Survey (Massachusetts)","Measurable","SourceContact",0,0.5,0.55
+"13","Fish","Inshore Survey (Massachusetts)","Achievable","Tested",0,0,0.55
+"14","Fish","Inshore Survey (Massachusetts)","Achievable","Sensitivity",0,0,0.55
+"15","Fish","Inshore Survey (Massachusetts)","Achievable","TimeLag",0,0,0.55
+"16","Fish","Inshore Survey (Massachusetts)","Relevant","Advice",1,0.666666666666667,0.55
+"17","Fish","Inshore Survey (Massachusetts)","Relevant","Implications",1,0.666666666666667,0.55
+"18","Fish","Inshore Survey (Massachusetts)","Relevant","TargThresh",0,0.666666666666667,0.55
+"19","Fish","Inshore Survey (Massachusetts)","Timebound","Frequency",1,0.75,0.55
+"20","Fish","Inshore Survey (Massachusetts)","Timebound","Updated",0.5,0.75,0.55

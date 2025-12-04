@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Economic","Bennet Indicator","Specific","Described",1,0.666666666666667,0.616666666666667
+"2","Economic","Bennet Indicator","Specific","Units",1,0.666666666666667,0.616666666666667
+"3","Economic","Bennet Indicator","Specific","Spatial",1,0.666666666666667,0.616666666666667
+"4","Economic","Bennet Indicator","Specific","Uncertainty",0,0.666666666666667,0.616666666666667
+"5","Economic","Bennet Indicator","Specific","Methods",1,0.666666666666667,0.616666666666667
+"6","Economic","Bennet Indicator","Specific","Code",0,0.666666666666667,0.616666666666667
+"7","Economic","Bennet Indicator","Measurable","Available",1,1,0.616666666666667
+"8","Economic","Bennet Indicator","Measurable","Online",1,1,0.616666666666667
+"9","Economic","Bennet Indicator","Measurable","Contact",1,1,0.616666666666667
+"10","Economic","Bennet Indicator","Measurable","SourceDat",1,1,0.616666666666667
+"11","Economic","Bennet Indicator","Measurable","SourceAvail",1,1,0.616666666666667
+"12","Economic","Bennet Indicator","Measurable","SourceContact",1,1,0.616666666666667
+"13","Economic","Bennet Indicator","Achievable","Tested",0,0,0.616666666666667
+"14","Economic","Bennet Indicator","Achievable","Sensitivity",0,0,0.616666666666667
+"15","Economic","Bennet Indicator","Achievable","TimeLag",0,0,0.616666666666667
+"16","Economic","Bennet Indicator","Relevant","Advice",1,0.666666666666667,0.616666666666667
+"17","Economic","Bennet Indicator","Relevant","Implications",1,0.666666666666667,0.616666666666667
+"18","Economic","Bennet Indicator","Relevant","TargThresh",0,0.666666666666667,0.616666666666667
+"19","Economic","Bennet Indicator","Timebound","Frequency",1,0.75,0.616666666666667
+"20","Economic","Bennet Indicator","Timebound","Updated",0.5,0.75,0.616666666666667

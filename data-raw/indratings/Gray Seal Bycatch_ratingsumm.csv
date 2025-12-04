@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Protected","Gray Seal Bycatch","Specific","Described",1,0.666666666666667,0.683333333333333
+"2","Protected","Gray Seal Bycatch","Specific","Units",0,0.666666666666667,0.683333333333333
+"3","Protected","Gray Seal Bycatch","Specific","Spatial",1,0.666666666666667,0.683333333333333
+"4","Protected","Gray Seal Bycatch","Specific","Uncertainty",1,0.666666666666667,0.683333333333333
+"5","Protected","Gray Seal Bycatch","Specific","Methods",1,0.666666666666667,0.683333333333333
+"6","Protected","Gray Seal Bycatch","Specific","Code",0,0.666666666666667,0.683333333333333
+"7","Protected","Gray Seal Bycatch","Measurable","Available",1,1,0.683333333333333
+"8","Protected","Gray Seal Bycatch","Measurable","Online",1,1,0.683333333333333
+"9","Protected","Gray Seal Bycatch","Measurable","Contact",1,1,0.683333333333333
+"10","Protected","Gray Seal Bycatch","Measurable","SourceDat",1,1,0.683333333333333
+"11","Protected","Gray Seal Bycatch","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Protected","Gray Seal Bycatch","Measurable","SourceContact",1,1,0.683333333333333
+"13","Protected","Gray Seal Bycatch","Achievable","Tested",0,0,0.683333333333333
+"14","Protected","Gray Seal Bycatch","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Protected","Gray Seal Bycatch","Achievable","TimeLag",0,0,0.683333333333333
+"16","Protected","Gray Seal Bycatch","Relevant","Advice",1,1,0.683333333333333
+"17","Protected","Gray Seal Bycatch","Relevant","Implications",1,1,0.683333333333333
+"18","Protected","Gray Seal Bycatch","Relevant","TargThresh",1,1,0.683333333333333
+"19","Protected","Gray Seal Bycatch","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Protected","Gray Seal Bycatch","Timebound","Updated",0.5,0.75,0.683333333333333

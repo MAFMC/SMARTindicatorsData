@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Living","Harmful Algal Blooms","Specific","Described",1,0.5,0.55
+"2","Habitat-Living","Harmful Algal Blooms","Specific","Units",0,0.5,0.55
+"3","Habitat-Living","Harmful Algal Blooms","Specific","Spatial",1,0.5,0.55
+"4","Habitat-Living","Harmful Algal Blooms","Specific","Uncertainty",0,0.5,0.55
+"5","Habitat-Living","Harmful Algal Blooms","Specific","Methods",1,0.5,0.55
+"6","Habitat-Living","Harmful Algal Blooms","Specific","Code",0,0.5,0.55
+"7","Habitat-Living","Harmful Algal Blooms","Measurable","Available",1,0.833333333333333,0.55
+"8","Habitat-Living","Harmful Algal Blooms","Measurable","Online",1,0.833333333333333,0.55
+"9","Habitat-Living","Harmful Algal Blooms","Measurable","Contact",1,0.833333333333333,0.55
+"10","Habitat-Living","Harmful Algal Blooms","Measurable","SourceDat",0,0.833333333333333,0.55
+"11","Habitat-Living","Harmful Algal Blooms","Measurable","SourceAvail",1,0.833333333333333,0.55
+"12","Habitat-Living","Harmful Algal Blooms","Measurable","SourceContact",1,0.833333333333333,0.55
+"13","Habitat-Living","Harmful Algal Blooms","Achievable","Tested",0,0,0.55
+"14","Habitat-Living","Harmful Algal Blooms","Achievable","Sensitivity",0,0,0.55
+"15","Habitat-Living","Harmful Algal Blooms","Achievable","TimeLag",0,0,0.55
+"16","Habitat-Living","Harmful Algal Blooms","Relevant","Advice",1,0.666666666666667,0.55
+"17","Habitat-Living","Harmful Algal Blooms","Relevant","Implications",1,0.666666666666667,0.55
+"18","Habitat-Living","Harmful Algal Blooms","Relevant","TargThresh",0,0.666666666666667,0.55
+"19","Habitat-Living","Harmful Algal Blooms","Timebound","Frequency",1,0.75,0.55
+"20","Habitat-Living","Harmful Algal Blooms","Timebound","Updated",0.5,0.75,0.55

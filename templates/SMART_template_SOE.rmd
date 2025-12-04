@@ -123,6 +123,10 @@ if(length(category) == 0){
   category <- "Fish"
 }
 
+category <- unique(category)
+
+if(length(category) > 1 ) category <- paste(category, collapse = " ")
+
 category
 
 ```
@@ -391,7 +395,8 @@ measurable.3 <- ifelse(length(clean_catdat$Value[clean_catdat$Varname=="Point of
 ```{r units}
 
 specific.2 <- ifelse(length(unique(clean_ecodat$Units)) == 0, 0, 1)
-if(unique(clean_ecodat$Units) == "no Units field") specific.2 <- 0
+if(length(unique(clean_ecodat$Units)) == 1 & any(is.na(clean_ecodat$Units)|stringr::str_detect(unique(clean_ecodat$Units), "no Units field"))) specific.2 <- 0 #either NA or no units
+if(length(unique(clean_ecodat$Units)) > 1 & any(is.na(clean_ecodat$Units)|stringr::str_detect(unique(clean_ecodat$Units), "no Units field"))) specific.2 <- 0.5 #some NA
 
 # if(length(unique(clean_ecodat$Units)) == 1){
 #   cat(unique(clean_ecodat$Units), "\n")
@@ -419,26 +424,15 @@ Indicator specifics:
 ```{r}
 
 if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
+  timebound.2 <- 0 #no time variables, so not recent
+  
   clean_ecodat |>
     dplyr::select(Indicator, Varname) |>
     dplyr::distinct() |>
     flextable::flextable()|>
     flextable::set_table_properties(layout = "autofit")
   
-  timebound.2 <- 0 #no time variables, so not recent
-  
 }else{
-  clean_ecodat |>
-    dplyr::select(Indicator, EPU, Varname, Value) |>
-    dplyr::filter(Varname %in% c("StartYear", "EndYear", "EstYrs", "ActualYrs")) |>
-    tidyr::pivot_wider(names_from = Varname, values_from = Value) |>
-    dplyr::mutate(MissingYears = EstYrs - ActualYrs) |>
-    dplyr::select(Indicator, EPU, StartYear, EndYear, NumYears = ActualYrs, MissingYears) |>
-    dplyr::distinct() |>
-    flextable::flextable() |>
-    flextable::colformat_num(big.mark = "") |>
-    flextable::set_table_properties(layout = "autofit")
-  
   #end date >2023 for 2025 report = 1 Time-bound, 2020-2023 = 0.5, <2020 = 0
   # generalize to when this report is posted
   curryr <- as.numeric(format(Sys.Date(), "%Y"))
@@ -451,9 +445,21 @@ if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
     dplyr::distinct() |>
     dplyr::summarise(maxyr = max(EndYear, na.rm=TRUE))
     
-  if(curryr-maxendyr$maxyr == 1) timebound.2 <- 1
+  if(curryr-maxendyr$maxyr <= 1) timebound.2 <- 1
   if(curryr-maxendyr$maxyr >=1 &  curryr-maxendyr$maxyr < 5) timebound.2 <- 0.5
   if(curryr-maxendyr$maxyr >= 5) timebound.2 <- 0
+
+  clean_ecodat |>
+    dplyr::select(Indicator, EPU, Varname, Value) |>
+    dplyr::filter(Varname %in% c("StartYear", "EndYear", "EstYrs", "ActualYrs")) |>
+    tidyr::pivot_wider(names_from = Varname, values_from = Value) |>
+    dplyr::mutate(MissingYears = EstYrs - ActualYrs) |>
+    dplyr::select(Indicator, EPU, StartYear, EndYear, NumYears = ActualYrs, MissingYears) |>
+    dplyr::distinct() |>
+    flextable::flextable() |>
+    flextable::colformat_num(big.mark = "") |>
+    flextable::set_table_properties(layout = "autofit")
+
 }
 
 ```

@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Food-Web-Base","Zooplankton Abundance Anomalies","Specific","Described",1,0.666666666666667,0.616666666666667
+"2","Food-Web-Base","Zooplankton Abundance Anomalies","Specific","Units",1,0.666666666666667,0.616666666666667
+"3","Food-Web-Base","Zooplankton Abundance Anomalies","Specific","Spatial",1,0.666666666666667,0.616666666666667
+"4","Food-Web-Base","Zooplankton Abundance Anomalies","Specific","Uncertainty",0,0.666666666666667,0.616666666666667
+"5","Food-Web-Base","Zooplankton Abundance Anomalies","Specific","Methods",1,0.666666666666667,0.616666666666667
+"6","Food-Web-Base","Zooplankton Abundance Anomalies","Specific","Code",0,0.666666666666667,0.616666666666667
+"7","Food-Web-Base","Zooplankton Abundance Anomalies","Measurable","Available",1,1,0.616666666666667
+"8","Food-Web-Base","Zooplankton Abundance Anomalies","Measurable","Online",1,1,0.616666666666667
+"9","Food-Web-Base","Zooplankton Abundance Anomalies","Measurable","Contact",1,1,0.616666666666667
+"10","Food-Web-Base","Zooplankton Abundance Anomalies","Measurable","SourceDat",1,1,0.616666666666667
+"11","Food-Web-Base","Zooplankton Abundance Anomalies","Measurable","SourceAvail",1,1,0.616666666666667
+"12","Food-Web-Base","Zooplankton Abundance Anomalies","Measurable","SourceContact",1,1,0.616666666666667
+"13","Food-Web-Base","Zooplankton Abundance Anomalies","Achievable","Tested",0,0,0.616666666666667
+"14","Food-Web-Base","Zooplankton Abundance Anomalies","Achievable","Sensitivity",0,0,0.616666666666667
+"15","Food-Web-Base","Zooplankton Abundance Anomalies","Achievable","TimeLag",0,0,0.616666666666667
+"16","Food-Web-Base","Zooplankton Abundance Anomalies","Relevant","Advice",1,0.666666666666667,0.616666666666667
+"17","Food-Web-Base","Zooplankton Abundance Anomalies","Relevant","Implications",1,0.666666666666667,0.616666666666667
+"18","Food-Web-Base","Zooplankton Abundance Anomalies","Relevant","TargThresh",0,0.666666666666667,0.616666666666667
+"19","Food-Web-Base","Zooplankton Abundance Anomalies","Timebound","Frequency",1,0.75,0.616666666666667
+"20","Food-Web-Base","Zooplankton Abundance Anomalies","Timebound","Updated",0.5,0.75,0.616666666666667

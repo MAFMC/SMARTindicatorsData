@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Food-Web-Base","Zooplankton Diversity","Specific","Described",1,0.666666666666667,0.516666666666667
+"2","Food-Web-Base","Zooplankton Diversity","Specific","Units",1,0.666666666666667,0.516666666666667
+"3","Food-Web-Base","Zooplankton Diversity","Specific","Spatial",1,0.666666666666667,0.516666666666667
+"4","Food-Web-Base","Zooplankton Diversity","Specific","Uncertainty",0,0.666666666666667,0.516666666666667
+"5","Food-Web-Base","Zooplankton Diversity","Specific","Methods",1,0.666666666666667,0.516666666666667
+"6","Food-Web-Base","Zooplankton Diversity","Specific","Code",0,0.666666666666667,0.516666666666667
+"7","Food-Web-Base","Zooplankton Diversity","Measurable","Available",1,0.5,0.516666666666667
+"8","Food-Web-Base","Zooplankton Diversity","Measurable","Online",1,0.5,0.516666666666667
+"9","Food-Web-Base","Zooplankton Diversity","Measurable","Contact",1,0.5,0.516666666666667
+"10","Food-Web-Base","Zooplankton Diversity","Measurable","SourceDat",0,0.5,0.516666666666667
+"11","Food-Web-Base","Zooplankton Diversity","Measurable","SourceAvail",0,0.5,0.516666666666667
+"12","Food-Web-Base","Zooplankton Diversity","Measurable","SourceContact",0,0.5,0.516666666666667
+"13","Food-Web-Base","Zooplankton Diversity","Achievable","Tested",0,0,0.516666666666667
+"14","Food-Web-Base","Zooplankton Diversity","Achievable","Sensitivity",0,0,0.516666666666667
+"15","Food-Web-Base","Zooplankton Diversity","Achievable","TimeLag",0,0,0.516666666666667
+"16","Food-Web-Base","Zooplankton Diversity","Relevant","Advice",1,0.666666666666667,0.516666666666667
+"17","Food-Web-Base","Zooplankton Diversity","Relevant","Implications",1,0.666666666666667,0.516666666666667
+"18","Food-Web-Base","Zooplankton Diversity","Relevant","TargThresh",0,0.666666666666667,0.516666666666667
+"19","Food-Web-Base","Zooplankton Diversity","Timebound","Frequency",1,0.75,0.516666666666667
+"20","Food-Web-Base","Zooplankton Diversity","Timebound","Updated",0.5,0.75,0.516666666666667

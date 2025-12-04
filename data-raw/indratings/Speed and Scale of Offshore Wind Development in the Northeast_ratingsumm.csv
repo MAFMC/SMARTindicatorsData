@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Specific","Described",1,0.5,0.6
+"2","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Specific","Units",0,0.5,0.6
+"3","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Specific","Spatial",1,0.5,0.6
+"4","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Specific","Uncertainty",0,0.5,0.6
+"5","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Specific","Methods",1,0.5,0.6
+"6","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Specific","Code",0,0.5,0.6
+"7","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Measurable","Available",1,0.833333333333333,0.6
+"8","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Measurable","Online",1,0.833333333333333,0.6
+"9","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Measurable","Contact",1,0.833333333333333,0.6
+"10","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Measurable","SourceDat",0,0.833333333333333,0.6
+"11","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Measurable","SourceAvail",1,0.833333333333333,0.6
+"12","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Measurable","SourceContact",1,0.833333333333333,0.6
+"13","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Achievable","Tested",0,0,0.6
+"14","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Achievable","Sensitivity",0,0,0.6
+"15","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Achievable","TimeLag",0,0,0.6
+"16","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Relevant","Advice",1,0.666666666666667,0.6
+"17","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Relevant","Implications",1,0.666666666666667,0.6
+"18","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Relevant","TargThresh",0,0.666666666666667,0.6
+"19","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Timebound","Frequency",1,1,0.6
+"20","Ocean-Use","Speed and Scale of Offshore Wind Development in the Northeast","Timebound","Updated",1,1,0.6

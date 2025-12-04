@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","Annual Heatwave Intensity","Specific","Described",1,0.666666666666667,0.516666666666667
+"2","Habitat-Physical","Annual Heatwave Intensity","Specific","Units",1,0.666666666666667,0.516666666666667
+"3","Habitat-Physical","Annual Heatwave Intensity","Specific","Spatial",1,0.666666666666667,0.516666666666667
+"4","Habitat-Physical","Annual Heatwave Intensity","Specific","Uncertainty",0,0.666666666666667,0.516666666666667
+"5","Habitat-Physical","Annual Heatwave Intensity","Specific","Methods",1,0.666666666666667,0.516666666666667
+"6","Habitat-Physical","Annual Heatwave Intensity","Specific","Code",0,0.666666666666667,0.516666666666667
+"7","Habitat-Physical","Annual Heatwave Intensity","Measurable","Available",1,0.5,0.516666666666667
+"8","Habitat-Physical","Annual Heatwave Intensity","Measurable","Online",1,0.5,0.516666666666667
+"9","Habitat-Physical","Annual Heatwave Intensity","Measurable","Contact",1,0.5,0.516666666666667
+"10","Habitat-Physical","Annual Heatwave Intensity","Measurable","SourceDat",0,0.5,0.516666666666667
+"11","Habitat-Physical","Annual Heatwave Intensity","Measurable","SourceAvail",0,0.5,0.516666666666667
+"12","Habitat-Physical","Annual Heatwave Intensity","Measurable","SourceContact",0,0.5,0.516666666666667
+"13","Habitat-Physical","Annual Heatwave Intensity","Achievable","Tested",0,0,0.516666666666667
+"14","Habitat-Physical","Annual Heatwave Intensity","Achievable","Sensitivity",0,0,0.516666666666667
+"15","Habitat-Physical","Annual Heatwave Intensity","Achievable","TimeLag",0,0,0.516666666666667
+"16","Habitat-Physical","Annual Heatwave Intensity","Relevant","Advice",1,0.666666666666667,0.516666666666667
+"17","Habitat-Physical","Annual Heatwave Intensity","Relevant","Implications",1,0.666666666666667,0.516666666666667
+"18","Habitat-Physical","Annual Heatwave Intensity","Relevant","TargThresh",0,0.666666666666667,0.516666666666667
+"19","Habitat-Physical","Annual Heatwave Intensity","Timebound","Frequency",1,0.75,0.516666666666667
+"20","Habitat-Physical","Annual Heatwave Intensity","Timebound","Updated",0.5,0.75,0.516666666666667

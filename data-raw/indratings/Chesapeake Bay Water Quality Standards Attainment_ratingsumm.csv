@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Specific","Described",1,0.666666666666667,0.633333333333333
+"2","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Specific","Units",1,0.666666666666667,0.633333333333333
+"3","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Specific","Spatial",1,0.666666666666667,0.633333333333333
+"4","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Specific","Uncertainty",0,0.666666666666667,0.633333333333333
+"5","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Specific","Methods",1,0.666666666666667,0.633333333333333
+"6","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Specific","Code",0,0.666666666666667,0.633333333333333
+"7","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Measurable","Available",1,1,0.633333333333333
+"8","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Measurable","Online",1,1,0.633333333333333
+"9","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Measurable","Contact",1,1,0.633333333333333
+"10","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Measurable","SourceDat",1,1,0.633333333333333
+"11","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Measurable","SourceAvail",1,1,0.633333333333333
+"12","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Measurable","SourceContact",1,1,0.633333333333333
+"13","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Achievable","Tested",0,0,0.633333333333333
+"14","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Achievable","Sensitivity",0,0,0.633333333333333
+"15","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Achievable","TimeLag",0,0,0.633333333333333
+"16","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Relevant","Advice",1,1,0.633333333333333
+"17","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Relevant","Implications",1,1,0.633333333333333
+"18","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Relevant","TargThresh",1,1,0.633333333333333
+"19","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Timebound","Frequency",1,0.5,0.633333333333333
+"20","Habitat-Physical","Chesapeake Bay Water Quality Standards Attainment","Timebound","Updated",0,0.5,0.633333333333333

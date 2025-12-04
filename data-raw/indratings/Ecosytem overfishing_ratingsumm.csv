@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fishery","Ecosytem overfishing","Specific","Described",1,0.666666666666667,0.683333333333333
+"2","Fishery","Ecosytem overfishing","Specific","Units",1,0.666666666666667,0.683333333333333
+"3","Fishery","Ecosytem overfishing","Specific","Spatial",1,0.666666666666667,0.683333333333333
+"4","Fishery","Ecosytem overfishing","Specific","Uncertainty",0,0.666666666666667,0.683333333333333
+"5","Fishery","Ecosytem overfishing","Specific","Methods",1,0.666666666666667,0.683333333333333
+"6","Fishery","Ecosytem overfishing","Specific","Code",0,0.666666666666667,0.683333333333333
+"7","Fishery","Ecosytem overfishing","Measurable","Available",1,1,0.683333333333333
+"8","Fishery","Ecosytem overfishing","Measurable","Online",1,1,0.683333333333333
+"9","Fishery","Ecosytem overfishing","Measurable","Contact",1,1,0.683333333333333
+"10","Fishery","Ecosytem overfishing","Measurable","SourceDat",1,1,0.683333333333333
+"11","Fishery","Ecosytem overfishing","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Fishery","Ecosytem overfishing","Measurable","SourceContact",1,1,0.683333333333333
+"13","Fishery","Ecosytem overfishing","Achievable","Tested",0,0,0.683333333333333
+"14","Fishery","Ecosytem overfishing","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Fishery","Ecosytem overfishing","Achievable","TimeLag",0,0,0.683333333333333
+"16","Fishery","Ecosytem overfishing","Relevant","Advice",1,1,0.683333333333333
+"17","Fishery","Ecosytem overfishing","Relevant","Implications",1,1,0.683333333333333
+"18","Fishery","Ecosytem overfishing","Relevant","TargThresh",1,1,0.683333333333333
+"19","Fishery","Ecosytem overfishing","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Fishery","Ecosytem overfishing","Timebound","Updated",0.5,0.75,0.683333333333333

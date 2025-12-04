@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fish","Spawning Timing","Specific","Described",1,0.833333333333333,0.85
+"2","Fish","Spawning Timing","Specific","Units",1,0.833333333333333,0.85
+"3","Fish","Spawning Timing","Specific","Spatial",1,0.833333333333333,0.85
+"4","Fish","Spawning Timing","Specific","Uncertainty",0,0.833333333333333,0.85
+"5","Fish","Spawning Timing","Specific","Methods",1,0.833333333333333,0.85
+"6","Fish","Spawning Timing","Specific","Code",1,0.833333333333333,0.85
+"7","Fish","Spawning Timing","Measurable","Available",1,1,0.85
+"8","Fish","Spawning Timing","Measurable","Online",1,1,0.85
+"9","Fish","Spawning Timing","Measurable","Contact",1,1,0.85
+"10","Fish","Spawning Timing","Measurable","SourceDat",1,1,0.85
+"11","Fish","Spawning Timing","Measurable","SourceAvail",1,1,0.85
+"12","Fish","Spawning Timing","Measurable","SourceContact",1,1,0.85
+"13","Fish","Spawning Timing","Achievable","Tested",1,0.666666666666667,0.85
+"14","Fish","Spawning Timing","Achievable","Sensitivity",1,0.666666666666667,0.85
+"15","Fish","Spawning Timing","Achievable","TimeLag",0,0.666666666666667,0.85
+"16","Fish","Spawning Timing","Relevant","Advice",1,1,0.85
+"17","Fish","Spawning Timing","Relevant","Implications",1,1,0.85
+"18","Fish","Spawning Timing","Relevant","TargThresh",1,1,0.85
+"19","Fish","Spawning Timing","Timebound","Frequency",1,0.75,0.85
+"20","Fish","Spawning Timing","Timebound","Updated",0.5,0.75,0.85

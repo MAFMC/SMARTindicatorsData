@@ -1,0 +1,21 @@
+"","Category","Indicator","Element","Attribute","Rating","ElementRating","OverallRating"
+"1","Fishery","Commercial Catch and Fleet Diversity","Specific","Described",1,0.666666666666667,0.683333333333333
+"2","Fishery","Commercial Catch and Fleet Diversity","Specific","Units",1,0.666666666666667,0.683333333333333
+"3","Fishery","Commercial Catch and Fleet Diversity","Specific","Spatial",1,0.666666666666667,0.683333333333333
+"4","Fishery","Commercial Catch and Fleet Diversity","Specific","Uncertainty",0,0.666666666666667,0.683333333333333
+"5","Fishery","Commercial Catch and Fleet Diversity","Specific","Methods",1,0.666666666666667,0.683333333333333
+"6","Fishery","Commercial Catch and Fleet Diversity","Specific","Code",0,0.666666666666667,0.683333333333333
+"7","Fishery","Commercial Catch and Fleet Diversity","Measurable","Available",1,1,0.683333333333333
+"8","Fishery","Commercial Catch and Fleet Diversity","Measurable","Online",1,1,0.683333333333333
+"9","Fishery","Commercial Catch and Fleet Diversity","Measurable","Contact",1,1,0.683333333333333
+"10","Fishery","Commercial Catch and Fleet Diversity","Measurable","SourceDat",1,1,0.683333333333333
+"11","Fishery","Commercial Catch and Fleet Diversity","Measurable","SourceAvail",1,1,0.683333333333333
+"12","Fishery","Commercial Catch and Fleet Diversity","Measurable","SourceContact",1,1,0.683333333333333
+"13","Fishery","Commercial Catch and Fleet Diversity","Achievable","Tested",0,0,0.683333333333333
+"14","Fishery","Commercial Catch and Fleet Diversity","Achievable","Sensitivity",0,0,0.683333333333333
+"15","Fishery","Commercial Catch and Fleet Diversity","Achievable","TimeLag",0,0,0.683333333333333
+"16","Fishery","Commercial Catch and Fleet Diversity","Relevant","Advice",1,1,0.683333333333333
+"17","Fishery","Commercial Catch and Fleet Diversity","Relevant","Implications",1,1,0.683333333333333
+"18","Fishery","Commercial Catch and Fleet Diversity","Relevant","TargThresh",1,1,0.683333333333333
+"19","Fishery","Commercial Catch and Fleet Diversity","Timebound","Frequency",1,0.75,0.683333333333333
+"20","Fishery","Commercial Catch and Fleet Diversity","Timebound","Updated",0.5,0.75,0.683333333333333
