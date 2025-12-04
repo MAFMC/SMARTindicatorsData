@@ -85,9 +85,9 @@ Don't:
 
 [Select from: Habitat-Physical; Habitat-Living; Food-Web-Base; Fish; Protected; Fishery; Economic; Social; or Ocean-Use and add between quotes below, then delete this. If multiple categories, add both without punctuation]
 
-{{CategoryEnd}}
-
 `r category <- ""`
+
+{{CategoryEnd}}
 
 `r paste(category)`
 
@@ -127,9 +127,10 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or No, add 1 if Yes and 0 if No to code below]
 
+`r measurable.1 <- NA`
+
 {{DownloadableEnd}}
 
-`r measurable.1 <- `
 
 #### Where can indicators be found?
 
@@ -137,9 +138,11 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [add link to indicator dataset, or state Unknown. Add 1 if link exists or 0 if Unknown to code below]
 
+`r measurable.2 <- NA`
+
 {{DataLinkEnd}}
 
-`r measurable.2 <- `
+
 
 #### How often are they updated? Are future updates likely?
 
@@ -155,9 +158,11 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [add contact info for indicator data, or state Unknown. Add 1 if contact info exists or 0 if Unknown to code below]
 
+`r measurable.3 <- NA`
+
 {{POCEnd}}
 
-`r measurable.3 <- `
+
 
 ### Gather indicator statistics
 
@@ -167,9 +172,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [what are the specific units of each indicator in the dataset, or state Unknown. If all units are clear, score 1 in code below, if no units are listed, score 0 below. If some units are clear and others aren't, score  0.5]
 
-{{UnitsEnd}}
+`r specific.2 <- NA`
 
-`r specific.2 <- `
+{{UnitsEnd}}
 
 #### Length of time series, start and end date, periodicity
 
@@ -177,15 +182,16 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Describe the temporal scale of the indicator; annual, monthly, daily? If scale is clear score 1 for timebound.1 below, if not specified score 0. Add specific begin and end years here in text and in code below, count missing years, or state Unknown. If end year is within 1 year of current year, score 1 for timebound.2 below. If end year is more than one but less than 5 years before current year, score 0.5, if end year is 5 or more years before current year, score 0]
 
+`r timebound.1 <- NA`
+
+`r StartYear <- NA`
+
+`r EndYear <- NA`
+
+`r timebound.2 <- NA`
+
+
 {{TSlengthEnd}}
-
-`r timebound.1 <- `
-
-`r StartYear <- `
-
-`r EndYear <- `
-
-`r timebound.2 <- `
 
 #### Spatial location, scale and extent
 
@@ -193,9 +199,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [What is the spatial scale of the indicator? Add specifics if available (lat/long or state boundaries, etc.), or state Unknown. If scale is clearly specified, score 1 for specific.3 below, if not score 0]
 
-{{SpatialEnd}}
+`r specific.3 <- NA`
 
-`r specific.3 <- `
+{{SpatialEnd}}
 
 #### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
 
@@ -211,9 +217,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. Are uncertainty metrics included for the indicator (e.g. SD, SE, CI?), if so which ones? If yes score 1 in the code below, if no score 0]
 
-{{UncertaintyEnd}}
+`r specific.4 <- NA`
 
-`r specific.4 <- `
+{{UncertaintyEnd}}
 
 ### Are methods clearly documented to obtain source data and calculate indicators?
 
@@ -221,9 +227,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. Are instructions or documentation for calculating the indicator included? Add citation or links. If yes score 1 below, if no score 0]
 
-{{MethodsEnd}}
+`r specific.5 <- NA`
 
-`r specific.5 <- `
+{{MethodsEnd}}
 
 #### Can the indicator be calculated from current documentation?
 
@@ -239,9 +245,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. Score 1 for yes, 0 for no below. If yes, add Link to indicator calculation code here and note most recent update]
 
-{{CodeAvailEnd}}
+`r specific.6 <- NA`
 
-`r specific.6 <- `
+{{CodeAvailEnd}}
 
 #### Have methods changed over time?
 
@@ -257,9 +263,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. If Yes, score 1 below and Include link to source data (may be separate from indicator data). If no score 0 below]
 
-{{SourceDataAvailEnd}}
+`r measurable.4 <- NA`
 
-`r measurable.4 <- `
+{{SourceDataAvailEnd}}
 
 #### Where are source data stored?
 
@@ -267,9 +273,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Location of indicator source data (may be separate from indicator data), or state Unknown. If location is know score 1 below, if unknown score 0]
 
-{{SourceDataStoreEnd}}
+`r measurable.5 <- NA`
 
-`r measurable.5 <- `
+{{SourceDataStoreEnd}}
 
 #### How/by whom are source data updated? Are future updates likely?
 
@@ -277,9 +283,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Agency and individuals responsible for source data (may be separate from indicator data), or state Unknown. Score 1 below if contact exists, score 0 if unknown]
 
-{{SourceDataWhoUpdatseEnd}}
+`r measurable.6 <- NA`
 
-`r measurable.6 <- `
+{{SourceDataWhoUpdatseEnd}}
 
 #### How often are they updated?
 
@@ -298,9 +304,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [List details of each process and how the indicator is used. If a current Council process, select from the list of management actions/processes if relevant. Score 1 below if presented to or used by the Council or other management agency, score 0 if not]
 
-{{DecisionEnd}}
+`r relevant.1 <- NA`
 
-`r relevant.1 <- `
+{{DecisionEnd}}
 
 ### What implications of the indicators are currently listed?
 
@@ -308,9 +314,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [List the implications of the indicator trends/status/pattern in its current use context, score 1 if implications are documented, score 0 if not]
 
-{{ImplicationsEnd}}
+`r relevant.2 <- NA`
 
-`r relevant.2 <- `
+{{ImplicationsEnd}}
 
 ### Do target, limit,  or threshold values already exist for the indicator?
 
@@ -318,9 +324,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. If yes, sscore 1 below and list pecifcally what they are here. if none listed, score 0]
 
-{{RefptsEnd}}
+`r relevant.3 <- NA`
 
-`r relevant.3 <- `
+{{RefptsEnd}}
 
 ### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
 
@@ -328,9 +334,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. If yes, briefly describe and add citations or links to analyses or previous experience using the indicator, and score 1 below, if no score 0]
 
-{{TetstedEnd}}
+`r attainable.1 <- NA`
 
-`r attainable.1 <- `
+{{TetstedEnd}}
 
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
@@ -338,9 +344,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no if the answer was yes to testing above. Otherwise, state Unknown. Score 1 for yes and 0 for no or unknown]
 
-{{SensitiveEnd}}
+`r attainable.2 <- NA`
 
-`r attainable.2 <- `
+{{SensitiveEnd}}
 
 ### Is there a time lag between the process change and the indicator change? How long?
 
@@ -348,9 +354,9 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no if the answer was yes to testing above. Otherwise, state Unknown. Score 1 for yes and 0 for no or unknown]
 
-{{TimeLagEnd}}
+`r attainable.3 <- NA`
 
-`r attainable.3 <- `
+{{TimeLagEnd}}
 
 # SMART rating
 
@@ -374,7 +380,7 @@ ratings$Element <- c(rep("Specific", 6),
                      rep("Relevant", 3),
                      rep("Timebound", 2))
 
-ratings$Indicator <- unique(clean_catdat$Indicator)
+ratings$Indicator <- unique(indicator_name)
 ratings$Category <- category
 
 ratings <- ratings[,c("Category", "Indicator", "Element", "Attribute", "Rating")]
