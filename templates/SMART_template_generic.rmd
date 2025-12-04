@@ -63,7 +63,6 @@ Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. 
 
 Do:
 
-* Change editing mode to "Suggesting" (upper right corner of the Google Docs window, below the "share" button)
 * Replace the text in [brackets] describing content for the section with the indicator specific content.
 * Look at the figures and develop text on how the patterns in the data might be informative to both the assessment and future advice for this stock. 
 * Modify the text within sections beginning and ending with text inside double curly-bracket "mustaches". Anything in these sections will be harvested for the final report. 
@@ -78,14 +77,19 @@ Don't:
 
 {{READMEEnd}}
 
+# Descriptive Section
 
 ## Indicator category
 
 {{CategoryStart}}
 
-[Fill by hand using list of choices, needs decision by Council]
+[Select from: Habitat-Physical; Habitat-Living; Food-Web-Base; Fish; Protected; Fishery; Economic; Social; or Ocean-Use and add between quotes below, then delete this. If multiple categories, add both without punctuation]
 
 {{CategoryEnd}}
+
+`r category <- ""`
+
+`r paste(category)`
 
 ## Indicator name
 
@@ -101,6 +105,8 @@ Includes variable(s): `r paste(indicator_varname)`
 
 {{DescriptionEnd}}
 
+`r specific.1 <- 1`
+
 ## Indicator visualization
 
 {{VizDescriptionStart}}
@@ -111,23 +117,29 @@ Includes variable(s): `r paste(indicator_varname)`
 
 {{VizDescriptionEnd}}
 
+# SMART Attribute Section
+
 ## Indicator documentation
 
 ### Are indicators available for others to use (data downloadable)?
 
 {{DownloadableStart}}
 
-[Yes or No]
+[Yes or No, add 1 if Yes and 0 if No to code below]
 
 {{DownloadableEnd}}
+
+`r measurable.1 <- `
 
 #### Where can indicators be found?
 
 {{DataLinkStart}}
 
-[add link to indicator dataset, or state Unknown.]
+[add link to indicator dataset, or state Unknown. Add 1 if link exists and 0 if Unknown to code below]
 
 {{DataLinkEnd}}
+
+`r measurable.2 <- `
 
 #### How often are they updated? Are future updates likely?
 
@@ -302,6 +314,51 @@ Includes variable(s): `r paste(indicator_varname)`
 
 {{TimeLagEnd}}
 
+# SMART rating
+
+```{r SMART}
+
+indratings <- c("Described" = specific.1, "Units" = specific.2, "Spatial" = specific.3, "Uncertainty" = specific.4, 
+                "Methods" = specific.5, "Code" = specific.6,
+             "Available" =  measurable.1, "Online" = measurable.2, "Contact" = measurable.3, "SourceDat" = measurable.4, 
+             "SourceAvail" = measurable.5, "SourceContact" = measurable.6,
+             "Tested" = attainable.1, "Sensitivity" = attainable.2, "TimeLag" = attainable.3,
+             "Advice" = relevant.1, "Implications" = relevant.2, "TargThresh" = relevant.3,
+             "Frequency" = timebound.1, "Updated" = timebound.2)
+
+ratings <- stack(indratings)
+
+colnames(ratings) <- c("Rating", "Attribute")
+
+ratings$Element <- c(rep("Specific", 6),
+                     rep("Measurable", 6),
+                     rep("Achievable", 3),
+                     rep("Relevant", 3),
+                     rep("Timebound", 2))
+
+ratings$Indicator <- unique(clean_catdat$Indicator)
+ratings$Category <- category
+
+ratings <- ratings[,c("Category", "Indicator", "Element", "Attribute", "Rating")]
+
+elements <- ratings |>
+  dplyr::group_by(Element) |>
+  dplyr::summarise(ElementRating = mean(Rating, na.rm=TRUE))
+
+overall <- elements |>
+  dplyr::summarise(OverallRating = mean(ElementRating, na.rm=TRUE))
+
+ratingsumm <- ratings |>
+  dplyr::left_join(elements) |>
+  dplyr::mutate(OverallRating = overall$OverallRating)
+
+outfile <- paste0(here::here("data-raw/indratings/"), indicator_name, "_ratingsumm.csv")
+
+write.csv(ratingsumm, outfile)
+
+flextable::flextable(ratingsumm)
+
+```
 
 ## Comments
 
