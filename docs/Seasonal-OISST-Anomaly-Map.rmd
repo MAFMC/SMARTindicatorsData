@@ -446,7 +446,7 @@ if(any(clean_ecodat$Varname %in% c("no Time Variables"))){
     dplyr::summarise(maxyr = max(EndYear, na.rm=TRUE))
     
   if(curryr-maxendyr$maxyr <= 1) timebound.2 <- 1
-  if(curryr-maxendyr$maxyr >=1 &  curryr-maxendyr$maxyr < 5) timebound.2 <- 0.5
+  if(curryr-maxendyr$maxyr >1 &  curryr-maxendyr$maxyr < 5) timebound.2 <- 0.5
   if(curryr-maxendyr$maxyr >= 5) timebound.2 <- 0
 
   clean_ecodat |>
