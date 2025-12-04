@@ -3,6 +3,7 @@
 export(collect_ecodata_catalog_data)
 export(collect_ecodata_indicator_stats)
 export(collect_ecodata_techdoc_data)
+export(combine_smart_ratings)
 export(create_template)
 export(create_template_SOE)
 export(create_template_generic)
