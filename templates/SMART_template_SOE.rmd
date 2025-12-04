@@ -96,7 +96,7 @@ indicator_varname <- "{{INDICATOR_VAR}}"
 
 ```{r category, results='asis'}
 
-keywords <- data.frame(keystring = c("water quality", "temperature", "sst", "salinity", "habitat", "warm", "cold", "gulf stream", "slopewater", "heat", "sound", "thermal",
+keywords <- data.frame(keystring = c("water quality", "temperature", "sst", "salinity", "habitat", "warm", "cold", "gulf stream", "slopewater", "heat", "sound", "thermal", "transition",
                                      "submerged aquatic vegetation", "harmful algal",
                                      "plankton", "benthos", "benthic",
                                      "whale", "cetacean", "porpoise", "seal", "salmon", "seabird",
@@ -104,7 +104,7 @@ keywords <- data.frame(keystring = c("water quality", "temperature", "sst", "sal
                                      "revenue", "bennet",
                                      "community", "social",
                                      "offshore wind"),
-                       category = c(rep("Habitat-Physical", 12),
+                       category = c(rep("Habitat-Physical", 13),
                                     rep("Habitat-Living", 2),
                                     rep("Food-Web-Base", 3),
                                     rep("Protected",6),
