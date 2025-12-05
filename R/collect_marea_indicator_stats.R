@@ -8,10 +8,14 @@
 #'
 #'@return a dataframe with basic stats calculated from the indicator(s). Columns:
 #'\itemize{
-#'  \item{\code{Indicator}, name of the variable summarized from the marea indicator dataset}
-#'  \item{\code{Dataset}, the marea indicator dataset name = "marea name" collected from catalog}
+#'  \item{\code{Indicator}, Indicator name}
+#'  \item{\code{Dataset}, the marea indicator dataset name}
+#'  \item{\code{Var}, name of the indicator variable summarized from the marea indicator dataset}
+#'  \item{\code{Source}, the source of the indicator}
 #'  \item{\code{Units}, the units of the indicator}
-#'  \item{\code{EPU}, the Ecosystem Production Unit where the indicator is measured}
+#'  \item{\code{Time}, periodicity of the indicator: annual or annual and monthly}
+#'  \item{\code{Space}, spatial description}
+#'  \item{\code{EPU}, the Ecosystem Production Unit or Region where the indicator is measured}
 #'  \item{\code{Varname}, basic indicator statistics; StartYear is the first year of the time series,
 #'  EndYear is the last year of the time series, EstYrs is the total possible years between the start
 #'  and end years, ActualYrs is the count of years to determine if any are missing, TSMean is the time
@@ -41,8 +45,8 @@ collect_marea_indicator_stats <- function(datalist = NULL, outfile = NULL){
 
     ecolist <- gsub(" .*$", "", ecolist)#remove anything after a space in the dataset name
 
-    #temporarily remove nonconforming datasets, need to address later
-    ecolist <- (ecolist[!stringr::str_detect(ecolist, "coastline")])
+    #remove spatial and Scotian shelf specific datasets
+    ecolist <- (ecolist[!stringr::str_detect(ecolist, "coastline|glorys_|satellite_|azmp_|eco_|grey_")])
 
   }
 
