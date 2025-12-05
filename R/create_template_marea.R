@@ -23,46 +23,46 @@
 
 create_template <- function(indicator_name,
                             indicator_varname = NULL,
-                            template = here::here("templates/SMART_template.rmd"),
+                            template = here::here("templates/SMART_template_marea.rmd"),
                             output_dir = here::here("docs"),
                             send_to_google_doc = FALSE,
                             overwrite = FALSE) {
 
   ## Select the indicator and check it exists in the list
-  ecodatadat <- readRDS(here::here("data-raw/ecodatadat.rds"))
+  mareadat <- readRDS(here::here("data-raw/mareadat.rds"))
 
-  catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
+  #catalogdat <- readRDS(here::here("data-raw/catalogdat.rds"))
 
-  lookup <- catalogdat |>
-    dplyr::filter(Varname == "ecodata name") |>
-    dplyr::select(Indicator, Source, Dataset = Value) |>
-    dplyr::distinct()
+  # lookup <- catalogdat |>
+  #   dplyr::filter(Varname == "ecodata name") |>
+  #   dplyr::select(Indicator, Source, Dataset = Value) |>
+  #   dplyr::distinct()
 
   # check for stuff that needs escaping in indicator_name and escape it so detection works
   esc_indicator_name <- stringr::str_escape(indicator_name)
 
-  clean_catdat <- catalogdat |>
-    dplyr::filter(stringr::str_detect(Indicator, esc_indicator_name))|>
-    dplyr::select(Indicator) |>
-    dplyr::distinct()
+  # clean_catdat <- catalogdat |>
+  #   dplyr::filter(stringr::str_detect(Indicator, esc_indicator_name))|>
+  #   dplyr::select(Indicator) |>
+  #   dplyr::distinct()
 
-  clean_ecodat <- ecodatadat |>
+  clean_mareadat <- mareadat |>
     dplyr::filter(Dataset == lookup$Dataset[lookup$Indicator == indicator_name]) |>
     dplyr::select(Indicator) |>
     dplyr::distinct()
 
   if(!is.null(indicator_varname)){ #no matching needed if doing them all
-    clean_ecodat <- clean_ecodat |>
+    clean_mareadat <- clean_mareadat |>
       dplyr::filter(Indicator == indicator_varname)
   }
 
-  if (nrow(clean_catdat) < 1){
-    stop(sprintf("'%s' is not found. Check spelling or add '%s' as a new indicator to '%s'", indicator_name, indicator_name, path.expand("data/indicatorlist.csv")))
-  }
+  # if (nrow(clean_catdat) < 1){
+  #   stop(sprintf("'%s' is not found. Check spelling or add '%s' as a new indicator to '%s'", indicator_name, indicator_name, path.expand("data/indicatorlist.csv")))
+  # }
 
-  if(nrow(clean_ecodat) > 1){
+  if(nrow(clean_mareadat) > 1){
     # warn that multiple indicator variables exist and will be used?
-  } else if (nrow(clean_ecodat) < 1){
+  } else if (nrow(clean_mareadat) < 1){
     stop(sprintf("'%s' is not found. Check spelling or add '%s' as a new indicator variable to '%s'", indicator_varname, indicator_varname, path.expand("data/indicatorlist.csv")))
   }
 
@@ -70,15 +70,15 @@ create_template <- function(indicator_name,
   #Create .Rmd file to be written to book
   #dat <- readLines(here::here("templates","SMART_template.rmd"))
   dat <- readLines(template)
-  dat <- gsub("\\{\\{INDICATOR_NAME\\}\\}", clean_catdat$Indicator, dat)
+  dat <- gsub("\\{\\{INDICATOR_NAME\\}\\}", clean_mareadat$Indicator, dat)
   if(!is.null(indicator_varname)){
-    dat <- gsub("\\{\\{INDICATOR_VAR\\}\\}", clean_ecodat$Indicator, dat)
+    dat <- gsub("\\{\\{INDICATOR_VAR\\}\\}", clean_mareadat$IndVar, dat)
   }else{
     dat <- gsub("\\{\\{INDICATOR_VAR\\}\\}", "ALL", dat)
   }
 
   # cat(dat,sep = "\n" )
-  safename <- gsub("[() ]","-", clean_catdat$Indicator)
+  safename <- gsub("[() ]","-", clean_mareadat$Indicator)
   file_name <- sprintf("%s.rmd", safename)
   folder_name <- sprintf("%s",output_dir)
   #output_dir <- sprintf("%s_book", clean_names$stock_name)
