@@ -53,16 +53,46 @@ indicator_varname <- "ALL"
   # check for stuff that needs escaping in indicator_name and escape it so detection works
   esc_indicator_name <- stringr::str_escape(indicator_name)
 
-
+  # dummy values to get to gdoc, will be overwritten in main body
+category <- ""
+specific.1 <- NA
+specific.2 <- NA
+specific.3 <- NA
+specific.4 <- NA
+specific.5 <- NA
+specific.6 <- NA
+measurable.1 <- NA
+measurable.2 <- NA
+measurable.3 <- NA
+measurable.4 <- NA
+measurable.5 <- NA
+measurable.6 <- NA
+attainable.1 <- NA
+attainable.2 <- NA
+attainable.3 <- NA
+relevant.1 <- NA
+relevant.2 <- NA
+relevant.3 <- NA
+timebound.1 <- NA
+timebound.2 <- NA
+StartYear <- NA
+EndYear <- NA
 
 ```
 
+# Descriptive Section
 
 ## Indicator category
 
 
-Habitat, nearshore water quality
 
+
+`r category <- "Habitat-Physical"`
+
+
+
+
+`r paste(category)`
 
 ## Indicator name
 
@@ -76,6 +106,8 @@ Includes variable(s): `r paste(indicator_varname)`
 Snapshot of coastal water bodies condition relative to water quality standards from EPA ATTAINS (Assessment, Total maximum daily load, Tracking And ImplementatioN System) as reported in the Mid Atlantic Ocean Data Portal (MARCO)
 
 
+`r specific.1 <- 1`
+
 ## Indicator visualization
 
 
@@ -85,6 +117,8 @@ More Mid-Atlantic waterways are unassessed or polluted than good in the current 
 ![EPA Waterway Assessments as of August 2025](https://github.com/MAFMC/SMARTindicatorsData/raw/main/images/MARCO_ATTAINS.png)
 
 
+# SMART Attribute Section
+
 ## Indicator documentation
 
 ### Are indicators available for others to use (data downloadable)?
@@ -93,22 +127,36 @@ More Mid-Atlantic waterways are unassessed or polluted than good in the current 
 Yes
 
 
+`r measurable.1 <- 1`
+
+
+
 #### Where can indicators be found?
 
 
-MARCO data portal with links back to EPA, will take some work, may be worth asking MARCO: https://mywaterway.epa.gov/ and https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer 
+MARCO data portal with links back to EPA, will take some work, may be worth asking MARCO: https://mywaterway.epa.gov/  and https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer 
+
+
+`r measurable.2 <- 1`
+
+
 
 
 #### How often are they updated? Are future updates likely?
 
 
-Every 2 years? And future updates depend on EPA reporting requirements continuing
+Every 2 years? And future updates depend on EPA reporting requirements continuing 
 
 
 #### Who is the contact?
 
 
 MARCO https://portal.midatlanticocean.org/about-us/ 
+
+
+`r measurable.3 <- 1`
+
+
 
 
 ### Gather indicator statistics
@@ -119,12 +167,21 @@ MARCO https://portal.midatlanticocean.org/about-us/
 Qualitative “Waterbody condition” levels “Impaired” or not. e.g., NJ Atlantic Coast Barnegat to Surf City: https://mywaterway.epa.gov/waterbody-report/21NJDEP1/NJ02040301920010-01/2022 
 
 
+`r specific.2 <- 1`
 
 
 #### Length of time series, start and end date, periodicity
 
 
-A 2022 snapshot is reported, with previous year snapshots available: 2016, 2018, 2020
+A 2022 snapshot is reported, with previous year snapshots available: 2016, 2018, 2020 
+
+
+`r timebound.1 <- 0`
+`r StartYear <- 2016`
+`r EndYear <- 2022`
+`r timebound.2 <- 0.5`
+
+
 
 
 #### Spatial location, scale and extent
@@ -133,52 +190,70 @@ A 2022 snapshot is reported, with previous year snapshots available: 2016, 2018,
 Location and scale varies by waterway, nearly all waterways along the Mid Atlantic coast are included
 
 
+`r specific.3 <- 1`
+
+
 #### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
 
 
-All species affected by nearshore coastal habitat, not FMP or species specific  
+All species affected by nearshore coastal habitat, not FMP or species specific 
 
 
 #### Uncertainty metrics
 
 
-No.
+No
+
+
+`r specific.4 <- 0`
 
 
 ### Are methods clearly documented to obtain source data and calculate indicators?
 
 
-No, data are submitted by state/local agencies, downloaded data not fully documented. However, a synthesis of this information across each unit could possibly be done and documented
+No, data are submitted by state/local agencies, downloaded data not fully documented. However, a synthesis of this information across each unit could possibly be done and documented 
+
+
+`r specific.5 <- 0`
 
 
 #### Can the indicator be calculated from current documentation?
 
 
-No.
+No
 
 
 #### Is code publicly available? up to date?
 
 
-No.
+No
+
+
+`r specific.6 <- 0`
 
 
 #### Have methods changed over time?
 
 
-Unknown.
+Unknown 
 
 
 ### Are indicator underlying source data linked or easy to find?
 
 
-No.
+No
+
+
+`r measurable.4 <- 0`
 
 
 #### Where are source data stored?
 
 
-Individual state and local agencies presumably
+Individual state and local agencies presumably, but unknown
+
+
+`r measurable.5 <- 0`
 
 
 #### How/by whom are source data updated? Are future updates likely?
@@ -186,15 +261,66 @@ Individual state and local agencies presumably
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
 
-Unknown.
+Unknown
+
+
+`r attainable.2 <- 0`
 
 
 ### Is there a time lag between the process change and the indicator change? How long?
 
 
-Unknown.
+Unknown 
 
 
+`r attainable.3 <- 0`
+
+
+# SMART rating
+
+```{r SMART}
+
+indratings <- c("Described" = specific.1, "Units" = specific.2, "Spatial" = specific.3, "Uncertainty" = specific.4, 
+                "Methods" = specific.5, "Code" = specific.6,
+             "Available" =  measurable.1, "Online" = measurable.2, "Contact" = measurable.3, "SourceDat" = measurable.4, 
+             "SourceAvail" = measurable.5, "SourceContact" = measurable.6,
+             "Tested" = attainable.1, "Sensitivity" = attainable.2, "TimeLag" = attainable.3,
+             "Advice" = relevant.1, "Implications" = relevant.2, "TargThresh" = relevant.3,
+             "Frequency" = timebound.1, "Updated" = timebound.2)
+
+ratings <- stack(indratings)
+
+colnames(ratings) <- c("Rating", "Attribute")
+
+ratings$Element <- c(rep("Specific", 6),
+                     rep("Measurable", 6),
+                     rep("Achievable", 3),
+                     rep("Relevant", 3),
+                     rep("Timebound", 2))
+
+ratings$Indicator <- unique(indicator_name)
+ratings$Category <- category
+
+ratings <- ratings[,c("Category", "Indicator", "Element", "Attribute", "Rating")]
+
+elements <- ratings |>
+  dplyr::group_by(Element) |>
+  dplyr::summarise(ElementRating = mean(Rating, na.rm=TRUE))
+
+overall <- elements |>
+  dplyr::summarise(OverallRating = mean(ElementRating, na.rm=TRUE))
+
+ratingsumm <- ratings |>
+  dplyr::left_join(elements) |>
+  dplyr::mutate(OverallRating = overall$OverallRating)
+
+outfile <- paste0(here::here("data-raw/indratings/"), indicator_name, "_ratingsumm.csv")
+
+write.csv(ratingsumm, outfile)
+
+flextable::flextable(ratingsumm)
+
+```
 
 ## Comments
 
@@ -202,6 +328,8 @@ Unknown.
 
 
 This information could be used to inform the Council about estuarine and nearshore habitat status more dynamically and at a more refined spatial scale than the indicator in the current EAFM risk assessment. Source data appear to lag by several years but this is still more up to date than the 2009 coastal condition report.
+
+
 
 
 
@@ -215,7 +343,7 @@ Work would be required to aggregate the waterway specific information to an indi
 ### What issues are caused if there is a gap or delay in data underlying the indicator
 
 
-If used in the EAFM risk assessment, risk rankings could be out of date. However, the currently used indicator is from a 2009 coastal condition report. 
+If used in the EAFM risk assessment, risk rankings could be out of date. However, the currently used indicator is from a 2009 coastal condition report.                 
 
 
 

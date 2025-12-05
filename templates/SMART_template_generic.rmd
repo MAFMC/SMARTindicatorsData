@@ -53,7 +53,30 @@ indicator_varname <- "{{INDICATOR_VAR}}"
   # check for stuff that needs escaping in indicator_name and escape it so detection works
   esc_indicator_name <- stringr::str_escape(indicator_name)
 
-
+  # dummy values to get to gdoc, will be overwritten in main body
+category <- ""
+specific.1 <- NA
+specific.2 <- NA
+specific.3 <- NA
+specific.4 <- NA
+specific.5 <- NA
+specific.6 <- NA
+measurable.1 <- NA
+measurable.2 <- NA
+measurable.3 <- NA
+measurable.4 <- NA
+measurable.5 <- NA
+measurable.6 <- NA
+attainable.1 <- NA
+attainable.2 <- NA
+attainable.3 <- NA
+relevant.1 <- NA
+relevant.2 <- NA
+relevant.3 <- NA
+timebound.1 <- NA
+timebound.2 <- NA
+StartYear <- NA
+EndYear <- NA
 
 ```
 
@@ -64,6 +87,7 @@ Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. 
 Do:
 
 * Replace the text in [brackets] describing content for the section with the indicator specific content.
+* Surround r code snippets with ``
 * Look at the figures and develop text on how the patterns in the data might be informative to both the assessment and future advice for this stock. 
 * Modify the text within sections beginning and ending with text inside double curly-bracket "mustaches". Anything in these sections will be harvested for the final report. 
 * Add citations! If you have a citation to add, put it at the end of the section in BibTeX format (.bib; e.g., [here](https://www2.cs.arizona.edu/~collberg/Teaching/07.231/BibTeX/bibtex.html)). 
@@ -85,7 +109,7 @@ Don't:
 
 [Select from: Habitat-Physical; Habitat-Living; Food-Web-Base; Fish; Protected; Fishery; Economic; Social; or Ocean-Use and add between quotes below, then delete this. If multiple categories, add both without punctuation]
 
-`r category <- ""`
+r category <- ""
 
 {{CategoryEnd}}
 
@@ -127,7 +151,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or No, add 1 if Yes and 0 if No to code below]
 
-`r measurable.1 <- NA`
+r measurable.1 <- NA
 
 {{DownloadableEnd}}
 
@@ -138,7 +162,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [add link to indicator dataset, or state Unknown. Add 1 if link exists or 0 if Unknown to code below]
 
-`r measurable.2 <- NA`
+r measurable.2 <- NA
 
 {{DataLinkEnd}}
 
@@ -158,7 +182,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [add contact info for indicator data, or state Unknown. Add 1 if contact info exists or 0 if Unknown to code below]
 
-`r measurable.3 <- NA`
+r measurable.3 <- NA
 
 {{POCEnd}}
 
@@ -172,7 +196,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [what are the specific units of each indicator in the dataset, or state Unknown. If all units are clear, score 1 in code below, if no units are listed, score 0 below. If some units are clear and others aren't, score  0.5]
 
-`r specific.2 <- NA`
+r specific.2 <- NA
 
 {{UnitsEnd}}
 
@@ -182,13 +206,13 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Describe the temporal scale of the indicator; annual, monthly, daily? If scale is clear score 1 for timebound.1 below, if not specified score 0. Add specific begin and end years here in text and in code below, count missing years, or state Unknown. If end year is within 1 year of current year, score 1 for timebound.2 below. If end year is more than one but less than 5 years before current year, score 0.5, if end year is 5 or more years before current year, score 0]
 
-`r timebound.1 <- NA`
+r timebound.1 <- NA
 
-`r StartYear <- NA`
+r StartYear <- NA
 
-`r EndYear <- NA`
+r EndYear <- NA
 
-`r timebound.2 <- NA`
+r timebound.2 <- NA
 
 
 {{TSlengthEnd}}
@@ -199,7 +223,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [What is the spatial scale of the indicator? Add specifics if available (lat/long or state boundaries, etc.), or state Unknown. If scale is clearly specified, score 1 for specific.3 below, if not score 0]
 
-`r specific.3 <- NA`
+r specific.3 <- NA
 
 {{SpatialEnd}}
 
@@ -217,7 +241,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. Are uncertainty metrics included for the indicator (e.g. SD, SE, CI?), if so which ones? If yes score 1 in the code below, if no score 0]
 
-`r specific.4 <- NA`
+r specific.4 <- NA
 
 {{UncertaintyEnd}}
 
@@ -227,7 +251,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. Are instructions or documentation for calculating the indicator included? Add citation or links. If yes score 1 below, if no score 0]
 
-`r specific.5 <- NA`
+r specific.5 <- NA
 
 {{MethodsEnd}}
 
@@ -245,7 +269,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. Score 1 for yes, 0 for no below. If yes, add Link to indicator calculation code here and note most recent update]
 
-`r specific.6 <- NA`
+r specific.6 <- NA
 
 {{CodeAvailEnd}}
 
@@ -263,7 +287,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. If Yes, score 1 below and Include link to source data (may be separate from indicator data). If no score 0 below]
 
-`r measurable.4 <- NA`
+r measurable.4 <- NA
 
 {{SourceDataAvailEnd}}
 
@@ -273,7 +297,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Location of indicator source data (may be separate from indicator data), or state Unknown. If location is know score 1 below, if unknown score 0]
 
-`r measurable.5 <- NA`
+r measurable.5 <- NA
 
 {{SourceDataStoreEnd}}
 
@@ -283,7 +307,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Agency and individuals responsible for source data (may be separate from indicator data), or state Unknown. Score 1 below if contact exists, score 0 if unknown]
 
-`r measurable.6 <- NA`
+r measurable.6 <- NA
 
 {{SourceDataWhoUpdatseEnd}}
 
@@ -304,7 +328,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [List details of each process and how the indicator is used. If a current Council process, select from the list of management actions/processes if relevant. Score 1 below if presented to or used by the Council or other management agency, score 0 if not]
 
-`r relevant.1 <- NA`
+r relevant.1 <- NA
 
 {{DecisionEnd}}
 
@@ -314,7 +338,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [List the implications of the indicator trends/status/pattern in its current use context, score 1 if implications are documented, score 0 if not]
 
-`r relevant.2 <- NA`
+r relevant.2 <- NA
 
 {{ImplicationsEnd}}
 
@@ -324,7 +348,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. If yes, sscore 1 below and list pecifcally what they are here. if none listed, score 0]
 
-`r relevant.3 <- NA`
+r relevant.3 <- NA
 
 {{RefptsEnd}}
 
@@ -334,7 +358,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no. If yes, briefly describe and add citations or links to analyses or previous experience using the indicator, and score 1 below, if no score 0]
 
-`r attainable.1 <- NA`
+r attainable.1 <- NA
 
 {{TetstedEnd}}
 
@@ -344,7 +368,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no if the answer was yes to testing above. Otherwise, state Unknown. Score 1 for yes and 0 for no or unknown]
 
-`r attainable.2 <- NA`
+r attainable.2 <- NA
 
 {{SensitiveEnd}}
 
@@ -354,7 +378,7 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [Yes or no if the answer was yes to testing above. Otherwise, state Unknown. Score 1 for yes and 0 for no or unknown]
 
-`r attainable.3 <- NA`
+r attainable.3 <- NA
 
 {{TimeLagEnd}}
 
