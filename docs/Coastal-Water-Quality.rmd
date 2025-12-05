@@ -258,6 +258,51 @@ Individual state and local agencies presumably, but unknown
 
 #### How/by whom are source data updated? Are future updates likely?
 
+
+Individual state and local agencies presumably, but unknown, then EPA synthesizes reports and MARCO aggregates. Updates likely depend on state reporting requirements under the Clean Water Act.
+
+
+`r measurable.6 <- 0`
+
+
+#### How often are they updated?
+
+
+Every 2 years but with a lag?
+
+
+
+## Indicator analysis/testing or history of use
+
+### What decision or advice processes are the indicators currently used in?
+
+
+Clean Water Act monitoring? Not currently used in a Council process.
+
+
+`r relevant.1 <- 1`
+
+
+### What implications of the indicators are currently listed?
+
+
+“Definition: Impaired waters are waterbodies not fully supporting their designated uses under the Clean Water Act.”
+
+
+`r relevant.2 <- 1`
+
+
+### Do target, limit,  or threshold values already exist for the indicator?
+
+
+Targets and thresholds are inherent in the status: impaired waters are not meeting water quality targets for one or more attributes.
+
+
+`r relevant.3 <- 1`
+
+
+### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
+
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
 

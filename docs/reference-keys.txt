@@ -22,6 +22,12 @@ have-methods-changed-over-time
 are-indicator-underlying-source-data-linked-or-easy-to-find
 where-are-source-data-stored
 howby-whom-are-source-data-updated-are-future-updates-likely
+how-often-are-they-updated
+indicator-analysistesting-or-history-of-use
+what-decision-or-advice-processes-are-the-indicators-currently-used-in
+what-implications-of-the-indicators-are-currently-listed
+do-target-limit-or-threshold-values-already-exist-for-the-indicator
+have-the-indicators-been-tested-to-ensure-they-respond-proportionally-to-a-change-in-the-underlying-process
 are-the-indicators-sensitive-to-a-small-change-in-the-process-or-what-is-the-threshold-of-change-that-is-detectable
 is-there-a-time-lag-between-the-process-change-and-the-indicator-change-how-long
 smart-rating

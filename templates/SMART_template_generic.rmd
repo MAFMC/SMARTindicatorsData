@@ -309,7 +309,7 @@ r measurable.5 <- NA
 
 r measurable.6 <- NA
 
-{{SourceDataWhoUpdatseEnd}}
+{{SourceDataWhoUpdatesEnd}}
 
 #### How often are they updated?
 
