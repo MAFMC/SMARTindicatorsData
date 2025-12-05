@@ -360,7 +360,7 @@ r relevant.3 <- NA
 
 r attainable.1 <- NA
 
-{{TetstedEnd}}
+{{TestedEnd}}
 
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 

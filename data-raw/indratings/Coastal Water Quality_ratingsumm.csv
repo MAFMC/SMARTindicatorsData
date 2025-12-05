@@ -11,7 +11,7 @@
 "10","Habitat-Physical","Coastal Water Quality","Measurable","SourceDat",0,0.5,0.45
 "11","Habitat-Physical","Coastal Water Quality","Measurable","SourceAvail",0,0.5,0.45
 "12","Habitat-Physical","Coastal Water Quality","Measurable","SourceContact",0,0.5,0.45
-"13","Habitat-Physical","Coastal Water Quality","Achievable","Tested",NA,0,0.45
+"13","Habitat-Physical","Coastal Water Quality","Achievable","Tested",0,0,0.45
 "14","Habitat-Physical","Coastal Water Quality","Achievable","Sensitivity",0,0,0.45
 "15","Habitat-Physical","Coastal Water Quality","Achievable","TimeLag",0,0,0.45
 "16","Habitat-Physical","Coastal Water Quality","Relevant","Advice",1,1,0.45

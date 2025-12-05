@@ -303,6 +303,13 @@ Targets and thresholds are inherent in the status: impaired waters are not meeti
 
 ### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
 
+
+Unknown
+
+
+`r attainable.1 <- 0`
+
+
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
 
