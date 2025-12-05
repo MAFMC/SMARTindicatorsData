@@ -86,13 +86,15 @@ Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. 
 
 Do:
 
-* Replace the text in [brackets] describing content for the section with the indicator specific content.
-* Surround r code snippets with ``
-* Look at the figures and develop text on how the patterns in the data might be informative to both the assessment and future advice for this stock. 
-* Modify the text within sections beginning and ending with text inside double curly-bracket "mustaches". Anything in these sections will be harvested for the final report. 
+* Ensure google docs automated "use smart quotes" and "enable markdown" are *not* checked: change this in the Tools-->Preferences menu
+* Replace the text in [brackets] within sections beginning and ending with section begin and end markers inside double curly-bracket "mustaches". Anything in between the section markers will be harvested for the final report. Replace the text describing content for the section with the indicator specific content.
+* Remove the [brackets], but leave all section markers and mustaches alone
+* Complete the SMART rating for each section as instructed by replacing NA with numbers in r code snippets (e.g. r measurable.1 <- NA)
+* Surround those r code snippets with ``, *leaving no spaces* as in `r measureable.1 <- 0`
+* Include figures and develop brief text on how the patterns in the data might be informative . 
 * Add citations! If you have a citation to add, put it at the end of the section in BibTeX format (.bib; e.g., [here](https://www2.cs.arizona.edu/~collberg/Teaching/07.231/BibTeX/bibtex.html)). 
 * Add scientific names, but instead of italicizing, use asterisks before and after, e.g., (*Stenotomus chrysops*).
-* Before reading back into an rmd, *all changes must be accepted*
+* Before reading back into an rmd, *all suggested changes must be accepted*
 
 Don't:
 
