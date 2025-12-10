@@ -22,7 +22,7 @@ favicon: favicon.ico
 library(ggplot2)
 library(tidyr)
 library(dplyr)
-library(ecodata)
+library(marea)
 library(plotly)
 library(DT)
 library(jpeg)
@@ -41,7 +41,7 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', 
 # processed with marea_indicator_stats() and collect_marea_indicators_stats()
 
   mareadat <- readRDS(here::here("data-raw/mareadat.rds"))
-
+  
 
 ## Put all mustaches here
 indicator_name <- "{{INDICATOR_NAME}}"
@@ -56,6 +56,17 @@ indicator_varname <- "{{INDICATOR_VAR}}"
 
   # check for stuff that needs escaping in indicator_name and escape it so detection works
   esc_indicator_name <- stringr::str_escape(indicator_name)
+  
+  mareaind <- mareadat |>
+    dplyr::filter(Indicator == esc_indicator_name)
+  
+  
+# load the data
+  dataset <- unique(mareaind$Dataset)
+  
+  data(list = dataset, package = "marea", envir = environment())
+
+  dat <- get(dataset)
 
   # dummy values to get to gdoc, will be overwritten in main body
 category <- ""
@@ -79,8 +90,8 @@ relevant.2 <- NA
 relevant.3 <- NA
 timebound.1 <- NA
 timebound.2 <- NA
-StartYear <- NA
-EndYear <- NA
+# StartYear <- NA
+# EndYear <- NA
 
 ```
 
@@ -143,9 +154,14 @@ Includes variable(s): `r paste(indicator_varname)`
 
 [What are key trends or patterns we see in the indicator visualization?]
 
-[Add a visualization using a link in markdown format !(caption text)[urllinktofig]]
-
 {{VizDescriptionEnd}}
+
+```{r plot}
+
+plot(dat)
+
+```
+
 
 # SMART Attribute Section
 
@@ -172,7 +188,7 @@ r measurable.2 <- NA
 
 {{DataLinkEnd}}
 
-
+`r paste(unique(mareadat$source_citation))`
 
 #### How often are they updated? Are future updates likely?
 

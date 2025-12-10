@@ -3,11 +3,11 @@
 #' Inspired by NOAA-EDAB Ecosystem Context for Stock Assessment workflow
 #' original code: https://github.com/NOAA-EDAB/ECSA/blob/master/R/create_template.R
 #'
-#' @param indicator_name Character string. An indicator name (e.g. "Phytoplankton")
+#' @param indicator_name Character string. An indicator name (e.g. "North Atlantic Oscillation Index")
 #' @param indicator_varname Character string. The variable name for indicators with multiple variables (e.g. "ANNUAL_PPD_MEDIAN"), defaults to all indicator variables, which can be a lot
-#' @param template Character string. The path to the desired template, defaults to "templates/SMART_template.rmd"
+#' @param template Character string. The path to the desired template, defaults to "templates/SMART_template_marea.rmd"
 #' @param output_dir Character string. The output directory for the compiled bookdown HTML document and supporting files. Default "docs" folder in current working directory
-#' @param send_to_google_doc Logical. Defaults to FALSE. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
+#' @param send_to_google_doc Logical. Defaults to TRUE. If TRUE, the generated template will render a google document into the chosen output directory for hand editing.
 #' If FALSE, the template .Rmd file will be generated in the directory output_dir/stock-name folder
 #' @param overwrite Logical. Defaults to FALSE. If TRUE, output will overwrite any existing template or google doc for chosen species.
 #'
@@ -15,17 +15,17 @@
 #'
 #' @examples
 #'
-#' create_template(indicator_name = "Phytoplankton", indicator_varname = "ANNUAL_PPD_MEDIAN",
+#' create_template_marea(indicator_name = "North Atlantic Oscillation Index",
 #' overwrite = F, output_dir = getwd(), send_to_google_doc = T)
 #'
 #' @export
 
 
-create_template <- function(indicator_name,
+create_template_marea <- function(indicator_name,
                             indicator_varname = NULL,
                             template = here::here("templates/SMART_template_marea.rmd"),
-                            output_dir = here::here("docs"),
-                            send_to_google_doc = FALSE,
+                            output_dir = here::here("drafts"),
+                            send_to_google_doc = TRUE,
                             overwrite = FALSE) {
 
   ## Select the indicator and check it exists in the list
