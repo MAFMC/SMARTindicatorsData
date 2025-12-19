@@ -169,26 +169,29 @@ plot(dat)
 
 ### Are indicators available for others to use (data downloadable)?
 
-{{DownloadableStart}}
-
-[Yes or No, add 1 if Yes and 0 if No to code below]
-
-r measurable.1 <- NA
-
-{{DownloadableEnd}}
-
+```{r download, results='asis'}
+# by definition yes
+if(length(dat@data$year) > 1){
+  cat("Yes", "\n")
+  measurable.1 <- 1
+}else{
+  cat("Data not in marea, need to enter info", "\n")
+  measurable.1 <- 0
+}
+  
+```
 
 #### Where can indicators be found?
 
+All `marea` datasets are available here: https://github.com/MarEcosystemApproaches/marea
+
 {{DataLinkStart}}
 
-[add link to indicator dataset, or state Unknown. Add 1 if link exists or 0 if Unknown to code below]
+[Add 1 if link exists or 0 if Unknown to code below]
 
 r measurable.2 <- NA
 
 {{DataLinkEnd}}
-
-`r paste(unique(mareadat$source_citation))`
 
 #### How often are they updated? Are future updates likely?
 
@@ -312,6 +315,9 @@ r specific.6 <- NA
 r measurable.4 <- NA
 
 {{SourceDataAvailEnd}}
+
+`r paste(unique(mareadat$source_citation))`
+
 
 #### Where are source data stored?
 
