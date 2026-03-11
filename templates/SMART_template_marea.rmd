@@ -227,6 +227,14 @@ r specific.2 <- NA
 
 #### Length of time series, start and end date, periodicity
 
+General overview: `r paste(unique(mareaind$Time))`
+
+```{r T1}
+#currently a test for existence
+timebound.1 <- ifelse(length(unique(mareaind$Time)) == 0, 0, 1)
+```
+
+
 {{TSlengthStart}}
 
 [Describe the temporal scale of the indicator; annual, monthly, daily? If scale is clear score 1 for timebound.1 below, if not specified score 0. Add specific begin and end years here in text and in code below, count missing years, or state Unknown. If end year is within 1 year of current year, score 1 for timebound.2 below. If end year is more than one but less than 5 years before current year, score 0.5, if end year is 5 or more years before current year, score 0]
@@ -316,7 +324,7 @@ r measurable.4 <- NA
 
 {{SourceDataAvailEnd}}
 
-`r paste(unique(mareadat$source_citation))`
+`r paste(unique(mareaind$Source))`
 
 
 #### Where are source data stored?
