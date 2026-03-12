@@ -183,15 +183,18 @@ if(length(dat@data$year) > 1){
 
 #### Where can indicators be found?
 
-All `marea` datasets are available here: https://github.com/MarEcosystemApproaches/marea
+```{r where, results='asis'}
 
-{{DataLinkStart}}
+if(length(dat@data$year) > 1){
+  cat("All marea indicators are here: https://github.com/MarEcosystemApproaches/marea", "\n\n")
+  measurable.2 <- 1
+}else{
+  cat("Not in marea, need to enter info", "\n")
+  measurable.2 <- 0
+}
+  
 
-[Add 1 if link exists or 0 if Unknown to code below]
-
-r measurable.2 <- NA
-
-{{DataLinkEnd}}
+```
 
 #### How often are they updated? Are future updates likely?
 
@@ -203,27 +206,35 @@ r measurable.2 <- NA
 
 #### Who is the contact?
 
-{{POCStart}}
+`r paste(maintainer("marea"))`
 
-[add contact info for indicator data, or state Unknown. Add 1 if contact info exists or 0 if Unknown to code below]
-
-r measurable.3 <- NA
-
-{{POCEnd}}
-
-
+```{r M3}
+#currently a test for existence
+measurable.3 <- ifelse(is.null(maintainer("marea")), 0, 1)
+```
 
 ### Gather indicator statistics
 
 #### Units
 
-{{UnitsStart}}
+```{r units}
 
-[what are the specific units of each indicator in the dataset, or state Unknown. If all units are clear, score 1 in code below, if no units are listed, score 0 below. If some units are clear and others aren't, score  0.5]
+specific.2 <- ifelse(length(unique(mareaind$Units)) == 0, 0, 1)
+if(length(unique(mareaind$Units)) == 1 & any(is.na(mareaind$Units)|stringr::str_detect(unique(mareaind$Units), "no Units field"))) specific.2 <- 0 #either NA or no units
+if(length(unique(mareaind$Units)) > 1 & any(is.na(mareaind$Units)|stringr::str_detect(unique(mareaind$Units), "no Units field"))) specific.2 <- 0.5 #some NA
 
-r specific.2 <- NA
+# if(length(unique(clean_ecodat$Units)) == 1){
+#   cat(unique(clean_ecodat$Units), "\n")
+# }else{
+  mareaind |>
+    dplyr::select(Indicator, Units) |>
+    dplyr::distinct() |>
+    flextable::flextable()|>
+    flextable::set_table_properties(layout = "autofit")
+#}
 
-{{UnitsEnd}}
+```
+
 
 #### Length of time series, start and end date, periodicity
 
@@ -282,13 +293,24 @@ if(any(mareaind$Varname %in% c("no Time Variables"))){
 
 #### Spatial location, scale and extent
 
-{{SpatialStart}}
+General overview: `r paste(unique(mareaind$Space))`
 
-[What is the spatial scale of the indicator? Add specifics if available (lat/long or state boundaries, etc.), or state Unknown. If scale is clearly specified, score 1 for specific.3 below, if not score 0]
+```{r S3}
+#currently a test for existence
+specific.3 <- ifelse(length(unique(mareaind$Space)) == 0, 0, 1)
+```
 
-r specific.3 <- NA
+Indicator specifics:
 
-{{SpatialEnd}}
+```{r}
+
+  mareaind |>
+    dplyr::select(Indicator, EPU) |>
+    dplyr::distinct() |>
+    flextable::flextable()|>
+    flextable::set_table_properties(layout = "autofit")
+
+```
 
 #### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
 
@@ -300,41 +322,68 @@ r specific.3 <- NA
 
 #### Uncertainty metrics
 
-{{UncertaintyStart}}
+Uncertainty is captured in these variables:  
 
-[Yes or no. Are uncertainty metrics included for the indicator (e.g. SD, SE, CI?), if so which ones? If yes score 1 in the code below, if no score 0]
+```{r uncert, results='asis'}
 
-r specific.4 <- NA
+uncertvars <- "Lower95|SE|se_|SD|Upper95|Standard Error|CV|lower|upper|LCI|UCI"
 
-{{UncertaintyEnd}}
+unique(mareaind$Indicator[stringr::str_detect(mareaind$Indicator, uncertvars)])
+
+
+#currently a test for existence
+specific.4 <- ifelse(length(unique(mareaind$Indicator[stringr::str_detect(mareaind$Indicator, uncertvars)])) == 0, 0, 1)
+
+  
+```
+
 
 ### Are methods clearly documented to obtain source data and calculate indicators?
 
-{{MethodsStart}}
+```{r documented, results='asis'}
 
-[Yes or no. Are instructions or documentation for calculating the indicator included? Add citation or links. If yes score 1 below, if no score 0]
+if(any(stringr::str_detect(names(dat@meta), "method"))){
+  cat("Yes. Methods are included in metadata", "\n")
+  specific.5 <- 1
+}else{
+  cat("No methods documentation is provided", "\n")
+  specific.5 <- 0
+}
 
-r specific.5 <- NA
+```
 
-{{MethodsEnd}}
 
 #### Can the indicator be calculated from current documentation?
 
-{{CanCalcStart}}
+```{r calc, results='asis'}
 
-[Yes or no. Briefly state what is missing if no.]
+if(any(stringr::str_detect(names(dat@meta), "method"))){
+  cat("Yes. Methods are included in metadata", "\n")
+  #specific.5 <- 1
+}else{
+  cat("No. No methods documentation is provided", "\n")
+  #specific.5 <- 0
+}
 
-{{CanCalcEnd}}
+```
+
 
 #### Is code publicly available? up to date?
 
-{{CodeAvailStart}}
+```{r codeS6, results='asis'}
 
-[Yes or no. Score 1 for yes, 0 for no below. If yes, add Link to indicator calculation code here and note most recent update]
+# search for a github link in the metadata
+if(!is.na(any(stringr::str_detect(dat@meta, "https://github.com/")))){
+  cat("Yes. GitHub code repository linked", "\n")
+  specific.6 <- 1
+}else{
+  cat("No. No link to code in metadata", "\n")
+  specific.6 <- 0
+}
 
-r specific.6 <- NA
+# existence of link will be considered available, can't tell up to date
 
-{{CodeAvailEnd}}
+```
 
 #### Have methods changed over time?
 
@@ -346,18 +395,28 @@ r specific.6 <- NA
 
 ### Are indicator underlying source data linked or easy to find?
 
-{{SourceDataAvailStart}}
+```{r M4}
 
-[Yes or no. If Yes, score 1 below and Include link to source data (may be separate from indicator data). If no score 0 below]
+# search for a web link in the Source field
+if(!is.na(any(stringr::str_detect(mareaind$Source, "http")))){
+  cat("Yes. Source data from", unique(mareaind$Source), "\n")
+  measurable.4 <- 1
+}else{
+  cat("No. No link to source data", "\n")
+  measurable.4 <- 0
+}
 
-r measurable.4 <- NA
-
-{{SourceDataAvailEnd}}
-
-`r paste(unique(mareaind$Source))`
+```
 
 
 #### Where are source data stored?
+
+```{r M5}
+#currently a test for existence
+measurable.5 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname%in% c("Data Sources", "Data sources")]) == 0, 0, 1)
+
+```
+
 
 {{SourceDataStoreStart}}
 
@@ -368,6 +427,12 @@ r measurable.5 <- NA
 {{SourceDataStoreEnd}}
 
 #### How/by whom are source data updated? Are future updates likely?
+
+```{r M6}
+#currently a test for existence
+measurable.6 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname=="Data steward"]) == 0, 0, 1)
+
+```
 
 {{SourceDataWhoUpdatesStart}}
 
