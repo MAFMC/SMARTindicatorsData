@@ -397,12 +397,12 @@ if(!is.na(any(stringr::str_detect(dat@meta, "https://github.com/")))){
 
 ```{r M4}
 
-# search for a web link in the Source field
-if(!is.na(any(stringr::str_detect(mareaind$Source, "http")))){
-  cat("Yes. Source data from", unique(mareaind$Source), "\n")
+# search for anything in the Source field
+if(!is.na(unique(mareaind$Source))){
+  cat("Yes. Source information included:", unique(mareaind$Source), "\n")
   measurable.4 <- 1
 }else{
-  cat("No. No link to source data", "\n")
+  cat("No. No Source information", "\n")
   measurable.4 <- 0
 }
 
@@ -412,35 +412,34 @@ if(!is.na(any(stringr::str_detect(mareaind$Source, "http")))){
 #### Where are source data stored?
 
 ```{r M5}
-#currently a test for existence
-measurable.5 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname%in% c("Data Sources", "Data sources")]) == 0, 0, 1)
+
+# search for a web link in the Source field
+if(!is.na(any(stringr::str_detect(mareaind$Source, "http")))){
+  cat("Source data stored at", unique(mareaind$Source), "\n")
+  measurable.5 <- 1
+}else{
+  cat("No. No link to source data", "\n")
+  measurable.5 <- 0
+}
 
 ```
 
-
-{{SourceDataStoreStart}}
-
-[Location of indicator source data (may be separate from indicator data), or state Unknown. If location is know score 1 below, if unknown score 0]
-
-r measurable.5 <- NA
-
-{{SourceDataStoreEnd}}
 
 #### How/by whom are source data updated? Are future updates likely?
 
 ```{r M6}
-#currently a test for existence
-measurable.6 <- ifelse(length(clean_techdoc$Value[clean_techdoc$Varname=="Data steward"]) == 0, 0, 1)
+
+# search for an email in the Source field, otherwise unknown
+if((any(stringr::str_detect(mareaind$Source, "@")))){
+  cat("Source contact information", unique(mareaind$Source), "\n")
+  measurable.6 <- 1
+}else{
+  cat("No. No source data steward information", "\n")
+  measurable.6 <- 0
+}
 
 ```
 
-{{SourceDataWhoUpdatesStart}}
-
-[Agency and individuals responsible for source data (may be separate from indicator data), or state Unknown. Score 1 below if contact exists, score 0 if unknown]
-
-r measurable.6 <- NA
-
-{{SourceDataWhoUpdatesEnd}}
 
 #### How often are they updated?
 
