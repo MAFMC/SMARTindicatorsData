@@ -395,7 +395,7 @@ if(!is.na(any(stringr::str_detect(dat@meta, "https://github.com/")))){
 
 ### Are indicator underlying source data linked or easy to find?
 
-```{r M4}
+```{r M4, results='asis'}
 
 # search for anything in the Source field
 if(!is.na(unique(mareaind$Source))){
@@ -411,7 +411,7 @@ if(!is.na(unique(mareaind$Source))){
 
 #### Where are source data stored?
 
-```{r M5}
+```{r M5, results='asis'}
 
 # search for a web link in the Source field
 if(!is.na(any(stringr::str_detect(mareaind$Source, "http")))){
@@ -427,7 +427,7 @@ if(!is.na(any(stringr::str_detect(mareaind$Source, "http")))){
 
 #### How/by whom are source data updated? Are future updates likely?
 
-```{r M6}
+```{r M6, results='asis'}
 
 # search for an email in the Source field, otherwise unknown
 if((any(stringr::str_detect(mareaind$Source, "@")))){
