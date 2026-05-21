@@ -1,6 +1,6 @@
 #' Create and fill .Rmd templates for multiple indicators
 #'
-#' Apply the `create_template` function to all or a subset of ecosystem indicators
+#' Apply the `create_template_SOE` function to all or a subset of ecosystem indicators
 #'
 #'@param indlist Optional; the names of indicators to create templates for, defaults to all in the catalog dataset created by `collect_ecodata_catalog_data`
 #'@param overwrite Logical. Defaults to FALSE. If TRUE, output will overwrite any existing template or google doc for chosen species.
@@ -43,6 +43,6 @@ fill_indicator_templates <- function(indlist = NULL, overwrite = FALSE){
 
   # create templates and save to outdir with filenames
   if(overwrite) purrr::map(templist, ~create_template_SOE(., overwrite = TRUE))
-  if(!overwrite) purrr::map(templist, create_template)
+  if(!overwrite) purrr::map(templist, create_template_SOE)
 
 }
