@@ -47,7 +47,8 @@ create_template_marea <- function(indicator_name,
   #   dplyr::distinct()
 
   clean_mareadat <- mareadat |>
-    dplyr::filter(Dataset == lookup$Dataset[lookup$Indicator == indicator_name]) |>
+    dplyr::filter(stringr::str_detect(Indicator, esc_indicator_name))|>
+    #dplyr::filter(Dataset == lookup$Dataset[lookup$Indicator == indicator_name]) |>
     dplyr::select(Indicator) |>
     dplyr::distinct()
 

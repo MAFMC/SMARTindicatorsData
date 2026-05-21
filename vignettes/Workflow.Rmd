@@ -123,11 +123,11 @@ This workflow uses some information from the marea indicator stats, but much sti
 ```{r, eval=FALSE}
 
 # these fill one at a time; if replacing use overwrite = TRUE argument
-create_template_marea()
+create_template_marea("Atlantic MultiDecadal Oscillation Index")
 
 # edit the gdoc according to instructions, then:
 # for a single file use gdoc_to_filledrmd() with the indicator name; if replacing use overwrite = TRUE argument
-gdoc_to_filledrmd("Atlantic MultiDecadal Oscillation Index")
+gdoc_to_filledrmd("Atlantic MultiDecadal Oscillation Index", overwrite = TRUE)
 
 # to do all marea indicators from gdocs use this wrapper function
 fill_marea_templates()

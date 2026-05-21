@@ -1,7 +1,7 @@
 ---
 title:
     | 
-    | SMART Indicator Report: {{INDICATOR_NAME}}
+    | SMART Indicator Report: Atlantic MultiDecadal Oscillation Index
     | 
 #date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: ""
@@ -44,8 +44,8 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', 
   
 
 ## Put all mustaches here
-indicator_name <- "{{INDICATOR_NAME}}"
-indicator_varname <- "{{INDICATOR_VAR}}"
+indicator_name <- "Atlantic MultiDecadal Oscillation Index"
+indicator_varname <- "ALL"
 
 # cc_name <- "{{CC_NAME}}"
 # common_name <- "{{COMMON_NAME}}"
@@ -97,7 +97,7 @@ timebound.2 <- NA
 
 {{READMEStart}}
 
-Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. This document requires hand editing to fill some or all sections. This workflow is inspired by the [Ecosystem Context for Stock Advice](https://github.com/NOAA-EDAB/ECSA/tree/master?tab=readme-ov-file#developing-an-ecsa-project) product workflow. You are looking at an intermediate draft that still needs some work.  
+Welcome to this google doc draft SMART indicator report for Atlantic MultiDecadal Oscillation Index. This document requires hand editing to fill some or all sections. This workflow is inspired by the [Ecosystem Context for Stock Advice](https://github.com/NOAA-EDAB/ECSA/tree/master?tab=readme-ov-file#developing-an-ecsa-project) product workflow. You are looking at an intermediate draft that still needs some work.  
 
 Do:
 

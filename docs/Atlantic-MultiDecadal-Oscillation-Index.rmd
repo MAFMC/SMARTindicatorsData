@@ -1,7 +1,7 @@
 ---
 title:
     | 
-    | SMART Indicator Report: {{INDICATOR_NAME}}
+    | SMART Indicator Report: Atlantic MultiDecadal Oscillation Index
     | 
 #date: "`r format(Sys.time(), '%B %d, %Y')`"
 author: ""
@@ -44,8 +44,8 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F, fig.align = 'center', 
   
 
 ## Put all mustaches here
-indicator_name <- "{{INDICATOR_NAME}}"
-indicator_varname <- "{{INDICATOR_VAR}}"
+indicator_name <- "Atlantic MultiDecadal Oscillation Index"
+indicator_varname <- "ALL"
 
 # cc_name <- "{{CC_NAME}}"
 # common_name <- "{{COMMON_NAME}}"
@@ -95,40 +95,14 @@ timebound.2 <- NA
 
 ```
 
-{{READMEStart}}
-
-Welcome to this google doc draft SMART indicator report for {{INDICATOR_NAME}}. This document requires hand editing to fill some or all sections. This workflow is inspired by the [Ecosystem Context for Stock Advice](https://github.com/NOAA-EDAB/ECSA/tree/master?tab=readme-ov-file#developing-an-ecsa-project) product workflow. You are looking at an intermediate draft that still needs some work.  
-
-Do:
-
-* Ensure google docs automated "use smart quotes" and "enable markdown" are *not* checked: change this in the Tools-->Preferences menu
-* Replace the text in [brackets] within sections beginning and ending with section begin and end markers inside double curly-bracket "mustaches". Anything in between the section markers will be harvested for the final report. Replace the text describing content for the section with the indicator specific content.
-* Remove the [brackets], but leave all section markers and mustaches alone
-* Complete the SMART rating for each section as instructed by replacing NA with numbers in r code snippets (e.g. r measurable.1 <- NA)
-* Surround those r code snippets with ``, *leaving no spaces* as in `r measureable.1 <- 0`
-* Include figures and develop brief text on how the patterns in the data might be informative . 
-* Add citations! If you have a citation to add, put it at the end of the section in BibTeX format (.bib; e.g., [here](https://www2.cs.arizona.edu/~collberg/Teaching/07.231/BibTeX/bibtex.html)). 
-* Add scientific names, but instead of italicizing, use asterisks before and after, e.g., (*Stenotomus chrysops*).
-* Before reading back into an rmd, *all suggested changes must be accepted*
-
-Don't:
-
-* Alter the text within the mustaches! These are highly technical bookmarks that allow us to scrape the text from this google doc into a Rmarkdown (.rmd) file that will be rendered into both .pdf and .html reports. 
-* Add new sections. If you want to add a new section, let sgaichas@hydrascientificllc.com know and we can modify the template.rmd at a later date.
-
-{{READMEEnd}}
-
 # Descriptive Section
 
 ## Indicator category
 
-{{CategoryStart}}
 
-[Select from: Habitat-Physical; Habitat-Living; Food-Web-Base; Fish; Protected; Fishery; Economic; Social; or Ocean-Use and add between quotes below, then delete this. If multiple categories, add both without punctuation]
+Habitat-Physical
+`r category <- "Habitat-Physical"`
 
-r category <- ""
-
-{{CategoryEnd}}
 
 `r paste(category)`
 
@@ -140,21 +114,17 @@ Includes variable(s): `r paste(indicator_varname)`
 
 ## Indicator brief description
 
-{{DescriptionStart}}
 
-[2-3 sentences max plain language overview]
+The AMO is an observed pattern of alternating cool and warm periods of North Atlantic sea surface temperature every 40-60 years. 
 
-{{DescriptionEnd}}
 
 `r specific.1 <- 1`
 
 ## Indicator visualization
 
-{{VizDescriptionStart}}
 
-[What are key trends or patterns we see in the indicator visualization?]
+The indicator oscillates from 1850 to 1975 and then shows a generally increasing trend.
 
-{{VizDescriptionEnd}}
 
 ```{r plot}
 
@@ -198,11 +168,9 @@ if(length(dat@data$year) > 1){
 
 #### How often are they updated? Are future updates likely?
 
-{{UpdateFreqStart}}
 
-[Add frequency of updates to date and speculate on continuation of the indicator, or state Unknown.]
+Updates appear to be monthly; the future is unknown
 
-{{UpdateFreqEnd}}
 
 #### Who is the contact?
 
@@ -314,11 +282,9 @@ Indicator specifics:
 
 #### Management scale: all species, FMP level, species level, can it be aggregated or separated to different scales?
 
-{{MgtScaleStart}}
 
-[Classify by hand, note gridded data if available could be applied to different species ranges, or state Unknown.]
+Basinwide scale applying to the entire North Atlantic; cannot be aggregated or separated.
 
-{{MgtScaleEnd}}
 
 #### Uncertainty metrics
 
@@ -387,11 +353,9 @@ if(!is.na(any(stringr::str_detect(dat@meta, "https://github.com/")))){
 
 #### Have methods changed over time?
 
-{{MethodChangeStart}}
 
-[Record any changes in indicator methodology, or state Unknown.]
+Unknown
 
-{{MethodChangeEnd}}
 
 ### Are indicator underlying source data linked or easy to find?
 
@@ -443,74 +407,54 @@ if((any(stringr::str_detect(mareaind$Source, "@")))){
 
 #### How often are they updated?
 
-{{SourceDataUpdateFreqStart}}
 
-[Record frequency of updates, or state Unknown.]
+Unknown
 
-{{SourceDataUpdateFreqEnd}}
 
 
 ## Indicator analysis/testing or history of use
 
 ### What decision or advice processes are the indicators currently used in?
 
-{{DecisionStart}}
 
-[List details of each process and how the indicator is used. If a current Council process, select from the list of management actions/processes if relevant. Score 1 below if presented to or used by the Council or other management agency, score 0 if not]
+None known
+`r relevant.1 <- 0`
 
-r relevant.1 <- NA
-
-{{DecisionEnd}}
 
 ### What implications of the indicators are currently listed?
 
-{{ImplicationsStart}}
 
-[List the implications of the indicator trends/status/pattern in its current use context, score 1 if implications are documented, score 0 if not]
+The AMO was originally described as "an internal oscillation in the climate system resulting from interactions between North Atlantic ocean currents and wind patterns." If it were an internal oscillation, it could theoretically be predicted and therefore potentially useful for forecasting. It is now thought to be "an artifact, during the historical era, of competing anthropogenic (greenhouse warming and sulphate aerosol cooling) drivers and, during the pre-historic era, an artifact of the fact that volcanic forcing happens to have displayed a roughly multidecadal pacing in past centuries." See https://michaelmann.net/the-rise-and-fall-of-the-atlantic-multidecadal-oscillation/ 
+`r relevant.2 <- 0`
 
-r relevant.2 <- NA
-
-{{ImplicationsEnd}}
 
 ### Do target, limit,  or threshold values already exist for the indicator?
 
-{{RefptsStart}}
 
-[Yes or no. If yes, sscore 1 below and list pecifcally what they are here. if none listed, score 0]
+No.
+`r relevant.3 <- 0`
 
-r relevant.3 <- NA
-
-{{RefptsEnd}}
 
 ### Have the indicators been tested to ensure they respond proportionally to a change in the underlying process?
 
-{{TestedStart}}
 
-[Yes or no. If yes, briefly describe and add citations or links to analyses or previous experience using the indicator, and score 1 below, if no score 0]
+Yes, the has been extensively tested using recent climate models to determine whether it is an internal climate system oscillation or not; the current conclusion is that it is not.
+`r attainable.1 <- 1`
 
-r attainable.1 <- NA
-
-{{TestedEnd}}
 
 ### Are the indicators sensitive to a small change in the process, or what is the threshold of change that is detectable?
 
-{{SensitiveStart}}
 
-[Yes or no if the answer was yes to testing above. Otherwise, state Unknown. Score 1 for yes and 0 for no or unknown]
+Unknown
+`r attainable.2 <- 0`
 
-r attainable.2 <- NA
-
-{{SensitiveEnd}}
 
 ### Is there a time lag between the process change and the indicator change? How long?
 
-{{TimeLagStart}}
 
-[Yes or no if the answer was yes to testing above. Otherwise, state Unknown. Score 1 for yes and 0 for no or unknown]
+Unknown
+`r attainable.3 <- 0`
 
-r attainable.3 <- NA
-
-{{TimeLagEnd}}
 
 # SMART rating
 
@@ -562,29 +506,23 @@ flextable::flextable(ratingsumm)
 
 ### Additional potential links to management in addition to uses listed above
 
-{{MgtPotentialStart}}
 
 [Select from list of management processes/actions using exact keywords]
 
-{{MgtPotentialEnd}}
 
 
 ### What additional work would be needed for the Council to use the indicator? 
 
-{{AdditionalWorkStart}}
 
 [List current gaps in the indicator given the current or potentail uses listed above, what resources are needed?]
 
-{{AdditionalWorkEnd}}
 
 
 ### What issues are caused if there is a gap or delay in data underlying the indicator
 
-{{DataDelayStart}}
 
 [Link to management process/actions and their requirements]
 
-{{DataDelayEnd}}
 
 
 
