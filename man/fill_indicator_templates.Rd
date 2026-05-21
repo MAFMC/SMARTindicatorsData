@@ -15,7 +15,7 @@ fill_indicator_templates(indlist = NULL, overwrite = FALSE)
 .Rmd templates for each indicator in the indlist with the naming convention \code{indicator_name.Rmd}.
 }
 \description{
-Apply the \code{create_template} function to all or a subset of ecosystem indicators
+Apply the \code{create_template_SOE} function to all or a subset of ecosystem indicators
 }
 \examples{
  indlist <- c("Transition Dates","Submerged Aquatic Vegetation","Zooplankton Indices")
